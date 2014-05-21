@@ -1,0 +1,7 @@
+parameters:
+#    imie_network_site.example.class: ImieNetwork\SiteBundle\Example
+
+services:
+#    imie_network_site.example:
+#        class: %imie_network_site.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

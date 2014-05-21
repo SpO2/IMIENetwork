@@ -1,0 +1,39 @@
+ImieNetwork\SiteBundle\Entity\Utilisateuractivite:
+    type: entity
+    table: utilisateuractivite
+    indexes:
+        FK_UtAct_Util:
+            columns:
+                - idutilisateur
+        FK_UtAct_Act:
+            columns:
+                - idactivite
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            generator:
+                strategy: IDENTITY
+    manyToOne:
+        idutilisateur:
+            targetEntity: Utilisateur
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                idutilisateur:
+                    referencedColumnName: id
+            orphanRemoval: false
+        idactivite:
+            targetEntity: Secteuractivite
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                idactivite:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

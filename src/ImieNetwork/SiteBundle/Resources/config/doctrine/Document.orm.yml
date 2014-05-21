@@ -1,0 +1,45 @@
+ImieNetwork\SiteBundle\Entity\Document:
+    type: entity
+    table: document
+    indexes:
+        FK_DocUtil_Util:
+            columns:
+                - idutilisateur
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        libelle:
+            type: string
+            nullable: true
+            length: 255
+            fixed: false
+            comment: ''
+        url:
+            type: text
+            nullable: true
+            length: null
+            fixed: false
+            comment: ''
+        statut:
+            type: integer
+            nullable: true
+            unsigned: false
+            comment: ''
+    manyToOne:
+        idutilisateur:
+            targetEntity: Utilisateur
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                idutilisateur:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

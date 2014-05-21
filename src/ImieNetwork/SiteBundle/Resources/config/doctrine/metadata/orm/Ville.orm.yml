@@ -1,0 +1,26 @@
+Ville:
+    type: entity
+    table: ville
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        libelle:
+            type: string
+            nullable: true
+            length: 255
+            fixed: false
+            comment: ''
+        codepostal:
+            type: string
+            nullable: true
+            length: 20
+            fixed: false
+            comment: ''
+    lifecycleCallbacks: {  }

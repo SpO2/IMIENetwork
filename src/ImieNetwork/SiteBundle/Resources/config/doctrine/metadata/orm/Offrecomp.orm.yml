@@ -1,0 +1,39 @@
+Offrecomp:
+    type: entity
+    table: offrecomp
+    indexes:
+        FK_OffCmp_Off:
+            columns:
+                - idoffre
+        FK_OffCmp_Cmp:
+            columns:
+                - idcompetence
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            generator:
+                strategy: IDENTITY
+    manyToOne:
+        idoffre:
+            targetEntity: Offre
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                idoffre:
+                    referencedColumnName: id
+            orphanRemoval: false
+        idcompetence:
+            targetEntity: Competence
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                idcompetence:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

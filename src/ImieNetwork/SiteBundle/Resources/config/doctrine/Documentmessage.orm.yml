@@ -1,0 +1,39 @@
+ImieNetwork\SiteBundle\Entity\Documentmessage:
+    type: entity
+    table: documentmessage
+    indexes:
+        FK_DocMess_Doc:
+            columns:
+                - iddocument
+        FK_DocMess_Mess:
+            columns:
+                - idmessage
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            generator:
+                strategy: IDENTITY
+    manyToOne:
+        iddocument:
+            targetEntity: Document
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                iddocument:
+                    referencedColumnName: id
+            orphanRemoval: false
+        idmessage:
+            targetEntity: Message
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                idmessage:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

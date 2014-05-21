@@ -1,0 +1,46 @@
+Utilisateurpropriete:
+    type: entity
+    table: utilisateurpropriete
+    indexes:
+        FK_UtProp_Ut:
+            columns:
+                - idutilisateur
+        FK_UtProp_Prop:
+            columns:
+                - idpropriete
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        valeur:
+            type: text
+            nullable: true
+            length: null
+            fixed: false
+            comment: ''
+    manyToOne:
+        idutilisateur:
+            targetEntity: Utilisateur
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                idutilisateur:
+                    referencedColumnName: id
+            orphanRemoval: false
+        idpropriete:
+            targetEntity: Proprieteetendue
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                idpropriete:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

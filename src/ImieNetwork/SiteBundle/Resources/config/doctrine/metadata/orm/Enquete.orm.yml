@@ -1,0 +1,22 @@
+Enquete:
+    type: entity
+    table: enquete
+    id: {  }
+    fields:
+        url:
+            type: text
+            nullable: true
+            length: null
+            fixed: false
+            comment: ''
+    oneToOne:
+        id:
+            targetEntity: Message
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

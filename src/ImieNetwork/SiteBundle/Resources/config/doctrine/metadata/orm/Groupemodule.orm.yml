@@ -1,0 +1,39 @@
+Groupemodule:
+    type: entity
+    table: groupemodule
+    indexes:
+        FK_GpModu_Gp:
+            columns:
+                - idgroupe
+        FK_GpModu_Mod:
+            columns:
+                - idmodule
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            generator:
+                strategy: IDENTITY
+    manyToOne:
+        idgroupe:
+            targetEntity: Groupe
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                idgroupe:
+                    referencedColumnName: id
+            orphanRemoval: false
+        idmodule:
+            targetEntity: Module
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                idmodule:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

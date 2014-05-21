@@ -1,0 +1,45 @@
+ImieNetwork\SiteBundle\Entity\Groupepropriete:
+    type: entity
+    table: groupepropriete
+    indexes:
+        FK_GpProp_Gp:
+            columns:
+                - idgroupe
+        FK_GpProp_Prop:
+            columns:
+                - idpropriete
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        valeur:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+    manyToOne:
+        idgroupe:
+            targetEntity: Groupe
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                idgroupe:
+                    referencedColumnName: id
+            orphanRemoval: false
+        idpropriete:
+            targetEntity: Proprieteetendue
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                idpropriete:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

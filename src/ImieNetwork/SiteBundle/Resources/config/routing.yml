@@ -1,0 +1,6 @@
+imie_network_site_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: ImieNetworkSiteBundle:Default:index }
+testPage:
+    pattern:  /test/{name}
+    defaults: { _controller: ImieNetworkSiteBundle:Default:test }

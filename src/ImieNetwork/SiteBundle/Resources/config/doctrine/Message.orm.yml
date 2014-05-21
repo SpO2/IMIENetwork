@@ -1,0 +1,62 @@
+ImieNetwork\SiteBundle\Entity\Message:
+    type: entity
+    table: message
+    indexes:
+        FK_Mess_Util:
+            columns:
+                - idutilisateur
+        FK_Mess_TpMess:
+            columns:
+                - idtypeMessage
+        FK_Mess_Conv:
+            columns:
+                - idconversation
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        contenu:
+            type: text
+            nullable: true
+            length: null
+            fixed: false
+            comment: ''
+        datemessage:
+            type: datetime
+            nullable: true
+            comment: ''
+    manyToOne:
+        idutilisateur:
+            targetEntity: Utilisateur
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                idutilisateur:
+                    referencedColumnName: id
+            orphanRemoval: false
+        idtypemessage:
+            targetEntity: Typemessage
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                idtypeMessage:
+                    referencedColumnName: id
+            orphanRemoval: false
+        idconversation:
+            targetEntity: Conversation
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                idconversation:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }
