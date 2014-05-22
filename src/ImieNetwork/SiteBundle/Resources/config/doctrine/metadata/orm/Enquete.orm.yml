@@ -1,7 +1,19 @@
 Enquete:
     type: entity
     table: enquete
-    id: {  }
+    indexes:
+        FK_Enq_Mess:
+            columns:
+                - idmessage
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            generator:
+                strategy: IDENTITY
     fields:
         url:
             type: text
@@ -9,14 +21,14 @@ Enquete:
             length: null
             fixed: false
             comment: ''
-    oneToOne:
-        id:
+    manyToOne:
+        idmessage:
             targetEntity: Message
             cascade: {  }
             mappedBy: null
             inversedBy: null
             joinColumns:
-                id:
+                idmessage:
                     referencedColumnName: id
             orphanRemoval: false
     lifecycleCallbacks: {  }

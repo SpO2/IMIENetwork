@@ -65,32 +65,4 @@ class Enquete
     {
         return $this->id;
     }
-    /**
-     * @var \ImieNetwork\SiteBundle\Entity\Message
-     */
-    private $idmessage;
-
-
-    /**
-     * Set idmessage
-     *
-     * @param \ImieNetwork\SiteBundle\Entity\Message $idmessage
-     * @return Enquete
-     */
-    public function setIdmessage(\ImieNetwork\SiteBundle\Entity\Message $idmessage = null)
-    {
-        $this->idmessage = $idmessage;
-
-        return $this;
-    }
-
-    /**
-     * Get idmessage
-     *
-     * @return \ImieNetwork\SiteBundle\Entity\Message 
-     */
-    public function getIdmessage()
-    {
-        return $this->idmessage;
-    }
 }

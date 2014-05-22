@@ -1,21 +1,33 @@
 ImieNetwork\SiteBundle\Entity\Invitation:
     type: entity
     table: invitation
-    id: {  }
+    indexes:
+        FK_Invit_Mess:
+            columns:
+                - idmessage
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            generator:
+                strategy: IDENTITY
     fields:
         idevenement:
             type: integer
             nullable: false
             unsigned: false
             comment: ''
-    oneToOne:
-        id:
+    manyToOne:
+        idmessage:
             targetEntity: Message
             cascade: {  }
             mappedBy: null
             inversedBy: null
             joinColumns:
-                id:
+                idmessage:
                     referencedColumnName: id
             orphanRemoval: false
     lifecycleCallbacks: {  }
