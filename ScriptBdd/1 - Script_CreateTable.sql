@@ -219,6 +219,7 @@ PRIMARY KEY(id)
 /*--------------------------------------------------------------------------*/
 CREATE TABLE enquete (
   id   INTEGER  NOT NULL  AUTO_INCREMENT,
+  idmessage    INTEGER  NOT NULL,
   url  TEXT,
 PRIMARY KEY(id)
 );
@@ -230,6 +231,7 @@ PRIMARY KEY(id)
 /*--------------------------------------------------------------------------*/
 CREATE TABLE invitation (
   id           INTEGER  NOT NULL,
+  idmessage    INTEGER  NOT NULL,
   idevenement  INTEGER  NOT NULL,
 PRIMARY KEY(id)
 );

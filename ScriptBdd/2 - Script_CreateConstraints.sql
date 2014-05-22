@@ -82,14 +82,14 @@ ADD CONSTRAINT FK_OffCmp_Cmp  FOREIGN KEY (idcompetence)  REFERENCES competence(
 /* Clé Primaire = id                                                        */
 /*--------------------------------------------------------------------------*/
 ALTER TABLE invitation
-ADD CONSTRAINT FK_Invit_Mess   FOREIGN KEY (id)  REFERENCES message(id)  ON UPDATE CASCADE  ON DELETE CASCADE;
+ADD CONSTRAINT FK_Invit_Mess   FOREIGN KEY (idmessage)  REFERENCES message(id)  ON UPDATE CASCADE  ON DELETE CASCADE;
 
 /*--------------------------------------------------------------------------*/
 /* TABLE : 'enquete'                                                        */
 /* Clé Primaire = id                                                        */
 /*--------------------------------------------------------------------------*/
 ALTER TABLE enquete
-ADD CONSTRAINT FK_Enq_Mess   FOREIGN KEY (id)  REFERENCES message(id)  ON UPDATE CASCADE  ON DELETE CASCADE;
+ADD CONSTRAINT FK_Enq_Mess   FOREIGN KEY (idmessage)  REFERENCES message(id)  ON UPDATE CASCADE  ON DELETE CASCADE;
 
 /*--------------------------------------------------------------------------*/
 /* TABLE : 'conversation'                                                   */
