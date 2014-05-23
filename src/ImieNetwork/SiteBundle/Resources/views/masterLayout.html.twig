@@ -14,22 +14,16 @@
         {% block HeaderJavascripts %}{% endblock %}
 
     </head>
-    <body>
-        {{ include('ImieNetworkSiteBundle:Default:header.html.twig') }}
-        {{ include('ImieNetworkSiteBundle:Default:navigation.html.twig') }}            
-{% block body %}
-            <header class="contentHeader">
+    <body>           
         {% block ContentHeader %}{% endblock %}
-            </header>
+        {% block ContentNav %}{% endblock %}
+        
             <main class="contentMain">
                 <div class="col-md-10">
             {% block content %}{% endblock %}
                 </div>
             </main>
-            <footer class="contentFooter">
-            {%block contentFooter %}{% endblock %}
-            </footer>
-{% endblock %}
+
         {% block javascripts %}{% endblock %}
     </body>
 </html>
