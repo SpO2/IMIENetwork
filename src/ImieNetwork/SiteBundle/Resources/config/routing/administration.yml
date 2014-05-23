@@ -1,0 +1,11 @@
+administrationutilisateurIndex:
+    pattern:  /utilisateur/
+    defaults: { _controller: ImieNetworkSiteBundle:Administration:indexUtilisateur }
+
+admnistrationutilisateurnew:
+    pattern: /utilisateur/new
+    defaults: { _controller: ImieNetworkSiteBundle:Administration:newUtilisateur }
+
+administrationutilisateuredit:
+    pattern: /utilisateur/edit/{id}
+    defaults: { _controller: ImieNetworkSiteBundle:Administration:editUtilisateur }

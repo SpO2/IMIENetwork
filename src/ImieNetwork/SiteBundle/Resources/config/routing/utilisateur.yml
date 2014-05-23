@@ -1,0 +1,30 @@
+utilisateur:
+    pattern:  /
+    defaults: { _controller: "ImieNetworkSiteBundle:Utilisateur:index" }
+
+utilisateur_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "ImieNetworkSiteBundle:Utilisateur:show" }
+
+utilisateur_new:
+    pattern:  /new
+    defaults: { _controller: "ImieNetworkSiteBundle:Utilisateur:new" }
+
+utilisateur_create:
+    pattern:  /create
+    defaults: { _controller: "ImieNetworkSiteBundle:Utilisateur:create" }
+    requirements: { _method: post }
+
+utilisateur_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "ImieNetworkSiteBundle:Utilisateur:edit" }
+
+utilisateur_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "ImieNetworkSiteBundle:Utilisateur:update" }
+    requirements: { _method: post|put }
+
+utilisateur_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "ImieNetworkSiteBundle:Utilisateur:delete" }
+    requirements: { _method: post|delete }
