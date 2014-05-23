@@ -1,0 +1,60 @@
+ {% extends "ImieNetworkSiteBundle:Administration:layout.html.twig" %} 
+{% block content -%}
+    <h1>Utilisateur list</h1>
+    <div>toto</div>
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Adresse</th>
+                <th>Telephone</th>
+                <th>Statut</th>
+                <th>Login</th>
+                <th>Pass</th>
+                <th>Email</th>
+                <th>Datecreation</th>
+                <th>Datemodification</th>
+                <th>Langue</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('utilisateur_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.nom }}</td>
+                <td>{{ entity.prenom }}</td>
+                <td>{{ entity.adresse }}</td>
+                <td>{{ entity.telephone }}</td>
+                <td>{{ entity.statut }}</td>
+                <td>{{ entity.login }}</td>
+                <td>{{ entity.pass }}</td>
+                <td>{{ entity.email }}</td>
+                <td>{% if entity.datecreation %}{{ entity.datecreation|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if entity.datemodification %}{{ entity.datemodification|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ entity.langue }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('utilisateur_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('utilisateur_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('admnistrationutilisateurnew') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}
