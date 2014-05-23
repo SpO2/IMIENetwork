@@ -8,7 +8,7 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class UtilisateurType extends AbstractType
 {
-        /**
+    /**
      * @param FormBuilderInterface $builder
      * @param array $options
      */
@@ -36,7 +36,8 @@ class UtilisateurType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'ImieNetwork\SiteBundle\Entity\Utilisateur'
+            'data_class' => 'ImieNetwork\SiteBundle\Entity\Utilisateur',
+            'class' => 'form-control'
         ));
     }
 
