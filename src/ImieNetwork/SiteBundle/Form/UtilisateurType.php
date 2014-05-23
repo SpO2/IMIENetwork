@@ -36,8 +36,7 @@ class UtilisateurType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'ImieNetwork\SiteBundle\Entity\Utilisateur',
-            'class' => 'form-control'
+            'data_class' => 'ImieNetwork\SiteBundle\Entity\Utilisateur'
         ));
     }
 
