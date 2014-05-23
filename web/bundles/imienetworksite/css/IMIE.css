@@ -1,0 +1,62 @@
+.navl{
+	font-size: 1.1em;
+	color: white;
+	margin-top: 25px;
+	float:left;
+	width: 100%;
+}
+
+nav  a:hover {
+	background-color: #1BAFCD;
+}
+
+nav a{
+	color: white;
+}
+
+#navtop{
+	margin-top: 10px;
+}
+
+body{
+	background-color: #F3F2F0;
+	margin: auto;
+	padding-bottom: 20px;
+	color: grey;
+}
+
+
+#imieContact{
+	margin-top: 10px;
+}
+
+a:hover{
+	text-decoration: none;
+	color: blue;
+}
+
+section{
+	background-color: rgb(226,226,226);
+}
+
+
+#menu a:hover {
+background-color: #1BAFCD;
+color: white;
+}
+
+#menu a{
+	color: grey;
+	font-weight:bold
+}
+
+#evenements a:hover {
+	background-color: #E60A0A;
+	color: white;
+}
+
+#evenements a{
+color: grey;
+font-weight:bold
+}
+
