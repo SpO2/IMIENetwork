@@ -11,10 +11,8 @@ ImieNetworkSiteBundle_utilisateur:
     resource: "@ImieNetworkSiteBundle/Resources/config/routing/utilisateur.yml"
     prefix:   /utilisateur
 ImieNetworkSiteBundle_evenement:
-        resource: "@ImieNetworkSiteBundle/Resources/config/routing/evenement.yml"
-        prefix:   /evenement
-        
+    resource: "@ImieNetworkSiteBundle/Resources/config/routing/evenement.yml"
+    prefix:   /evenement  
 ImieNetworkSiteBundle_administration:
-        resource: "@ImieNetworkSiteBundle/Resources/config/routing/administration.yml"
-        prefix:   /administration
-
+    resource: "@ImieNetworkSiteBundle/Resources/config/routing/administration.yml"
+    prefix:   /administration
