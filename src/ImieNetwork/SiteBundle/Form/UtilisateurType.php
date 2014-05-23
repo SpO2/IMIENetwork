@@ -15,18 +15,18 @@ class UtilisateurType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nom')
-            ->add('prenom')
-            ->add('adresse')
-            ->add('telephone')
-            ->add('statut')
-            ->add('login')
-            ->add('pass')
-            ->add('email')
-            ->add('datecreation')
-            ->add('datemodification')
-            ->add('langue')
-            ->add('idville')
+            ->add('nom', null, array('attr' => array('class'=>'form-control')))
+            ->add('prenom', null, array('attr' => array('class'=>'form-control')))
+            ->add('adresse', null, array('attr' => array('class'=>'form-control')))
+            ->add('telephone', null, array('attr' => array('class'=>'form-control')))
+            ->add('statut', null, array('attr' => array('class'=>'form-control')))
+            ->add('login', null, array('attr' => array('class'=>'form-control')))
+            ->add('pass', null, array('attr' => array('class'=>'form-control')))
+            ->add('email', null, array('attr' => array('class'=>'form-control')))
+            ->add('datecreation', 'date')
+            ->add('datemodification', 'date')
+            ->add('langue', null, array('attr' => array('class'=>'form-control')))
+            ->add('idville', null, array('attr' => array('class'=>'form-control')))
         ;
     }
     
