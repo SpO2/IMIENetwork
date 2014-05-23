@@ -42,11 +42,31 @@ class AdministrationController extends Controller
         $editForm = $this->createEditFormUtilisateur($entity);
         $deleteForm = $this->createDeleteFormUtilisateur($id);
 
-        return $this->render("@Administration\Utilisateur\edit.html.twig", array(
+        return $this->render("@Administration\Utilisateur/edit.html.twig", array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
+            'delete_form' => $deleteForm->createView()
         ));
+    }
+    
+    public function deleteUtilisateurAction(Request $request, $id)
+    {
+        $form = $this->createDeleteForm($id);
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $entity = $em->getRepository('ImieNetworkSiteBundle:Utilisateur')->find($id);
+
+            if (!$entity) {
+                throw $this->createNotFoundException('Unable to find Utilisateur entity.');
+            }
+
+            $em->remove($entity);
+            $em->flush();
+        }
+
+        return $this->redirect($this->generateUrl('administrationutilisateurIndex'));
     }
     
     private function createCreateFormUtilisateur(Utilisateur $entity)
@@ -76,10 +96,9 @@ class AdministrationController extends Controller
     private function createDeleteFormUtilisateur($id)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('utilisateur_delete', array('id' => $id)))
+            ->setAction($this->generateUrl('administrationutilisateurdelete', array('id' => $id)))
             ->setMethod('DELETE')
             ->add('submit', 'submit', array('label' => 'Delete'))
-            ->getForm()
-        ;
+            ->getForm();
     }
 }

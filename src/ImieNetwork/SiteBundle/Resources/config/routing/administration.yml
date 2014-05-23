@@ -7,5 +7,9 @@ admnistrationutilisateurnew:
     defaults: { _controller: ImieNetworkSiteBundle:Administration:newUtilisateur }
 
 administrationutilisateuredit:
-    pattern: /utilisateur/edit/{id}
+    pattern: /utilisateur/{id}/edit
     defaults: { _controller: ImieNetworkSiteBundle:Administration:editUtilisateur }
+
+administrationutilisateurdelete:
+    pattern: /utilisateur/{id}/delete
+    defaults: { _controller: ImieNetworkSiteBundle:Administration:deleteUtilisateur }
