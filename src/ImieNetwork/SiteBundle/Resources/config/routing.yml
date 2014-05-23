@@ -4,12 +4,12 @@ imie_network_site_homepage:
 testPage:
     pattern:  /test/{name}
     defaults: { _controller: ImieNetworkSiteBundle:Default:test }
-entrepriseIndex:
-    pattern:  /entreprise/{name}
-    defaults: { _controller: ImieNetworkSiteBundle:Entreprise:index }
 eleveIndex:
-    pattern:  /eleve/{name}
+    pattern:  /eleve
     defaults: { _controller: ImieNetworkSiteBundle:Eleve:index }
 administrationIndex:
-    pattern:  /administration/{name}
+    pattern:  /administration
     defaults: { _controller: ImieNetworkSiteBundle:Administration:index }
+entrepriseIndex:
+    pattern:  /entreprise
+    defaults: { _controller: ImieNetworkSiteBundle:Entreprise:index }

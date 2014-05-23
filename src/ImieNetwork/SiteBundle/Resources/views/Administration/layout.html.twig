@@ -1,6 +1,6 @@
 {% extends "ImieNetworkSiteBundle::masterLayout.html.twig" %}
 
-{% block title %}Accueil Eleve{% endblock %}
+{% block title %}Accueil Administration{% endblock %}
 
 {% block stylesheets %}    
     
@@ -10,11 +10,9 @@
     
 {% endblock %}
 
-   
 {% block ContentHeader %}{{ include('ImieNetworkSiteBundle:Default:header.html.twig') }}{% endblock %}
 
-{% block ContentNav %}{{ include('ImieNetworkSiteBundle:Eleve:navigationEleve.html.twig') }}{% endblock %} 
-
+{% block ContentNav %}{{ include('ImieNetworkSiteBundle:Administration:navigation.html.twig') }}{% endblock %} 
 
 {% block javascripts %}    
 

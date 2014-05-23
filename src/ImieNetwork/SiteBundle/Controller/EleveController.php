@@ -7,9 +7,9 @@ use ImieNetwork\SiteBundle\Entity\Utilisateur;
 
 class EleveController extends Controller
 {
-    public function indexAction($name)
+    public function indexAction()
     {
-        return $this->render('ImieNetworkSiteBundle:Eleve:index.html.twig', array('name' => $name));
+        return $this->render('ImieNetworkSiteBundle:Eleve:index.html.twig');
     }
-   
+    
 }
