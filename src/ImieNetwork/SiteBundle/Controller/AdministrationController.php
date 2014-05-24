@@ -31,18 +31,6 @@ class AdministrationController extends Controller
         ));
     }
     
-    //Page renvoyée pour l'ajout d'un utilisateur
-    public function newUtilisateurAction()
-    {
-        $entity = new Utilisateur();
-        $form   = $this->createCreateFormUtilisateur($entity);
-
-        return $this->render('@Administration\Utilisateur\new.html.twig', array(
-            'entity' => $entity,
-            'form'   => $form->createView(),
-        ));
-    }
-    
     //Page permettant d'accéder aux détails d'un utilisateur
     public function showUtilisateurAction($id)
     {
@@ -59,6 +47,52 @@ class AdministrationController extends Controller
         return $this->render('@Administration\Utilisateur\show.html.twig', array(
             'entity'      => $entity,
             'delete_form' => $deleteForm->createView(),));
+    }
+    
+    //Page renvoyée pour l'ajout d'un utilisateur
+    public function newUtilisateurAction()
+    {
+        $entity = new Utilisateur();
+        $form   = $this->createCreateFormUtilisateur($entity);
+
+        return $this->render('@Administration\Utilisateur\new.html.twig', array(
+            'entity' => $entity,
+            'form'   => $form->createView(),
+        ));
+    }
+    
+    //Permet de créer un utilisateur
+    public function createUtilisateurAction(Request $request)
+    {
+        $entity = new Utilisateur();
+        $form = $this->createCreateFormUtilisateur($entity);
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($entity);
+            $em->flush();
+
+            return $this->redirect($this->generateUrl('administrationutilisateurshow', array('id' => $entity->getId())));
+        }
+
+        return $this->render("@Administration\Utilisateur/new.html.twig", array(
+            'entity' => $entity,
+            'form'   => $form->createView(),
+        ));
+    }
+    
+    //Crée le formulaire de création d'un utilisateur
+    private function createCreateFormUtilisateur(Utilisateur $entity)
+    {
+        $form = $this->createForm(new UtilisateurType(), $entity, array(
+            'action' => $this->generateUrl('administrationutilisateurcreate'),
+            'method' => 'POST',
+        ));
+
+        $form->add('submit', 'submit', array('label' => 'Create'));
+
+        return $form;
     }
     
     //Page permettant d'éditer les informations d'un utilisateur
@@ -111,6 +145,19 @@ class AdministrationController extends Controller
         ));
     }
     
+        //Crée le formulaire d'édition d'un utilisateur
+    private function createEditFormUtilisateur(Utilisateur $entity)
+    {
+        $form = $this->createForm(new UtilisateurType(), $entity, array(
+            'action' => $this->generateUrl('administrationutilisateurupdate', array('id' => $entity->getId())),
+            'method' => 'PUT',
+        )); 
+
+        $form->add('submit', 'submit', array('label' => 'Update'));
+
+        return $form;
+    }
+    
     //Permet de supprimer un utilisateur en base
     public function deleteUtilisateurAction(Request $request, $id)
     {
@@ -130,32 +177,6 @@ class AdministrationController extends Controller
         }
 
         return $this->redirect($this->generateUrl('administrationutilisateurIndex'));
-    }
-    
-    //Crée le formulaire de création d'un utilisateur
-    private function createCreateFormUtilisateur(Utilisateur $entity)
-    {
-        $form = $this->createForm(new UtilisateurType(), $entity, array(
-            'action' => $this->generateUrl('admnistrationutilisateurnew'),
-            'method' => 'POST',
-        ));
-
-        $form->add('submit', 'submit', array('label' => 'Create'));
-
-        return $form;
-    }
-    
-    //Crée le formulaire d'édition d'un utilisateur
-    private function createEditFormUtilisateur(Utilisateur $entity)
-    {
-        $form = $this->createForm(new UtilisateurType(), $entity, array(
-            'action' => $this->generateUrl('administrationutilisateurupdate', array('id' => $entity->getId())),
-            'method' => 'PUT',
-        )); 
-
-        $form->add('submit', 'submit', array('label' => 'Update'));
-
-        return $form;
     }
     
     //Crée le formulaire de suppression d'un utilisateur

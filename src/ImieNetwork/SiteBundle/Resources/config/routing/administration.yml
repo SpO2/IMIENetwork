@@ -13,15 +13,22 @@ admnistrationutilisateurnew:
 administrationutilisateuredit:
     pattern: /utilisateur/{id}/edit
     defaults: { _controller: ImieNetworkSiteBundle:Administration:editUtilisateur }
-
-administrationutilisateurdelete:
-    pattern: /utilisateur/{id}/delete
-    defaults: { _controller: ImieNetworkSiteBundle:Administration:deleteUtilisateur }
     
 administrationutilisateurshow:
     pattern: /utilisateur/{id}/show
     defaults: { _controller: ImieNetworkSiteBundle:Administration:showUtilisateur }
+
+administrationutilisateurdelete:
+    pattern: /utilisateur/{id}/delete
+    defaults: { _controller: ImieNetworkSiteBundle:Administration:deleteUtilisateur }
+    requirements: { _method: post|delete }
     
 administrationutilisateurupdate:
     pattern: /utilisateur/{id}/update
     defaults: { _controller: ImieNetworkSiteBundle:Administration:updateUtilisateur }
+    requirements: { _method: post|put }
+    
+administrationutilisateurcreate:
+    pattern: /utilisateur/create
+    defaults: { _controller: ImieNetworkSiteBundle:Administration:createUtilisateur }
+    requirements: { _method: post }
