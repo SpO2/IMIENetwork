@@ -1,3 +1,7 @@
+administrationIndex:
+    pattern:  /
+    defaults: { _controller: ImieNetworkSiteBundle:Administration:index }
+
 administrationutilisateurIndex:
     pattern:  /utilisateur/
     defaults: { _controller: ImieNetworkSiteBundle:Administration:indexUtilisateur }
@@ -13,3 +17,11 @@ administrationutilisateuredit:
 administrationutilisateurdelete:
     pattern: /utilisateur/{id}/delete
     defaults: { _controller: ImieNetworkSiteBundle:Administration:deleteUtilisateur }
+    
+administrationutilisateurshow:
+    pattern: /utilisateur/{id}/show
+    defaults: { _controller: ImieNetworkSiteBundle:Administration:showUtilisateur }
+    
+administrationutilisateurupdate:
+    pattern: /utilisateur/{id}/update
+    defaults: { _controller: ImieNetworkSiteBundle:Administration:updateUtilisateur }
