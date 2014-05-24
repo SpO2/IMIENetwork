@@ -1,6 +1,7 @@
 <?php
 
 namespace ImieNetwork\SiteBundle\Controller;
+use Symfony\Component\HttpFoundation\Request;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use ImieNetwork\SiteBundle\Entity\Utilisateur;
@@ -97,9 +98,10 @@ class AdministrationController extends Controller
         $editForm->handleRequest($request);
 
         if ($editForm->isValid()) {
+            $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('utilisateur_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('administrationutilisateuredit', array('id' => $id)));
         }
 
             return $this->render("@Administration\Utilisateur/edit.html.twig", array(
@@ -147,9 +149,9 @@ class AdministrationController extends Controller
     private function createEditFormUtilisateur(Utilisateur $entity)
     {
         $form = $this->createForm(new UtilisateurType(), $entity, array(
-            'action' => $this->generateUrl('administrationutilisateuredit', array('id' => $entity->getId())),
+            'action' => $this->generateUrl('administrationutilisateurupdate', array('id' => $entity->getId())),
             'method' => 'PUT',
-        ));
+        )); 
 
         $form->add('submit', 'submit', array('label' => 'Update'));
 
