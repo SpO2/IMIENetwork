@@ -7,6 +7,9 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Utilisateur
  */
+/**
+ * @ORM\Entity(repositoryClass="ImieNetwork\SiteBundle\Entity\UtilisateurRepository")
+ */
 class Utilisateur
 {
     /**

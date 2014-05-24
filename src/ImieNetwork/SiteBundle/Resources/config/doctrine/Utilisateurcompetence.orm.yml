@@ -1,5 +1,6 @@
 ImieNetwork\SiteBundle\Entity\Utilisateurcompetence:
     type: entity
+    repositoryClass: ImieNetwork\SiteBundle\Entity\UtilisateurcompetenceRepository
     table: utilisateurcompetence
     indexes:
         FK_UtCp_Gp:

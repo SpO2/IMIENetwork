@@ -7,6 +7,10 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Invitation
  */
+/**
+ * @ORM\Entity(repositoryClass="ImieNetwork\SiteBundle\Entity\InvitationRepository")
+ */
+
 class Invitation
 {
     /**
@@ -64,5 +68,33 @@ class Invitation
     public function getId()
     {
         return $this->id;
+    }
+    /**
+     * @var \ImieNetwork\SiteBundle\Entity\Message
+     */
+    private $idmessage;
+
+
+    /**
+     * Set idmessage
+     *
+     * @param \ImieNetwork\SiteBundle\Entity\Message $idmessage
+     * @return Invitation
+     */
+    public function setIdmessage(\ImieNetwork\SiteBundle\Entity\Message $idmessage = null)
+    {
+        $this->idmessage = $idmessage;
+
+        return $this;
+    }
+
+    /**
+     * Get idmessage
+     *
+     * @return \ImieNetwork\SiteBundle\Entity\Message 
+     */
+    public function getIdmessage()
+    {
+        return $this->idmessage;
     }
 }

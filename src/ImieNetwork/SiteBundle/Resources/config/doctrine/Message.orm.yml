@@ -1,5 +1,6 @@
 ImieNetwork\SiteBundle\Entity\Message:
     type: entity
+    repositoryClass: ImieNetwork\SiteBundle\Entity\MessageRepository
     table: message
     indexes:
         FK_Mess_Util:

@@ -1,5 +1,6 @@
 ImieNetwork\SiteBundle\Entity\Groupepropriete:
     type: entity
+    repositoryClass: ImieNetwork\SiteBundle\Entity\GroupeproprieteRepository
     table: groupepropriete
     indexes:
         FK_GpProp_Gp:

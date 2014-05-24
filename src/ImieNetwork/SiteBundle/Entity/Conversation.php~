@@ -7,6 +7,10 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Conversation
  */
+/**
+ * @ORM\Entity(repositoryClass="ImieNetwork\SiteBundle\Entity\ConversationRepository")
+ */
+
 class Conversation
 {
     /**

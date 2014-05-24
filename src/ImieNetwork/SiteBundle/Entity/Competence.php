@@ -7,6 +7,9 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Competence
  */
+/**
+ * @ORM\Entity(repositoryClass="ImieNetwork\SiteBundle\Entity\CompetenceRepository")
+ */
 class Competence
 {
     /**

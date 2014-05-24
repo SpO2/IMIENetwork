@@ -1,5 +1,6 @@
 ImieNetwork\SiteBundle\Entity\Typecontrat:
     type: entity
+    repositoryClass: ImieNetwork\SiteBundle\Entity\TypecontratRepository
     table: typecontrat
     id:
         id:

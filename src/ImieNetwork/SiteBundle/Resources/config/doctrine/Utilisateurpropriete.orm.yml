@@ -1,5 +1,6 @@
 ImieNetwork\SiteBundle\Entity\Utilisateurpropriete:
     type: entity
+    repositoryClass: ImieNetwork\SiteBundle\Entity\UtilisateurproprieteRepository
     table: utilisateurpropriete
     indexes:
         FK_UtProp_Ut:

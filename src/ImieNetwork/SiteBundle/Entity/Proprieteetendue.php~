@@ -7,6 +7,10 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Proprieteetendue
  */
+/**
+ * @ORM\Entity(repositoryClass="ImieNetwork\SiteBundle\Entity\ProprieteetendueRepository")
+ */
+
 class Proprieteetendue
 {
     /**

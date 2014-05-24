@@ -7,6 +7,10 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Groupemodule
  */
+/**
+ * @ORM\Entity(repositoryClass="ImieNetwork\SiteBundle\Entity\GroupeModuleRepository")
+ */
+
 class Groupemodule
 {
     /**

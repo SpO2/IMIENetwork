@@ -1,5 +1,6 @@
 ImieNetwork\SiteBundle\Entity\Module:
     type: entity
+    repositoryClass: ImieNetwork\SiteBundle\Entity\ModuleRepository
     table: module
     id:
         id:

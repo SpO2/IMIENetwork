@@ -3,7 +3,9 @@
 namespace ImieNetwork\SiteBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+/**
+ * @ORM\Entity(repositoryClass="ImieNetwork\SiteBundle\Entity\VilleRepository")
+ */
 /**
  * Ville
  */

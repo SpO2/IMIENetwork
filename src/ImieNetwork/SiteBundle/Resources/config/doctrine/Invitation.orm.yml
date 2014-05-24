@@ -1,5 +1,6 @@
 ImieNetwork\SiteBundle\Entity\Invitation:
     type: entity
+    repositoryClass: ImieNetwork\SiteBundle\Entity\InvitationRepository
     table: invitation
     indexes:
         FK_Invit_Mess:

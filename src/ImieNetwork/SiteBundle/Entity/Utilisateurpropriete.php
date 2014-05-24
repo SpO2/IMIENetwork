@@ -7,6 +7,10 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Utilisateurpropriete
  */
+/**
+ * @ORM\Entity(repositoryClass="ImieNetwork\SiteBundle\Entity\UtilisateurproprieteRepository")
+ */
+
 class Utilisateurpropriete
 {
     /**

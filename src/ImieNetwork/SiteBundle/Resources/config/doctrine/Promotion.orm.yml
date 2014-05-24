@@ -1,5 +1,6 @@
 ImieNetwork\SiteBundle\Entity\Promotion:
     type: entity
+    repositoryClass: ImieNetwork\SiteBundle\Entity\PromotionRepository
     table: promotion
     id:
         id:
