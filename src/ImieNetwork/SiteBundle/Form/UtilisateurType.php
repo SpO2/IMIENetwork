@@ -21,12 +21,20 @@ class UtilisateurType extends AbstractType
             ->add('telephone', null, array('attr' => array('class'=>'form-control')))
             ->add('statut', null, array('attr' => array('class'=>'form-control')))
             ->add('login', null, array('attr' => array('class'=>'form-control')))
-            ->add('pass', null, array('attr' => array('class'=>'form-control')))
+            ->add('pass', 'repeated', array('attr' => array('class'=>'form-control'),
+                                                                                        'type' => 'password',
+                                                                                        'options' => array('required' => true),
+                                                                                        'first_options'  => array('label' => 'Mot de passe'),
+                                                                                        'second_options' => array('label'=>'Confirmation')))
             ->add('email', null, array('attr' => array('class'=>'form-control')))
-            ->add('datecreation', 'date')
-            ->add('datemodification', 'date')
-            ->add('langue', null, array('attr' => array('class'=>'form-control')))
-            ->add('idville', null, array('attr' => array('class'=>'form-control')))
+            //->add('datecreation', 'date')
+            //->add('datemodification', 'date')
+            //->add('langue', null, array('attr' => array('class'=>'form-control')))
+           ->add('idville', 'entity', array('class' => 'ImieNetworkSiteBundle:Ville',
+                                                           'property' => 'libelle',
+                                                           'mapped' => true,
+                                                           'label' => 'Ville'))
+           // ->add('idville', null, array('attr' => array('class'=>'form-control')))
         ;
     }
     

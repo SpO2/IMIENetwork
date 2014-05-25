@@ -6,8 +6,10 @@
             <file>file:/var/www/html/IMIENetwork/src/ImieNetwork/SiteBundle/Controller/AdministrationController.php</file>
             <file>file:/var/www/html/IMIENetwork/src/ImieNetwork/SiteBundle/Controller/UtilisateurController.php</file>
             <file>file:/var/www/html/IMIENetwork/src/ImieNetwork/SiteBundle/Resources/config/routing.yml</file>
+            <file>file:/var/www/html/IMIENetwork/src/ImieNetwork/SiteBundle/Resources/views/Administration/Utilisateur/show.html.twig</file>
             <file>file:/var/www/html/IMIENetwork/src/ImieNetwork/SiteBundle/Resources/config/routing/administration.yml</file>
             <file>file:/var/www/html/IMIENetwork/src/ImieNetwork/SiteBundle/Form/UtilisateurType.php</file>
+            <file>file:/var/www/html/IMIENetwork/src/ImieNetwork/SiteBundle/Resources/config/routing/utilisateur.yml</file>
         </group>
     </open-files>
 </project-private>
