@@ -1,7 +1,7 @@
- {% extends "ImieNetworkSiteBundle:Administration:layout.html.twig" %} 
+{% extends '::base.html.twig' %}
 
-{% block content -%}
-    <h1>Promotion</h1>
+{% block body -%}
+    <h1>Typecontrat</h1>
 
     <table class="record_properties">
         <tbody>
@@ -13,25 +13,17 @@
                 <th>Libelle</th>
                 <td>{{ entity.libelle }}</td>
             </tr>
-            <tr>
-                <th>Annee</th>
-                <td>{{ entity.annee }}</td>
-            </tr>
-            <tr>
-                <th>Email</th>
-                <td>{{ entity.email }}</td>
-            </tr>
         </tbody>
     </table>
 
         <ul class="record_actions">
     <li>
-        <a href="{{ path('promotion') }}">
+        <a href="{{ path('typecontrat') }}">
             Back to the list
         </a>
     </li>
     <li>
-        <a href="{{ path('promotion_delete', { 'id': entity.id }) }}">
+        <a href="{{ path('typecontrat_edit', { 'id': entity.id }) }}">
             Edit
         </a>
     </li>

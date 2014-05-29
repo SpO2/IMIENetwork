@@ -13,3 +13,5 @@ ImieNetworkSiteBundle_evenement:
 ImieNetworkSiteBundle_administration:
     resource: "@ImieNetworkSiteBundle/Resources/config/routing/administration.yml"
     prefix:   /administration
+    
+

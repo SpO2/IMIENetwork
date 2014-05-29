@@ -1,0 +1,34 @@
+#---------------------------------------------------------------------------------------------------
+#           Routing pour l'administration des promotions
+#---------------------------------------------------------------------------------------------------
+
+promotion:
+    pattern:  /
+    defaults: { _controller: "ImieNetworkSiteBundle:Administration/Promotion:index" }
+
+promotion_show:
+    pattern:  /show/{id}
+    defaults: { _controller: "ImieNetworkSiteBundle:Administration/Promotion:show" }
+
+promotion_new:
+    pattern:  /new
+    defaults: { _controller: "ImieNetworkSiteBundle:Administration/Promotion:new" }
+
+promotion_create:
+    pattern:  /create
+    defaults: { _controller: "ImieNetworkSiteBundle:Administration/Promotion:create" }
+    requirements: { _method: post }
+
+promotion_edit:
+    pattern:  /edit /{id}
+    defaults: { _controller: "ImieNetworkSiteBundle:Administration/Promotion:edit" }
+
+promotion_update:
+    pattern:  /update/{id}
+    defaults: { _controller: "ImieNetworkSiteBundle:Administration/Promotion:update" }
+    requirements: { _method: post|put }
+
+promotion_delete:
+    pattern:  /delete/{id}
+    defaults: { _controller: "ImieNetworkSiteBundle:Administration/Promotion:delete" }
+    requirements: { _method: post|delete }

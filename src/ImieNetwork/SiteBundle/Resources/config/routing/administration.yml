@@ -1,105 +1,19 @@
 administrationIndex:
     pattern:  /
     defaults: { _controller: ImieNetworkSiteBundle:Administration:index }
+    
+ImieNetworkSiteBundle_administrationtypecontrat:
+    resource: "@ImieNetworkSiteBundle/Resources/config/routing/administration/typecontrat.yml"
+    prefix:   /typecontrat
+    
+ImieNetworkSiteBundle_administrationpromotion:
+    resource: "@ImieNetworkSiteBundle/Resources/config/routing/administration/promotion.yml"
+    prefix:   /promotion
 
-#---------------------------------------------------------------------------------------------------
-#           Routing pour l'administration des utilisateurs 
-#---------------------------------------------------------------------------------------------------
-administrationutilisateurIndex:
-    pattern:  /utilisateur/
-    defaults: { _controller: ImieNetworkSiteBundle:Administration:indexUtilisateur }
-
-admnistrationutilisateurnew:
-    pattern: /utilisateur/new
-    defaults: { _controller: ImieNetworkSiteBundle:Administration:newUtilisateur }
-
-administrationutilisateuredit:
-    pattern: /utilisateur/edit/{id}
-    defaults: { _controller: ImieNetworkSiteBundle:Administration:editUtilisateur }
+ImieNetworkSiteBundle_administrationutilisateur:
+    resource: "@ImieNetworkSiteBundle/Resources/config/routing/administration/utilisateur.yml"
+    prefix:   /utilisateur
     
-administrationutilisateurshow:
-    pattern: /utilisateur/show/{id}
-    defaults: { _controller: ImieNetworkSiteBundle:Administration:showUtilisateur }
-
-administrationutilisateurdelete:
-    pattern: /utilisateur/delete/{id}
-    defaults: { _controller: ImieNetworkSiteBundle:Administration:deleteUtilisateur }
-    requirements: { _method: post|delete }
-    
-administrationutilisateurupdate:
-    pattern: /utilisateur/update/{id}
-    defaults: { _controller: ImieNetworkSiteBundle:Administration:updateUtilisateur }
-    requirements: { _method: post|put }
-    
-administrationutilisateurcreate:
-    pattern: /utilisateur/create
-    defaults: { _controller: ImieNetworkSiteBundle:Administration:createUtilisateur }
-    requirements: { _method: post }
-    
-#---------------------------------------------------------------------------------------------------
-#           Routing pour l'administration des promotions 
-#---------------------------------------------------------------------------------------------------
-administrationpromotionIndex:
-    pattern:  /promotion/
-    defaults: { _controller: ImieNetworkSiteBundle:Administration:indexPromotion }
-    
-administrationpromotioncreate:
-    pattern: /promotion/create
-    defaults: { _controller: ImieNetworkSiteBundle:Administration:createPromotion }
-    requirements: { _method: post }
-    
-administrationpromotionshow:
-    pattern: /promotion/show/{id}
-    defaults: { _controller: ImieNetworkSiteBundle:Administration:showPromotion }
-
-admnistrationpromotionnew:
-    pattern: /promotion/new
-    defaults: { _controller: ImieNetworkSiteBundle:Administration:newPromotion }
-    
-administrationpromotionedit:
-    pattern: /promotion/edit/{id}
-    defaults: { _controller: ImieNetworkSiteBundle:Administration:editPromotion }
-    
-administrationpromotionupdate:
-    pattern: /promotion/update/{id}
-    defaults: { _controller: ImieNetworkSiteBundle:Administration:updatePromotion }
-    requirements: { _method: post|put }
-
-administrationpromotiondelete:
-    pattern: /promotion/delete/{id}
-    defaults: { _controller: ImieNetworkSiteBundle:Administration:deletePromotion }
-    requirements: { _method: post|delete }
-
-#---------------------------------------------------------------------------------------------------
-#           Routing pour l'administration des groupes 
-#---------------------------------------------------------------------------------------------------
-administrationgroupeIndex:
-    pattern:  /groupes/
-    defaults: { _controller: ImieNetworkSiteBundle:Administration:indexGroupes }
- 
-administrationgroupeshow:
-    pattern: /groupes/show/{id}
-    defaults: { _controller: ImieNetworkSiteBundle:Administration:showGroupes }
-    
-admnistrationgroupenew:
-    pattern: /groupes/new
-    defaults: { _controller: ImieNetworkSiteBundle:Administration:newGroupes }
-    
-administrationgroupecreate:
-    pattern: /groupes/create
-    defaults: { _controller: ImieNetworkSiteBundle:Administration:createGroupes }
-    requirements: { _method: post }
-    
-administrationgroupeedit:
-    pattern: /groupes/edit/{id}
-    defaults: { _controller: ImieNetworkSiteBundle:Administration:editGroupes }
-    
-administrationgroupeupdate:
-    pattern: /groupes/update/{id}
-    defaults: { _controller: ImieNetworkSiteBundle:Administration:updateGroupes }
-    requirements: { _method: post|put }
-
-administrationgroupedelete:
-    pattern: /groupes/delete/{id}
-    defaults: { _controller: ImieNetworkSiteBundle:Administration:deleteGroupes }
-    requirements: { _method: post|delete }
+ImieNetworkSiteBundle_administrationgroupe:
+    resource: "@ImieNetworkSiteBundle/Resources/config/routing/administration/groupe.yml"
+    prefix:   /groupes

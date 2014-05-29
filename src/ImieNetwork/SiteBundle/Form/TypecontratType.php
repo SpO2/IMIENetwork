@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class GroupeType extends AbstractType
+class TypecontratType extends AbstractType
 {
         /**
      * @param FormBuilderInterface $builder
@@ -25,7 +25,7 @@ class GroupeType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'ImieNetwork\SiteBundle\Entity\Groupe'
+            'data_class' => 'ImieNetwork\SiteBundle\Entity\Typecontrat'
         ));
     }
 
@@ -34,6 +34,6 @@ class GroupeType extends AbstractType
      */
     public function getName()
     {
-        return 'imienetwork_sitebundle_groupe';
+        return 'imienetwork_sitebundle_typecontrat';
     }
 }
