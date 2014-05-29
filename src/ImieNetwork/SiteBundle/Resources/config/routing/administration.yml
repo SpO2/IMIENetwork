@@ -69,3 +69,37 @@ administrationpromotiondelete:
     pattern: /promotion/delete/{id}
     defaults: { _controller: ImieNetworkSiteBundle:Administration:deletePromotion }
     requirements: { _method: post|delete }
+
+#---------------------------------------------------------------------------------------------------
+#           Routing pour l'administration des groupes 
+#---------------------------------------------------------------------------------------------------
+administrationgroupeIndex:
+    pattern:  /groupes/
+    defaults: { _controller: ImieNetworkSiteBundle:Administration:indexGroupes }
+ 
+administrationgroupeshow:
+    pattern: /groupes/show/{id}
+    defaults: { _controller: ImieNetworkSiteBundle:Administration:showGroupes }
+    
+admnistrationgroupenew:
+    pattern: /groupes/new
+    defaults: { _controller: ImieNetworkSiteBundle:Administration:newGroupes }
+    
+administrationgroupecreate:
+    pattern: /groupes/create
+    defaults: { _controller: ImieNetworkSiteBundle:Administration:createGroupes }
+    requirements: { _method: post }
+    
+administrationgroupeedit:
+    pattern: /groupes/edit/{id}
+    defaults: { _controller: ImieNetworkSiteBundle:Administration:editGroupes }
+    
+administrationgroupeupdate:
+    pattern: /groupes/update/{id}
+    defaults: { _controller: ImieNetworkSiteBundle:Administration:updateGroupes }
+    requirements: { _method: post|put }
+
+administrationgroupedelete:
+    pattern: /groupes/delete/{id}
+    defaults: { _controller: ImieNetworkSiteBundle:Administration:deleteGroupes }
+    requirements: { _method: post|delete }

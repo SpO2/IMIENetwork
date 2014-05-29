@@ -6,6 +6,8 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use ImieNetwork\SiteBundle\Entity\Utilisateur;
 use ImieNetwork\SiteBundle\Form\UtilisateurType;
+use ImieNetwork\SiteBundle\Entity\Groupe;
+use ImieNetwork\SiteBundle\Form\GroupeType;
 use ImieNetwork\SiteBundle\Entity\Promotion;
 use ImieNetwork\SiteBundle\Form\PromotionType;
 
@@ -397,12 +399,206 @@ public function indexPromotionAction()
     }
  
 #---------------------------------------------------------------------------------------------------
-#          Crée le formulaire de suppression d'un utilisateur
+#          Crée le formulaire de suppression d'une promotion
 #---------------------------------------------------------------------------------------------------
      private function createDeleteFormPromotion($id)
     {
         return $this->createFormBuilder()
             ->setAction($this->generateUrl('administrationpromotiondelete', array('id' => $id)))
+            ->setMethod('DELETE')
+            ->add('submit', 'submit', array('label' => 'Delete'))
+            ->getForm()
+        ;
+    }
+    
+#---------------------------------------------------------------------------------------------------
+#           Actions du controller pour l'administration des groupes 
+#---------------------------------------------------------------------------------------------------
+
+#---------------------------------------------------------------------------------------------------
+#          Retourne la liste des groupes
+#---------------------------------------------------------------------------------------------------
+public function indexGroupesAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $entities = $em->getRepository('ImieNetworkSiteBundle:Groupe')->findAll();
+
+        return $this->render("@Administration/Groupe/index.html.twig", array(
+            'entities' => $entities,
+        ));
+    }
+
+#---------------------------------------------------------------------------------------------------
+#          Page permettant d'accéder aux détails d'un groupe
+#---------------------------------------------------------------------------------------------------
+     public function showGroupesAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $entity = $em->getRepository('ImieNetworkSiteBundle:Groupe')->find($id);
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find Groupe entity.');
+        }
+
+        $deleteForm = $this->createDeleteFormGroupes($id);
+
+        return $this->render("@Administration/Groupe/show.html.twig", array(
+            'entity'      => $entity,
+            'delete_form' => $deleteForm->createView(),        ));
+    }
+
+#---------------------------------------------------------------------------------------------------
+#          Page renvoyée pour l'ajout d'un groupe
+#---------------------------------------------------------------------------------------------------
+    public function newGroupesAction()
+    {
+        $entity = new Groupe();
+        $form   = $this->createCreateFormGroupes($entity);
+
+        return $this->render("@Administration/Groupe/new.html.twig", array(
+            'entity' => $entity,
+            'form'   => $form->createView(),
+        ));
+    }
+    
+#---------------------------------------------------------------------------------------------------
+#          Permet de créer un groupe
+#---------------------------------------------------------------------------------------------------
+    public function createGroupesAction(Request $request)
+    {
+        $entity = new Groupe();
+        $form = $this->createCreateFormGroupes($entity);
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($entity);
+            $em->flush();
+
+            return $this->redirect($this->generateUrl('administrationgroupeshow', array('id' => $entity->getId())));
+        }
+
+        return $this->render("@Administration/Groupe/new.html.twig", array(
+            'entity' => $entity,
+            'form'   => $form->createView(),
+        ));
+    }
+    
+#---------------------------------------------------------------------------------------------------
+#          Crée le formulaire de création d'un groupe
+#---------------------------------------------------------------------------------------------------
+    private function createCreateFormGroupes(Groupe $entity)
+    {
+        $form = $this->createForm(new GroupeType(), $entity, array(
+            'action' => $this->generateUrl('administrationgroupecreate'),
+            'method' => 'POST',
+        ));
+
+        $form->add('submit', 'submit', array('label' => 'Create'));
+
+        return $form;
+    }
+
+#---------------------------------------------------------------------------------------------------
+#          Page permettant d'éditer les informations des groupes
+#---------------------------------------------------------------------------------------------------
+    public function editGroupesAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $entity = $em->getRepository('ImieNetworkSiteBundle:Groupe')->find($id);
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find Groupe entity.');
+        }
+
+        $editForm = $this->createEditFormGroupes($entity);
+        $deleteForm = $this->createDeleteFormGroupes($id);
+
+        return $this->render("@Administration/Groupe/edit.html.twig", array(
+            'entity'      => $entity,
+            'edit_form'   => $editForm->createView(),
+            'delete_form' => $deleteForm->createView(),
+        ));
+    }
+    
+#---------------------------------------------------------------------------------------------------
+#          Page permettant de mettre à jour les informations d'un groupe 
+#---------------------------------------------------------------------------------------------------
+    public function updateGroupesAction(Request $request, $id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $entity = $em->getRepository('ImieNetworkSiteBundle:Groupe')->find($id);
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find Groupe entity.');
+        }
+
+        $deleteForm = $this->createDeleteFormGroupes($id);
+        $editForm = $this->createEditFormGroupes($entity);
+        $editForm->handleRequest($request);
+
+        if ($editForm->isValid()) {
+            $em->flush();
+
+            return $this->redirect($this->generateUrl('administrationgroupeedit', array('id' => $id)));
+        }
+
+        return $this->render("@Administration/Groupe/edit.html.twig", array(
+            'entity'      => $entity,
+            'edit_form'   => $editForm->createView(),
+            'delete_form' => $deleteForm->createView(),
+        ));
+    }
+
+#---------------------------------------------------------------------------------------------------
+#          Crée le formulaire d'édition d'un groupe 
+#---------------------------------------------------------------------------------------------------
+    private function createEditFormGroupes(Groupe $entity)
+    {
+        $form = $this->createForm(new GroupeType(), $entity, array(
+            'action' => $this->generateUrl('administrationgroupeupdate', array('id' => $entity->getId())),
+            'method' => 'PUT',
+        ));
+
+        $form->add('submit', 'submit', array('label' => 'Update'));
+
+        return $form;
+    }
+
+#---------------------------------------------------------------------------------------------------
+#          Permet de supprimer un goupe en base
+#---------------------------------------------------------------------------------------------------
+    public function deleteGroupesAction(Request $request, $id)
+    {
+        $form = $this->createDeleteFormGroupes($id);
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $entity = $em->getRepository('ImieNetworkSiteBundle:Groupe')->find($id);
+
+            if (!$entity) {
+                throw $this->createNotFoundException('Unable to find Groupe entity.');
+            }
+
+            $em->remove($entity);
+            $em->flush();
+        }
+
+        return $this->redirect($this->generateUrl('administrationgroupeIndex'));
+    }
+    
+#---------------------------------------------------------------------------------------------------
+#          Crée le formulaire de suppression d'un groupe
+#---------------------------------------------------------------------------------------------------
+    private function createDeleteFormGroupes($id)
+    {
+        return $this->createFormBuilder()
+            ->setAction($this->generateUrl('administrationgroupedelete', array('id' => $id)))
             ->setMethod('DELETE')
             ->add('submit', 'submit', array('label' => 'Delete'))
             ->getForm()

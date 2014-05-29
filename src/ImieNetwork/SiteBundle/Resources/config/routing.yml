@@ -7,9 +7,6 @@ testPage:
 eleveIndex:
     pattern:  /eleve
     defaults: { _controller: ImieNetworkSiteBundle:Eleve:index }
-ImieNetworkSiteBundle_utilisateur:
-    resource: "@ImieNetworkSiteBundle/Resources/config/routing/utilisateur.yml"
-    prefix:   /utilisateur
 ImieNetworkSiteBundle_evenement:
     resource: "@ImieNetworkSiteBundle/Resources/config/routing/evenement.yml"
     prefix:   /evenement  
