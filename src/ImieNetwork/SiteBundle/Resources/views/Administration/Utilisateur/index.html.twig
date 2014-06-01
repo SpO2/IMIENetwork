@@ -1,5 +1,5 @@
  {% extends "ImieNetworkSiteBundle:Administration:layout.html.twig" %} 
-{% block content -%}
+{% block content %}
     <h1>Liste d'utilisateurs</h1>
     <table class="table table-striped">
         <thead>
@@ -11,10 +11,10 @@
                 <th>Telephone</th>
                 <th>Statut</th>
                 <th>Login</th>
-                <th>Pass</th>
+                <th>Mot de passe</th>
                 <th>Email</th>
-                <th>Datecreation</th>
-                <th>Datemodification</th>
+                <th>Date de creation</th>
+                <th>Date de modification</th>
                 <th>Langue</th>
                 <th>Actions</th>
             </tr>
@@ -37,10 +37,10 @@
                 <td>
                 <ul>
                     <li>
-                        <a href="{{ path('utilisateur_show', { 'id': entity.id }) }}">show</a>
+                        <a href="{{ path('utilisateur_show', { 'id': entity.id }) }}">Détails</a>
                     </li>
                     <li>
-                        <a href="{{ path('utilisateur_edit', { 'id': entity.id }) }}">edit</a>
+                        <a href="{{ path('utilisateur_edit', { 'id': entity.id }) }}">Editer</a>
                     </li>
                 </ul>
                 </td>
@@ -49,11 +49,8 @@
         </tbody>
     </table>
 
-        <ul>
-        <li>
+
             <a href="{{ path('utilisateur_new') }}">
-                Create a new entry
+                <button class="btn btn-primary">Enregistrer un nouvel utilisateur</button>
             </a>
-        </li>
-    </ul>
     {% endblock %}

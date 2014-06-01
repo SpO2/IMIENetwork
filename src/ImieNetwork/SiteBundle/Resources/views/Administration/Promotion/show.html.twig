@@ -1,9 +1,9 @@
  {% extends "ImieNetworkSiteBundle:Administration:layout.html.twig" %} 
 
-{% block content -%}
-    <h1>Promotion</h1>
+{% block content %}
+    <h1>{{ entity.libelle }}</h1>
 
-    <table class="record_properties">
+    <table class="table table-striped">
         <tbody>
             <tr>
                 <th>Id</th>
@@ -23,18 +23,14 @@
             </tr>
         </tbody>
     </table>
+    {{ form(delete_form) }}
 
-        <ul class="record_actions">
-    <li>
         <a href="{{ path('promotion') }}">
-            Back to the list
+            <button class="btn btn-default">Retour à la liste des promotions</button>
         </a>
-    </li>
-    <li>
+
         <a href="{{ path('promotion_delete', { 'id': entity.id }) }}">
-            Edit
+            <button class="btn btn-primary">Editer</button>
         </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+
 {% endblock %}

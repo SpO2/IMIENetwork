@@ -1,10 +1,10 @@
 
  {% extends "ImieNetworkSiteBundle:Administration:layout.html.twig" %} 
 
-{% block content -%}
-    <h1>Utilisateur</h1>
+{% block content %}
+    <h1>{{ entity.nom }} {{ entity.prenom }}</h1>
 
-    <table class="record_properties">
+    <table class="table table-striped">
         <tbody>
             <tr>
                 <th>Id</th>
@@ -35,7 +35,7 @@
                 <td>{{ entity.login }}</td>
             </tr>
             <tr>
-                <th>Pass</th>
+                <th>Mot de passe</th>
                 <td>{{ entity.pass }}</td>
             </tr>
             <tr>
@@ -43,11 +43,11 @@
                 <td>{{ entity.email }}</td>
             </tr>
             <tr>
-                <th>Datecreation</th>
+                <th>Date de creation</th>
                 <td>{{ entity.datecreation|date('Y-m-d H:i:s') }}</td>
             </tr>
             <tr>
-                <th>Datemodification</th>
+                <th>Date de modification</th>
                 <td>{{ entity.datemodification|date('Y-m-d H:i:s') }}</td>
             </tr>
             <tr>
@@ -57,17 +57,18 @@
         </tbody>
     </table>
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('utilisateur') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>
+{{ form(delete_form) }}
+    
         <a href="{{ path('utilisateur_edit', { 'id': entity.id }) }}">
-            Edit
+            <button class="btn btn-primary">Editer</button>
         </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+    
+        <a href="{{ path('utilisateur') }}">
+            <button class="btn btn-default">Retour à la liste des utilisateurs</button>
+        </a>
+
+
+
+    
+
 {% endblock %}

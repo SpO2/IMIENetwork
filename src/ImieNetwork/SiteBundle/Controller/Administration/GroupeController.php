@@ -53,7 +53,7 @@ public function indexAction()
     public function newAction()
     {
         $entity = new Groupe();
-        $form   = $this->createCreateForm($entity);
+        $form   = $this->createCreateFormGroupes($entity);
 
         return $this->render("@Administration/Groupe/new.html.twig", array(
             'entity' => $entity,

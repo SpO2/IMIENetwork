@@ -1,15 +1,12 @@
  {% extends "ImieNetworkSiteBundle:Administration:layout.html.twig" %} 
 
-{% block content -%}
-    <h1>Utilisateur creation</h1>
+{% block content %}
+    <h1>Nouvel utilisateur</h1>
 
     {{ form(form) }}
 
-        <ul class="record_actions">
-    <li>
         <a href="{{ path('utilisateur') }}">
-            Retour à la liste des utilisateurs
+            <button class="btn btn-primary">Retour à la liste des utilisateurs</button>
         </a>
-    </li>
-</ul>
+
 {% endblock %}
