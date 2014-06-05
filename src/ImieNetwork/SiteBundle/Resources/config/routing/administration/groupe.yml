@@ -20,7 +20,7 @@ groupe_create:
     requirements: { _method: post }
 
 groupe_edit:
-    pattern:  /edit /{id}
+    pattern:  /edit/{id}
     defaults: { _controller: "ImieNetworkSiteBundle:Administration/Groupe:edit" }
 
 groupe_update:

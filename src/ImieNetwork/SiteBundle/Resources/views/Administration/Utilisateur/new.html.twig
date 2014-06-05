@@ -2,11 +2,21 @@
 
 {% block content %}
     <h1>Nouvel utilisateur</h1>
+{{ form_start(form) }}
+   
+<input name = 'fafa' type='text' value='1'/>
 
-    {{ form(form) }}
-
+    
+    <select name='toto'>
+    {%  for tata  in groupentities %}
+       <option value={{tata.id}}>
+           {{ tata.libelle }}
+       </option>
+    {% endfor %}
+    </select>
+ 
         <a href="{{ path('utilisateur') }}">
             <button class="btn btn-primary">Retour à la liste des utilisateurs</button>
         </a>
-
+{{ form_end(form) }}
 {% endblock %}

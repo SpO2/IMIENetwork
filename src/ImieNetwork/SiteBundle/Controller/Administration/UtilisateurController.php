@@ -5,6 +5,7 @@ namespace ImieNetwork\SiteBundle\Controller\Administration;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
+use ImieNetwork\SiteBundle\Entity\Groupe;
 use ImieNetwork\SiteBundle\Entity\Utilisateur;
 use ImieNetwork\SiteBundle\Form\UtilisateurType;
 
@@ -53,11 +54,14 @@ class UtilisateurController extends Controller {
     public function newAction()
     {
         $entity = new Utilisateur();
+        $em = $this->getDoctrine()->getManager();
+        $groupentities = $em->getRepository('ImieNetworkSiteBundle:Groupe')->findAll();
         $form   = $this->createCreateForm($entity);
 
         return $this->render('@Administration/Utilisateur\new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
+            'groupentities' => $groupentities,
         ));
     }
 
@@ -66,13 +70,21 @@ class UtilisateurController extends Controller {
 #---------------------------------------------------------------------------------------------------
     public function createAction(Request $request)
     {
+        $em = $this->getDoctrine()->getManager();
         $entity = new Utilisateur();
+        $groupeutilisateurentity = new \ImieNetwork\SiteBundle\Entity\Groupeutilisateur();
+        $groupe =  $request->request->get('toto');
+        $groupid =  $em->getRepository('ImieNetworkSiteBundle:Groupe')->find($groupe);
+        var_dump($groupe);
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
-
+        
+        $groupeutilisateurentity->setIdgroupe($groupid);
+        
         if ($form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
+            $groupeutilisateurentity->setIdutilisateur($entity);
+            $em->persist($groupeutilisateurentity);
             $em->flush();
 
             return $this->redirect($this->generateUrl('utilisateur_show', array('id' => $entity->getId())));
@@ -134,12 +146,13 @@ class UtilisateurController extends Controller {
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Utilisateur entity.');
         }
-
+       
         $deleteForm = $this->createDeleteForm($id);
         $editForm = $this->createEditForm($entity);
         $editForm->handleRequest($request);
 
         if ($editForm->isValid()) {
+            $entity->setNom('FAFA');
             $em->persist($entity);
             $em->flush();
 
