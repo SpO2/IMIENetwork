@@ -1,7 +1,7 @@
 parameters:
-#    imie_network_site.example.class: ImieNetwork\SiteBundle\Example
+    Site.UtilisateurManager.class: ImieNetwork\SiteBundle\Manager\UtilisateurManager
 
 services:
-#    imie_network_site.example:
-#        class: %imie_network_site.example.class%
-#        arguments: [@service_id, "plain_value", %parameter%]
+    Site.UtilisateurManager:
+        class: %Site.UtilisateurManager.class%
+        arguments: [@doctrine.orm.entity_manager]
