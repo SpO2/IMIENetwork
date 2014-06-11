@@ -6,8 +6,8 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Typecontrat
- */
-class Typecontrat
+ *@ORM\Entity(repositoryClass="ImieNetwork\SiteBundle\Repository\TypecontratRepository")
+ */class  Typecontrat
 {
     /**
      * @var integer

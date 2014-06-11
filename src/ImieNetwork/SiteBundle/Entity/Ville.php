@@ -6,8 +6,9 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Ville
+ *@ORM\Entity(repositoryClass="ImieNetwork\SiteBundle\Repository\VilleRepository")
  */
-class Ville
+class  Ville
 {
     /**
      * @var integer
