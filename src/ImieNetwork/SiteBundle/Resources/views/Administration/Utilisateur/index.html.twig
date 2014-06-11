@@ -9,6 +9,7 @@
                 <th>Prenom</th>
                 <th>Adresse</th>
                 <th>Telephone</th>
+                <th>Groupe</th>
                 <th>Statut</th>
                 <th>Login</th>
                 <th>Mot de passe</th>
@@ -27,6 +28,17 @@
                 <td>{{ entity.prenom }}</td>
                 <td>{{ entity.adresse }}</td>
                 <td>{{ entity.telephone }}</td>
+                {% for gpusers in groupeutilisateurentities %}
+                    {% if entity  == gpusers.idutilisateur  %}
+                        {% if gpusers.idgroupe is not null %}
+                            {% for groupe in groupeentitie %}
+                                {% if groupe == gpusers.idgroupe %}
+                                    <td> {{ groupe.libelle }} </td>
+                                 {% endif %}
+                             {% endfor %}
+                         {% endif %}
+                     {% endif %}
+                 {% endfor %}                    
                 <td>{{ entity.statut }}</td>
                 <td>{{ entity.login }}</td>
                 <td>{{ entity.pass }}</td>

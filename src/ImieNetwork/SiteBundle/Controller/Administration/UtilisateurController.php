@@ -23,8 +23,14 @@ class UtilisateurController extends Controller {
 
         $entities = $em->getRepository('ImieNetworkSiteBundle:Utilisateur')->findAll();
         
+        $groupeentities = $em->getRepository('ImieNetworkSiteBundle:Groupe')->findAll();
+        
+        $groupeutilisateurentites = $em->getRepository('ImieNetworkSiteBundle:Groupeutilisateur')->findAll();
+        
         return $this->render("@Administration/Utilisateur\index.html.twig",array(
             'entities' => $entities,
+            'groupeentitie' => $groupeentities,
+            'groupeutilisateurentities' => $groupeutilisateurentites,
         ));
     }
     

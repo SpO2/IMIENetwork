@@ -3,20 +3,15 @@
 {% block content %}
     <h1>Nouvel utilisateur</h1>
 {{ form_start(form) }}
-   
-<input name = 'fafa' type='text' value='1'/>
-
-    
-    <select name='toto'>
-    {%  for tata  in groupentities %}
-       <option value={{tata.id}}>
-           {{ tata.libelle }}
+    <select name='groupeutilisateurchoice'>
+    {%  for groupeutilisateur  in groupentities %}
+       <option value={{groupeutilisateur.id}}>
+           {{ groupeutilisateur.libelle }}
        </option>
     {% endfor %}
     </select>
- 
-        <a href="{{ path('utilisateur') }}">
+{{ form_end(form) }}
+<a href="{{ path('utilisateur') }}">
             <button class="btn btn-primary">Retour à la liste des utilisateurs</button>
         </a>
-{{ form_end(form) }}
 {% endblock %}
