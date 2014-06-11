@@ -3,7 +3,7 @@
 {% block content %}
     <h1>Nouvel utilisateur</h1>
 {{ form_start(form) }}
-    <select name='groupeutilisateurchoice'>
+ <select name='groupeutilisateurchoice'>
     {%  for groupeutilisateur  in groupentities %}
        <option value={{groupeutilisateur.id}}>
            {{ groupeutilisateur.libelle }}

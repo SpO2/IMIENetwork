@@ -2,8 +2,6 @@
 
 namespace ImieNetwork\SiteBundle\Form;
 
-use ImieNetwork\SiteBundle\Form\GroupeutilisateurType;
-
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;

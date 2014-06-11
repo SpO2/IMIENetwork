@@ -19,6 +19,14 @@
                 <td>{{ entity.prenom }}</td>
             </tr>
             <tr>
+                <th>Groupe</th>
+                <td>
+                    {% if  groupeenties is defined %}
+                        {{ groupeenties.libelle }}
+                     {% endif %}
+                </td>
+            </tr>
+            <tr>
                 <th>Adresse</th>
                 <td>{{ entity.adresse }}</td>
             </tr>

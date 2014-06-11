@@ -5,9 +5,9 @@ namespace ImieNetwork\SiteBundle\Controller\Administration;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-use ImieNetwork\SiteBundle\Entity\Groupe;
 use ImieNetwork\SiteBundle\Entity\Utilisateur;
 use ImieNetwork\SiteBundle\Form\UtilisateurType;
+use ImieNetwork\SiteBundle\Form\GroupeType;
 
 class UtilisateurController extends Controller {
 #---------------------------------------------------------------------------------------------------
@@ -42,16 +42,30 @@ class UtilisateurController extends Controller {
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('ImieNetworkSiteBundle:Utilisateur')->find($id);
-
-        if (!$entity) {
+        
+         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Utilisateur entity.');
         }
 
-        $deleteForm = $this->createDeleteForm($id);
-
-        return $this->render('@Administration/Utilisateur\show.html.twig', array(
+        
+         $groupeutilisateurentites = $em->getRepository('ImieNetworkSiteBundle:Groupeutilisateur')->findOneBy(array('idutilisateur' =>$entity));
+         $deleteForm = $this->createDeleteForm($id);
+         
+        if(isset($groupeutilisateurentites))
+        {
+            $groupeentities = $em->getRepository('ImieNetworkSiteBundle:Groupe')->find($groupeutilisateurentites->getIdgroupe()->getId());
+            
+            return $this->render('@Administration/Utilisateur\show.html.twig', array(
             'entity'      => $entity,
+            'groupeenties' => $groupeentities,
             'delete_form' => $deleteForm->createView(),));
+        }
+        else
+        {
+            return $this->render('@Administration/Utilisateur\show.html.twig', array(
+            'entity'      => $entity,
+            'delete_form' => $deleteForm->createView(),));  
+        }
     }
  
 #---------------------------------------------------------------------------------------------------
@@ -79,7 +93,7 @@ class UtilisateurController extends Controller {
         $em = $this->getDoctrine()->getManager();
         $entity = new Utilisateur();
         $groupeutilisateurentity = new \ImieNetwork\SiteBundle\Entity\Groupeutilisateur();
-        $groupe =  $request->request->get('toto');
+        $groupe =  $request->request->get('groupeutilisateurchoice');
         
         $groupid =  $em->getRepository('ImieNetworkSiteBundle:Groupe')->find($groupe);
         var_dump($groupe);
@@ -112,7 +126,7 @@ class UtilisateurController extends Controller {
             'action' => $this->generateUrl('utilisateur_create'),
             'method' => 'POST',
         ));
-
+      
         $form->add('submit', 'submit', array('label' => 'Create'));
 
         return $form;
@@ -159,7 +173,6 @@ class UtilisateurController extends Controller {
         $editForm->handleRequest($request);
 
         if ($editForm->isValid()) {
-            $entity->setNom('FAFA');
             $em->persist($entity);
             $em->flush();
 
