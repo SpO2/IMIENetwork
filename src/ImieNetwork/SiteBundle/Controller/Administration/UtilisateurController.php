@@ -74,6 +74,7 @@ class UtilisateurController extends Controller {
         $entity = new Utilisateur();
         $groupeutilisateurentity = new \ImieNetwork\SiteBundle\Entity\Groupeutilisateur();
         $groupe =  $request->request->get('toto');
+        
         $groupid =  $em->getRepository('ImieNetworkSiteBundle:Groupe')->find($groupe);
         var_dump($groupe);
         $form = $this->createCreateForm($entity);
