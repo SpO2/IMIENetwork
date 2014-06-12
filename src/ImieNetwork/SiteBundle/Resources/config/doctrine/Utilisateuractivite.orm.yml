@@ -1,6 +1,6 @@
 ImieNetwork\SiteBundle\Entity\Utilisateuractivite:
     type: entity
-    repositoryClass: ImieNetwork\SiteBundle\Entity\UtilisateuractiviteRepository
+    repositoryClass: ImieNetwork\SiteBundle\Repository\UtilisateuractiviteRepository
     table: utilisateuractivite
     indexes:
         FK_UtAct_Util:

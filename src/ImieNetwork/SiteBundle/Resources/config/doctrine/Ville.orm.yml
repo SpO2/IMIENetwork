@@ -1,6 +1,6 @@
 ImieNetwork\SiteBundle\Entity\Ville:
     type: entity
-    repositoryClass: ImieNetwork\SiteBundle\Entity\VilleRepository
+    repositoryClass: ImieNetwork\SiteBundle\Repository\VilleRepository
     table: ville
     id:
         id:

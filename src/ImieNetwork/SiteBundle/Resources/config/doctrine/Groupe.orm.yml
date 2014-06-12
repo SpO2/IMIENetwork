@@ -1,6 +1,6 @@
 ImieNetwork\SiteBundle\Entity\Groupe:
     type: entity
-    repositoryClass: ImieNetwork\SiteBundle\Entity\GroupeRepository
+    repositoryClass: ImieNetwork\SiteBundle\Repository\GroupeRepository
     table: groupe
     id:
         id:

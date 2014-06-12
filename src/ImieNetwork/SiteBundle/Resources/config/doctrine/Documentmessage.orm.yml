@@ -1,6 +1,6 @@
 ImieNetwork\SiteBundle\Entity\Documentmessage:
     type: entity
-    repositoryClass: ImieNetwork\SiteBundle\Entity\DocumentmessageRepository
+    repositoryClass: ImieNetwork\SiteBundle\Repository\DocumentmessageRepository
     table: documentmessage
     indexes:
         FK_DocMess_Doc:

@@ -1,6 +1,6 @@
 ImieNetwork\SiteBundle\Entity\Evenementutilisateur:
     type: entity
-    repositoryClass: ImieNetwork\SiteBundle\Entity\EvenementutilisateurRepository
+    repositoryClass: ImieNetwork\SiteBundle\Repository\EvenementutilisateurRepository
     table: evenementutilisateur
     indexes:
         FK_Part_Util:

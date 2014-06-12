@@ -1,6 +1,6 @@
 ImieNetwork\SiteBundle\Entity\Experience:
     type: entity
-    repositoryClass: ImieNetwork\SiteBundle\Entity\ExperienceRepository
+    repositoryClass: ImieNetwork\SiteBundle\Repository\ExperienceRepository
     table: experience
     indexes:
         FK_Exp_Util:

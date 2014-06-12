@@ -1,6 +1,6 @@
 ImieNetwork\SiteBundle\Entity\Offrecomp:
     type: entity
-    repositoryClass: ImieNetwork\SiteBundle\Entity\OffrecompRepository
+    repositoryClass: ImieNetwork\SiteBundle\Repository\OffrecompRepository
     table: offrecomp
     indexes:
         FK_OffCmp_Off:

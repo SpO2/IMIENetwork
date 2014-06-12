@@ -1,6 +1,6 @@
 ImieNetwork\SiteBundle\Entity\Offre:
     type: entity
-    repositoryClass: ImieNetwork\SiteBundle\Entity\OffreRepository
+    repositoryClass: ImieNetwork\SiteBundle\Repository\OffreRepository
     table: offre
     indexes:
         FK_Offre_TypeCt:

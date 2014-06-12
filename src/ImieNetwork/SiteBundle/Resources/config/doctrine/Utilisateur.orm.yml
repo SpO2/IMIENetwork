@@ -1,6 +1,6 @@
 ImieNetwork\SiteBundle\Entity\Utilisateur:
     type: entity
-    repositoryClass: ImieNetwork\SiteBundle\Entity\UtilisateurRepository
+    repositoryClass: ImieNetwork\SiteBundle\Repository\UtilisateurRepository
     table: utilisateur
     indexes:
         FK_Part_Vill:

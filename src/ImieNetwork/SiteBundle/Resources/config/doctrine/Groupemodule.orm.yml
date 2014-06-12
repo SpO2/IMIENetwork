@@ -1,6 +1,6 @@
 ImieNetwork\SiteBundle\Entity\Groupemodule:
     type: entity
-    repositoryClass: ImieNetwork\SiteBundle\Entity\GroupemoduleRepository
+    repositoryClass: ImieNetwork\SiteBundle\Repository\GroupemoduleRepository
     table: groupemodule
     indexes:
         FK_GpModu_Gp:

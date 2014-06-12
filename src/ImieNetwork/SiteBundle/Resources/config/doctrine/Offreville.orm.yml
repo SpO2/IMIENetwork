@@ -1,6 +1,6 @@
 ImieNetwork\SiteBundle\Entity\Offreville:
     type: entity
-    repositoryClass: ImieNetwork\SiteBundle\Entity\OffrevilleRepository
+    repositoryClass: ImieNetwork\SiteBundle\Repository\OffrevilleRepository
     table: offreville
     indexes:
         FK_OffVill_Off:

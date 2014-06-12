@@ -1,6 +1,6 @@
 ImieNetwork\SiteBundle\Entity\Document:
     type: entity
-    repositoryClass: ImieNetwork\SiteBundle\Entity\DocumentRepository
+    repositoryClass: ImieNetwork\SiteBundle\Repository\DocumentRepository
     table: document
     indexes:
         FK_DocUtil_Util:

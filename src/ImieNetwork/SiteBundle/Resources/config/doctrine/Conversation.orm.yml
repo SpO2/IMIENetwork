@@ -1,6 +1,6 @@
 ImieNetwork\SiteBundle\Entity\Conversation:
     type: entity
-    repositoryClass: ImieNetwork\SiteBundle\Entity\ConversationRepository
+    repositoryClass: ImieNetwork\SiteBundle\Repository\ConversationRepository
     table: conversation
     indexes:
         FK_Conv_Util:

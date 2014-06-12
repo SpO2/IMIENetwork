@@ -1,6 +1,6 @@
 ImieNetwork\SiteBundle\Entity\Competence:
     type: entity
-    repositoryClass: ImieNetwork\SiteBundle\Entity\CompetenceRepository
+    repositoryClass: ImieNetwork\SiteBundle\Repository\CompetenceRepository
     table: competence
     id:
         id:

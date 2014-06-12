@@ -1,6 +1,6 @@
 ImieNetwork\SiteBundle\Entity\Groupeutilisateur:
     type: entity
-    repositoryClass: ImieNetwork\SiteBundle\Entity\GroupeutilisateurRepository
+    repositoryClass: ImieNetwork\SiteBundle\Repository\GroupeutilisateurRepository
     table: groupeutilisateur
     indexes:
         FK_GpUser_Util:

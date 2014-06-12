@@ -1,6 +1,6 @@
 ImieNetwork\SiteBundle\Entity\Secteuractivite:
     type: entity
-    repositoryClass: ImieNetwork\SiteBundle\Entity\SecteuractiviteRepository
+    repositoryClass: ImieNetwork\SiteBundle\Repository\SecteuractiviteRepository
     table: secteuractivite
     id:
         id:

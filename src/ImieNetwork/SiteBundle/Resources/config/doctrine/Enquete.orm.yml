@@ -1,6 +1,6 @@
 ImieNetwork\SiteBundle\Entity\Enquete:
     type: entity
-    repositoryClass: ImieNetwork\SiteBundle\Entity\EnqueteRepository
+    repositoryClass: ImieNetwork\SiteBundle\Repository\EnqueteRepository
     table: enquete
     indexes:
         FK_Enq_Mess:

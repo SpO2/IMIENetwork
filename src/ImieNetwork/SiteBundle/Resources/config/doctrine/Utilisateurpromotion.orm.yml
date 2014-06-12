@@ -1,6 +1,6 @@
 ImieNetwork\SiteBundle\Entity\Utilisateurpromotion:
     type: entity
-    repositoryClass: ImieNetwork\SiteBundle\Entity\UtilisateurpromotionRepository
+    repositoryClass: ImieNetwork\SiteBundle\Repository\UtilisateurpromotionRepository
     table: utilisateurpromotion
     indexes:
         FK_utilPromo_Util:

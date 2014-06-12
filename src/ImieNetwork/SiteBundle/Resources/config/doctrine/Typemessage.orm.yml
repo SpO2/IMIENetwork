@@ -1,6 +1,6 @@
 ImieNetwork\SiteBundle\Entity\Typemessage:
     type: entity
-    repositoryClass: ImieNetwork\SiteBundle\Entity\TypemessageRepository
+    repositoryClass: ImieNetwork\SiteBundle\Repository\TypemessageRepository
     table: typemessage
     id:
         id:

@@ -1,6 +1,6 @@
 ImieNetwork\SiteBundle\Entity\Proprieteetendue:
     type: entity
-    repositoryClass: ImieNetwork\SiteBundle\Entity\ProprieteetendueRepository
+    repositoryClass: ImieNetwork\SiteBundle\Repository\ProprieteetendueRepository
     table: proprieteetendue
     id:
         id:
