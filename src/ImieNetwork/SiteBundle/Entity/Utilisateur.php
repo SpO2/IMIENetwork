@@ -71,5 +71,20 @@ use Doctrine\ORM\Mapping as ORM;
      * @ORM\ManyToMany(targetEntity="Groupe")
      */
     private $groupes;
-
+    
+    /**
+     *
+     * @var array of \ImieNetwork\SiteBundle\Entity\Utilisateurcompetence
+     * @ORM\OneToMany(targetEntity="Utilisateurcompetence", mappedBy="utilisateur")
+     */
+    private $mes_competences;
+    
+    /**
+     * 
+     * @return nom prenom
+     */
+    public function __toString()
+    {
+        return $this->nom.' '.$this->prenom;
+    }
 }
