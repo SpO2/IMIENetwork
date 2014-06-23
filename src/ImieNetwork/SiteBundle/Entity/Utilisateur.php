@@ -6,8 +6,9 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Utilisateur
- *@ORM\Entity(repositoryClass="ImieNetwork\SiteBundle\Repository\UtilisateurRepository")
- */class  Utilisateur
+ *@ORM\Entity(repositoryClass="ImieNetworkSiteBundle\Repository\UtilisateurRepository")
+ */
+class  Utilisateur
 {
     /**
      * @var integer
@@ -73,7 +74,6 @@ use Doctrine\ORM\Mapping as ORM;
      * @var \ImieNetwork\SiteBundle\Entity\Ville
      */
     private $idville;
-
 
     /**
      * Get id
