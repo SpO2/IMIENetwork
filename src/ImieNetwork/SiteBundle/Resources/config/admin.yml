@@ -1,0 +1,24 @@
+services:
+    imie_network_site.admin.utilisateur:
+        class: ImieNetwork\SiteBundle\Admin\UtilisateurAdmin
+        arguments: [~, ImieNetwork\SiteBundle\Entity\Utilisateur, ImieNetworkSiteBundle:UtilisateurAdmin]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: Utilisateur}
+
+    imie_network_site.admin.groupe:
+        class: ImieNetwork\SiteBundle\Admin\GroupeAdmin
+        arguments: [~, ImieNetwork\SiteBundle\Entity\Groupe, ImieNetworkSiteBundle:GroupeAdmin]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: Groupe}
+
+    imie_network_site.admin.groupeutilisateur:
+        class: ImieNetwork\SiteBundle\Admin\GroupeutilisateurAdmin
+        arguments: [~, ImieNetwork\SiteBundle\Entity\Groupeutilisateur, ImieNetworkSiteBundle:GroupeutilisateurAdmin]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: Groupeutilisateur}
+
+    imie_network_site.admin.evenement:
+        class: ImieNetwork\SiteBundle\Admin\EvenementAdmin
+        arguments: [~, ImieNetwork\SiteBundle\Entity\Evenement, ImieNetworkSiteBundle:EvenementAdmin]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: Evenement}
