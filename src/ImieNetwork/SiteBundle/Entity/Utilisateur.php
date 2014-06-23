@@ -46,13 +46,13 @@ use Doctrine\ORM\Mapping as ORM;
      * @var \DateTime
      * @ORM\Column(type="datetimetz", nullable=false)
      */
-    private $datecreation;
+    private $date_creation;
 
     /**
      * @var \DateTime
      * @ORM\Column(type="datetimetz", nullable=false)
      */
-    private $datemodification;
+    private $date_modification;
 
     /**
      * @var string
@@ -65,5 +65,11 @@ use Doctrine\ORM\Mapping as ORM;
      * @ORM\ManyToOne(targetEntity="Ville")
      */
     private $ville;
+    
+    /**
+     * @var \ImieNetwork\SiteBundle\Entity\Groupe
+     * @ORM\ManyToMany(targetEntity="Groupe")
+     */
+    private $groupes;
 
 }
