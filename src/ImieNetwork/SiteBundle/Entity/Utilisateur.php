@@ -9,6 +9,7 @@ use FOS\UserBundle\Model\User as BaseUser;
  * Utilisateur
  * @ORM\Entity(repositoryClass="ImieNetwork\SiteBundle\Repository\UtilisateurRepository")
  * @ORM\Table()
+ * @ORM\HasLifecycleCallbacks()
  */
 class  Utilisateur extends BaseUser
 {
@@ -790,5 +791,26 @@ class  Utilisateur extends BaseUser
     public function getMaPromotion()
     {
         return $this->ma_promotion;
+    }
+    
+    /**
+     * Set createdAt
+     *
+     * @ORM\PrePersist
+     */
+    public function setCreatedAt()
+    {
+        $this->date_creation = new \DateTime();
+        $this->date_modification = new \DateTime();
+    }
+
+    /**
+     * Set updatedAt
+     *
+     * @ORM\PreUpdate
+     */
+    public function setUpdatedAt()
+    {
+        $this->date_modification = new \DateTime();
     }
 }
