@@ -96,4 +96,9 @@ class  Ville
     {
         return $this->codepostal;
     }
+    
+     public function __toString() 
+    {
+        return $this->libelle;
+    }
 }

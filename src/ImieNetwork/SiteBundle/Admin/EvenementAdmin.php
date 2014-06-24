@@ -19,10 +19,10 @@ class EvenementAdmin extends Admin
             ->add('id')
             ->add('libelle')
             ->add('description')
-            ->add('datedebut')
-            ->add('datemodification')
-            ->add('datefin')
-            ->add('statut')
+            ->add('datedebut', null, array('label' => 'Date de début de l\' évènement ' , 'required' => false))
+            ->add('datemodification',null, array('label' => 'Date de modification de l\' évènement ' , 'required' => false))
+            ->add('datefin', null, array('label' => 'Date de fin de l\' évènement ' , 'required' => false))
+            ->add('statut',null, array('label' => 'Actif ' , 'required' => false))
         ;
     }
 
@@ -35,10 +35,10 @@ class EvenementAdmin extends Admin
             ->add('id')
             ->add('libelle')
             ->add('description')
-            ->add('datedebut')
-            ->add('datemodification')
-            ->add('datefin')
-            ->add('statut')
+            ->add('datedebut', null, array('label' => 'Date de début de l\' évènement ' , 'required' => false))
+            ->add('datemodification',null, array('label' => 'Date de modification de l\' évènement ' , 'required' => false))
+            ->add('datefin', null, array('label' => 'Date de fin de l\' évènement ' , 'required' => false))
+            ->add('statut',null, array('label' => 'Actif ' , 'required' => false))
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),
@@ -55,13 +55,13 @@ class EvenementAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('id')
+            ->add('id', 'sonata_type_model_hidden')
             ->add('libelle')
             ->add('description')
-            ->add('datedebut')
-            ->add('datemodification')
-            ->add('datefin')
-            ->add('statut')
+            //->add('datedebut')
+            //->add('datemodification')
+            //->add('datefin')
+            ->add('statut',null, array('label' => 'Actif ' , 'required' => false))
         ;
     }
 
@@ -74,10 +74,10 @@ class EvenementAdmin extends Admin
             ->add('id')
             ->add('libelle')
             ->add('description')
-            ->add('datedebut')
-            ->add('datemodification')
-            ->add('datefin')
-            ->add('statut')
+            ->add('datedebut', null, array('label' => 'Date de début de l\' évènement ' , 'required' => false))
+            ->add('datemodification',null, array('label' => 'Date de modification de l\' évènement ' , 'required' => false))
+            ->add('datefin', null, array('label' => 'Date de fin de l\' évènement ' , 'required' => false))
+            ->add('statut',null, array('label' => 'Actif ' , 'required' => false))
         ;
     }
 }

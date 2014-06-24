@@ -14,7 +14,14 @@ app/config/parameters.yml
 
 # Composer
 composer.phar
+/vendor/**
+
+# For NetBeans
 /.project
 nbproject/**
-/vendor
+
+# For Eclipse
+.buildpath
+.settings/
+
 *.*~

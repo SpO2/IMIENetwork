@@ -8,7 +8,7 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
 
-class GroupeAdmin extends Admin
+class TypemessageAdmin extends Admin
 {
     /**
      * @param DatagridMapper $datagridMapper
