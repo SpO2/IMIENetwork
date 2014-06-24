@@ -29,83 +29,20 @@ use Doctrine\ORM\Mapping as ORM;
      */
     private $email;
 
-
     /**
-     * Get id
      *
-     * @return integer 
+     * @var \ImieNetwork\SiteBundle\Entity\Utilisateur
+     * @ORM\ManyToOne(targetEntity="Utilisateur", inversedBy="ma_promotion")
+     * @ORM\JoinColumn(name="promotion_id", referencedColumnName="id")
      */
-    public function getId()
-    {
-        return $this->id;
-    }
-
+    private $utilisateur;
+    
     /**
-     * Set libelle
-     *
-     * @param string $libelle
-     * @return Promotion
+     * 
+     * @return libelle
      */
-    public function setLibelle($libelle)
-    {
-        $this->libelle = $libelle;
-
-        return $this;
-    }
-
-    /**
-     * Get libelle
-     *
-     * @return string 
-     */
-    public function getLibelle()
+    public function __toString()
     {
         return $this->libelle;
-    }
-
-    /**
-     * Set annee
-     *
-     * @param integer $annee
-     * @return Promotion
-     */
-    public function setAnnee($annee)
-    {
-        $this->annee = $annee;
-
-        return $this;
-    }
-
-    /**
-     * Get annee
-     *
-     * @return integer 
-     */
-    public function getAnnee()
-    {
-        return $this->annee;
-    }
-
-    /**
-     * Set email
-     *
-     * @param string $email
-     * @return Promotion
-     */
-    public function setEmail($email)
-    {
-        $this->email = $email;
-
-        return $this;
-    }
-
-    /**
-     * Get email
-     *
-     * @return string 
-     */
-    public function getEmail()
-    {
-        return $this->email;
     }
 }

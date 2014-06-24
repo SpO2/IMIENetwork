@@ -26,6 +26,13 @@ class  Typemessage
     private $libelle;
 
     /**
+     *
+     * @var \ImieNetwork\SiteBundle\Entity\Typemessage
+     * @ORM\OneToMany(targetEntity="Message", mappedBy="type_message")
+     */
+    private $mon_type_message;
+    
+    /**
      * 
      * @return libelle
      */

@@ -33,4 +33,12 @@ class  Module
      */
     private $code;
 
+    /**
+     * 
+     * @return libelle
+     */
+    public function __toString()
+    {
+        return $this->libelle;
+    }
 }

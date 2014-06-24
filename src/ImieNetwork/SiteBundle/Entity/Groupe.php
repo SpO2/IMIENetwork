@@ -6,7 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Groupe
- *@ORM\Entity(repositoryClass="ImieNetwork\SiteBundle\Repository\GroupeRepository")
+ * @ORM\Entity(repositoryClass="ImieNetwork\SiteBundle\Repository\GroupeRepository")
  * @ORM\Table()
  */
 class  Groupe
@@ -20,7 +20,7 @@ class  Groupe
      */
     private $id;
     /**
-     * @var string     *
+     * @var string
      * @ORM\Column(name="libelle", type="string", length=255)
      */
     private $libelle;

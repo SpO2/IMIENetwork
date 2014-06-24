@@ -21,10 +21,17 @@ class  Proprieteetendue
 
     /**
      * @var string
-     * 
      * @ORM\Column(name="id", type="string", length=255, nullable=false)
      */
     private $libelle;
 
+    /**
+     * 
+     * @return libelle
+     */
+    public function __toString()
+    {
+        return $this->libelle;
+    }
 
 }

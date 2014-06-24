@@ -32,16 +32,22 @@ use Doctrine\ORM\Mapping as ORM;
 
     /**
      * @var \ImieNetwork\SiteBundle\Entity\Utilisateur
+     * @ORM\ManyToOne(targetEntity="Utilisateur", inversedBy="mes_messages")
+     * @ORM\JoinColumn(name="message_id", referencedColumnName="id")
      */
     private $utilisateur;
 
     /**
      * @var \ImieNetwork\SiteBundle\Entity\Typemessage
+     * @ORM\ManyToOne(targetEntity="Typemessage", inversedBy="mon_type_message")
+     * @ORM\JoinColumn(name="message_id", referencedColumnName="id")
      */
     private $type_message;
 
     /**
      * @var \ImieNetwork\SiteBundle\Entity\Conversation
+     * @ORM\ManyToOne(targetEntity="Conversation", inversedBy="mes_messages")
+     * @ORM\JoinColumn(name="message_id", referencedColumnName="id")
      */
     private $conversation;
 
