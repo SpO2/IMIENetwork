@@ -8,7 +8,7 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
 
-class GroupeAdmin extends Admin
+class ExperienceAdmin extends Admin
 {
     /**
      * @param DatagridMapper $datagridMapper
@@ -18,6 +18,9 @@ class GroupeAdmin extends Admin
         $datagridMapper
             ->add('id')
             ->add('libelle')
+            ->add('datedebut', null, array('label' => 'Expérience début ' , 'required' => false))
+            ->add('datefin', null, array('label' => 'Expérience fin ' , 'required' => false))
+            ->add('description')
         ;
     }
 
@@ -29,6 +32,9 @@ class GroupeAdmin extends Admin
         $listMapper
             ->add('id')
             ->add('libelle')
+            ->add('datedebut', null, array('label' => 'Expérience début ' , 'required' => false))
+            ->add('datefin', null, array('label' => 'Expérience fin ' , 'required' => false))
+            ->add('description')
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),
@@ -47,6 +53,9 @@ class GroupeAdmin extends Admin
         $formMapper
             ->add('id', 'sonata_type_model_hidden')
             ->add('libelle')
+           ->add('datedebut', null, array('label' => 'Expérience début ' , 'required' => false))
+            ->add('datefin', null, array('label' => 'Expérience fin ' , 'required' => false))
+            ->add('description')
         ;
     }
 
@@ -58,6 +67,9 @@ class GroupeAdmin extends Admin
         $showMapper
             ->add('id')
             ->add('libelle')
+            ->add('datedebut', null, array('label' => 'Expérience début ' , 'required' => false))
+            ->add('datefin', null, array('label' => 'Expérience fin ' , 'required' => false))
+            ->add('description')
         ;
     }
 }

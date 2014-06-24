@@ -8,7 +8,7 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
 
-class GroupeAdmin extends Admin
+class DocumentAdmin extends Admin
 {
     /**
      * @param DatagridMapper $datagridMapper
@@ -17,7 +17,10 @@ class GroupeAdmin extends Admin
     {
         $datagridMapper
             ->add('id')
+            ->add('idutilisateur')
             ->add('libelle')
+            ->add('url')
+            ->add('statut', 'doctrine_orm_boolean', array('label' => 'Statut'), 'checkbox' )
         ;
     }
 
@@ -28,7 +31,10 @@ class GroupeAdmin extends Admin
     {
         $listMapper
             ->add('id')
+            ->add('idutilisateur')
             ->add('libelle')
+            ->add('url')
+            ->add('statut','boolean')
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),
@@ -45,8 +51,11 @@ class GroupeAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('id', 'sonata_type_model_hidden')
+            //->add('id', 'sonata_type_model_hidden')
+            ->add('idutilisateur')
             ->add('libelle')
+            ->add('url','url')
+            ->add('statut')
         ;
     }
 
@@ -57,7 +66,10 @@ class GroupeAdmin extends Admin
     {
         $showMapper
             ->add('id')
+            ->add('idutilisateur')
             ->add('libelle')
+            ->add('url')
+            ->add('statut','checkbox')
         ;
     }
 }

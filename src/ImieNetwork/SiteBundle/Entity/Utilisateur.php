@@ -360,4 +360,9 @@ class  Utilisateur
     {
         return $this->idville;
     }
+    
+    public function __toString() 
+    {
+        return $this->nom;
+    }
 }

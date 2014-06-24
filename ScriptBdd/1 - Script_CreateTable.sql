@@ -296,7 +296,7 @@ PRIMARY KEY(id)
 /* Messages.                                                                */
 /*--------------------------------------------------------------------------*/
 CREATE TABLE document (
-  id             INTEGER  NOT NULL,
+  id             INTEGER  NOT NULL AUTO_INCREMENT,
   idutilisateur  INTEGER  NOT NULL,
   libelle        VARCHAR(255),
   url            TEXT,
