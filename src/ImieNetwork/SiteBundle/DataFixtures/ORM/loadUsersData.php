@@ -25,12 +25,22 @@ class LoadUserData implements FixtureInterface
     public function createUsersGroups()
     {
         $adminGroup = new Groupe();
-        
+        $adminGroup->setLibelle('Administration');
         
         $eleveGroup = new Groupe();
-        
+        $eleveGroup->setLibelle('Eleve');
         
         $entrepriseGroup = new Groupe();
+        $entrepriseGroup->setLibelle('Entreprise');
     } 
+    public function createUsers()
+    {
+        //admin Users
+        for ($i = 1; $i <= 10; $i++) {
+            $user = new Utilisateur();
+            $user->setNom('UserName'.$i);
+            $user->setAdresse('Adresse '.$i);
+        }
+    }
    
 }
