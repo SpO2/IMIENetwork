@@ -11,21 +11,27 @@ use Doctrine\ORM\Mapping as ORM;
 {
     /**
      * @var integer
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
     /**
      * @var string
+     * @ORM\Column(type="string", unique=true)
      */
     private $libelle;
 
     /**
      * @var integer
+     * @ORM\Column(type="integer")
      */
     private $annee;
 
     /**
      * @var string
+     * @ORM\Column(type="string", unique=true)
      */
     private $email;
 
