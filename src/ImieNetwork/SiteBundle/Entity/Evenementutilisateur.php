@@ -48,4 +48,60 @@ class  Evenementutilisateur
         return $this->participe;
     }
 
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set participe
+     *
+     * @param boolean $participe
+     * @return Evenementutilisateur
+     */
+    public function setParticipe($participe)
+    {
+        $this->participe = $participe;
+
+        return $this;
+    }
+
+    /**
+     * Get participe
+     *
+     * @return boolean 
+     */
+    public function getParticipe()
+    {
+        return $this->participe;
+    }
+
+    /**
+     * Set utilisateur
+     *
+     * @param \ImieNetwork\SiteBundle\Entity\Utilisateur $utilisateur
+     * @return Evenementutilisateur
+     */
+    public function setUtilisateur(\ImieNetwork\SiteBundle\Entity\Utilisateur $utilisateur = null)
+    {
+        $this->utilisateur = $utilisateur;
+
+        return $this;
+    }
+
+    /**
+     * Get utilisateur
+     *
+     * @return \ImieNetwork\SiteBundle\Entity\Utilisateur 
+     */
+    public function getUtilisateur()
+    {
+        return $this->utilisateur;
+    }
 }

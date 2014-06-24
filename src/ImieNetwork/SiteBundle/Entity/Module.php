@@ -33,6 +33,7 @@ class  Module
      */
     private $code;
 
+<<<<<<< HEAD
     /**
      * 
      * @return libelle
@@ -41,4 +42,62 @@ class  Module
     {
         return $this->libelle;
     }
+=======
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set libelle
+     *
+     * @param string $libelle
+     * @return Module
+     */
+    public function setLibelle($libelle)
+    {
+        $this->libelle = $libelle;
+
+        return $this;
+    }
+
+    /**
+     * Get libelle
+     *
+     * @return string 
+     */
+    public function getLibelle()
+    {
+        return $this->libelle;
+    }
+
+    /**
+     * Set code
+     *
+     * @param string $code
+     * @return Module
+     */
+    public function setCode($code)
+    {
+        $this->code = $code;
+
+        return $this;
+    }
+
+    /**
+     * Get code
+     *
+     * @return string 
+     */
+    public function getCode()
+    {
+        return $this->code;
+    }
+>>>>>>> 6264a600d866d45082834a303a5e3100c50f30ad
 }

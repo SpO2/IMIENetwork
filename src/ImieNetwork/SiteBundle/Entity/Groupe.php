@@ -35,13 +35,119 @@ class  Groupe
     /**
      * @var ArrayCollection \ImieNetwork\SiteBundle\Entity\module
      * 
-     * @ManyToMany(targetEntity="Module")
-     * @JoinTable(name="groupemodule",
-     *      joinColumns={@JoinColumn(name="idgroupe", referencedColumnName="id")},
-     *      inverseJoinColumns={@JoinColumn(name="idmodule", referencedColumnName="id")}
+     * @ORM\ManyToMany(targetEntity="Module")
+     * @ORM\JoinTable(name="groupemodule",
+     *      joinColumns={@ORM\JoinColumn(name="idgroupe", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="idmodule", referencedColumnName="id")}
      *      )
      **/
     private $modules;
-  
- 
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->proprietes_groupe = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->modules = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set libelle
+     *
+     * @param string $libelle
+     * @return Groupe
+     */
+    public function setLibelle($libelle)
+    {
+        $this->libelle = $libelle;
+
+        return $this;
+    }
+
+    /**
+     * Get libelle
+     *
+     * @return string 
+     */
+    public function getLibelle()
+    {
+        return $this->libelle;
+    }
+
+    /**
+     * Add proprietes_groupe
+     *
+     * @param \ImieNetwork\SiteBundle\Entity\Groupepropriete $proprietesGroupe
+     * @return Groupe
+     */
+    public function addProprietesGroupe(\ImieNetwork\SiteBundle\Entity\Groupepropriete $proprietesGroupe)
+    {
+        $this->proprietes_groupe[] = $proprietesGroupe;
+
+        return $this;
+    }
+
+    /**
+     * Remove proprietes_groupe
+     *
+     * @param \ImieNetwork\SiteBundle\Entity\Groupepropriete $proprietesGroupe
+     */
+    public function removeProprietesGroupe(\ImieNetwork\SiteBundle\Entity\Groupepropriete $proprietesGroupe)
+    {
+        $this->proprietes_groupe->removeElement($proprietesGroupe);
+    }
+
+    /**
+     * Get proprietes_groupe
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getProprietesGroupe()
+    {
+        return $this->proprietes_groupe;
+    }
+
+    /**
+     * Add modules
+     *
+     * @param \ImieNetwork\SiteBundle\Entity\Module $modules
+     * @return Groupe
+     */
+    public function addModule(\ImieNetwork\SiteBundle\Entity\Module $modules)
+    {
+        $this->modules[] = $modules;
+
+        return $this;
+    }
+
+    /**
+     * Remove modules
+     *
+     * @param \ImieNetwork\SiteBundle\Entity\Module $modules
+     */
+    public function removeModule(\ImieNetwork\SiteBundle\Entity\Module $modules)
+    {
+        $this->modules->removeElement($modules);
+    }
+
+    /**
+     * Get modules
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getModules()
+    {
+        return $this->modules;
+    }
 }

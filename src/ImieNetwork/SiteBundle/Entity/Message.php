@@ -81,5 +81,130 @@ use Doctrine\ORM\Mapping as ORM;
     {
         return $this->contenu;
     }
-    
+
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set contenu
+     *
+     * @param string $contenu
+     * @return Message
+     */
+    public function setContenu($contenu)
+    {
+        $this->contenu = $contenu;
+
+        return $this;
+    }
+
+    /**
+     * Get contenu
+     *
+     * @return string 
+     */
+    public function getContenu()
+    {
+        return $this->contenu;
+    }
+
+    /**
+     * Set datemessage
+     *
+     * @param \DateTime $datemessage
+     * @return Message
+     */
+    public function setDatemessage($datemessage)
+    {
+        $this->datemessage = $datemessage;
+
+        return $this;
+    }
+
+    /**
+     * Get datemessage
+     *
+     * @return \DateTime 
+     */
+    public function getDatemessage()
+    {
+        return $this->datemessage;
+    }
+
+    /**
+     * Set url
+     *
+     * @param string $url
+     * @return Message
+     */
+    public function setUrl($url)
+    {
+        $this->url = $url;
+
+        return $this;
+    }
+
+    /**
+     * Get url
+     *
+     * @return string 
+     */
+    public function getUrl()
+    {
+        return $this->url;
+    }
+
+    /**
+     * Set type
+     *
+     * @param string $type
+     * @return Message
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * Get type
+     *
+     * @return string 
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * Set evenement
+     *
+     * @param \ImieNetwork\SiteBundle\Entity\Utilisateur $evenement
+     * @return Message
+     */
+    public function setEvenement(\ImieNetwork\SiteBundle\Entity\Utilisateur $evenement = null)
+    {
+        $this->evenement = $evenement;
+
+        return $this;
+    }
+
+    /**
+     * Get evenement
+     *
+     * @return \ImieNetwork\SiteBundle\Entity\Utilisateur 
+     */
+    public function getEvenement()
+    {
+        return $this->evenement;
+    }
 }

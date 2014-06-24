@@ -7,7 +7,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use ImieNetwork\SiteBundle\Entity\Utilisateur;
 use ImieNetwork\SiteBundle\Form\UtilisateurType;
-use ImieNetwork\SiteBundle\Form\GroupeType;
 
 class UtilisateurController extends Controller {
 #---------------------------------------------------------------------------------------------------
@@ -27,7 +26,7 @@ class UtilisateurController extends Controller {
         
         $groupeutilisateurentites = $em->getRepository('ImieNetworkSiteBundle:Groupeutilisateur')->findAll();
         
-        return $this->render("@Administration/Utilisateur\index.html.twig",array(
+        return $this->render("@Administration/Utilisateur/index.html.twig",array(
             'entities' => $entities,
             'groupeentitie' => $groupeentities,
             'groupeutilisateurentities' => $groupeutilisateurentites,
@@ -40,21 +39,18 @@ class UtilisateurController extends Controller {
     public function showAction($id)
     {
         $em = $this->getDoctrine()->getManager();
-
+        
         $entity = $em->getRepository('ImieNetworkSiteBundle:Utilisateur')->find($id);
         
          if (!$entity) {
             throw $this->createNotFoundException('Unable to find Utilisateur entity.');
         }
 
-        
-         $groupeutilisateurentites = $em->getRepository('ImieNetworkSiteBundle:Groupeutilisateur')->findOneBy(array('idutilisateur' =>$entity));
          $deleteForm = $this->createDeleteForm($id);
-         
-        if(isset($groupeutilisateurentites))
-        {
-            $groupeentities = $em->getRepository('ImieNetworkSiteBundle:Groupe')->find($groupeutilisateurentites->getIdgroupe()->getId());
+         $groupeentities = $em->getRepository('ImieNetworkSiteBundle:Utilisateur')->getGroupeUtilisateur($entity);
             
+          if(isset($groupeentities))
+        {   
             return $this->render('@Administration/Utilisateur\show.html.twig', array(
             'entity'      => $entity,
             'groupeenties' => $groupeentities,
@@ -96,7 +92,7 @@ class UtilisateurController extends Controller {
         $groupe =  $request->request->get('groupeutilisateurchoice');
         
         $groupid =  $em->getRepository('ImieNetworkSiteBundle:Groupe')->find($groupe);
-        var_dump($groupe);
+
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
         
