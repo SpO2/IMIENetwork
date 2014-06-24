@@ -45,4 +45,27 @@ use Doctrine\ORM\Mapping as ORM;
     {
         return $this->libelle;
     }
+
+    /**
+     * Set utilisateur
+     *
+     * @param \ImieNetwork\SiteBundle\Entity\Utilisateur $utilisateur
+     * @return Promotion
+     */
+    public function setUtilisateur(\ImieNetwork\SiteBundle\Entity\Utilisateur $utilisateur = null)
+    {
+        $this->utilisateur = $utilisateur;
+
+        return $this;
+    }
+
+    /**
+     * Get utilisateur
+     *
+     * @return \ImieNetwork\SiteBundle\Entity\Utilisateur 
+     */
+    public function getUtilisateur()
+    {
+        return $this->utilisateur;
+    }
 }

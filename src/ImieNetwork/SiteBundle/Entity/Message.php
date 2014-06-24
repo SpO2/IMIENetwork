@@ -207,4 +207,73 @@ use Doctrine\ORM\Mapping as ORM;
     {
         return $this->evenement;
     }
+
+    /**
+     * Set utilisateur
+     *
+     * @param \ImieNetwork\SiteBundle\Entity\Utilisateur $utilisateur
+     * @return Message
+     */
+    public function setUtilisateur(\ImieNetwork\SiteBundle\Entity\Utilisateur $utilisateur = null)
+    {
+        $this->utilisateur = $utilisateur;
+
+        return $this;
+    }
+
+    /**
+     * Get utilisateur
+     *
+     * @return \ImieNetwork\SiteBundle\Entity\Utilisateur 
+     */
+    public function getUtilisateur()
+    {
+        return $this->utilisateur;
+    }
+
+    /**
+     * Set type_message
+     *
+     * @param \ImieNetwork\SiteBundle\Entity\Typemessage $typeMessage
+     * @return Message
+     */
+    public function setTypeMessage(\ImieNetwork\SiteBundle\Entity\Typemessage $typeMessage = null)
+    {
+        $this->type_message = $typeMessage;
+
+        return $this;
+    }
+
+    /**
+     * Get type_message
+     *
+     * @return \ImieNetwork\SiteBundle\Entity\Typemessage 
+     */
+    public function getTypeMessage()
+    {
+        return $this->type_message;
+    }
+
+    /**
+     * Set conversation
+     *
+     * @param \ImieNetwork\SiteBundle\Entity\Conversation $conversation
+     * @return Message
+     */
+    public function setConversation(\ImieNetwork\SiteBundle\Entity\Conversation $conversation = null)
+    {
+        $this->conversation = $conversation;
+
+        return $this;
+    }
+
+    /**
+     * Get conversation
+     *
+     * @return \ImieNetwork\SiteBundle\Entity\Conversation 
+     */
+    public function getConversation()
+    {
+        return $this->conversation;
+    }
 }

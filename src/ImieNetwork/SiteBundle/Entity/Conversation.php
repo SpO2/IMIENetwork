@@ -162,4 +162,44 @@ use Doctrine\ORM\Mapping as ORM;
     {
         return $this->utilisateur;
     }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->mes_messages = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add mes_messages
+     *
+     * @param \ImieNetwork\SiteBundle\Entity\Message $mesMessages
+     * @return Conversation
+     */
+    public function addMesMessage(\ImieNetwork\SiteBundle\Entity\Message $mesMessages)
+    {
+        $this->mes_messages[] = $mesMessages;
+
+        return $this;
+    }
+
+    /**
+     * Remove mes_messages
+     *
+     * @param \ImieNetwork\SiteBundle\Entity\Message $mesMessages
+     */
+    public function removeMesMessage(\ImieNetwork\SiteBundle\Entity\Message $mesMessages)
+    {
+        $this->mes_messages->removeElement($mesMessages);
+    }
+
+    /**
+     * Get mes_messages
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getMesMessages()
+    {
+        return $this->mes_messages;
+    }
 }

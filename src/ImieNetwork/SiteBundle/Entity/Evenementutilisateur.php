@@ -104,4 +104,27 @@ class  Evenementutilisateur
     {
         return $this->utilisateur;
     }
+
+    /**
+     * Set evenement
+     *
+     * @param \ImieNetwork\SiteBundle\Entity\Evenement $evenement
+     * @return Evenementutilisateur
+     */
+    public function setEvenement(\ImieNetwork\SiteBundle\Entity\Evenement $evenement = null)
+    {
+        $this->evenement = $evenement;
+
+        return $this;
+    }
+
+    /**
+     * Get evenement
+     *
+     * @return \ImieNetwork\SiteBundle\Entity\Evenement 
+     */
+    public function getEvenement()
+    {
+        return $this->evenement;
+    }
 }

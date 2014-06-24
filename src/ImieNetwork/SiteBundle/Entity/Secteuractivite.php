@@ -75,4 +75,27 @@ class  Secteuractivite
     {
         return $this->libelle;
     }
+
+    /**
+     * Set utilisateur
+     *
+     * @param \ImieNetwork\SiteBundle\Entity\Utilisateur $utilisateur
+     * @return Secteuractivite
+     */
+    public function setUtilisateur(\ImieNetwork\SiteBundle\Entity\Utilisateur $utilisateur = null)
+    {
+        $this->utilisateur = $utilisateur;
+
+        return $this;
+    }
+
+    /**
+     * Get utilisateur
+     *
+     * @return \ImieNetwork\SiteBundle\Entity\Utilisateur 
+     */
+    public function getUtilisateur()
+    {
+        return $this->utilisateur;
+    }
 }

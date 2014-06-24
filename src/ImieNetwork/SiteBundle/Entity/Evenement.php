@@ -233,4 +233,90 @@ class  Evenement
     {
         return $this->statut;
     }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->mes_evenements = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Set utilisateurs
+     *
+     * @param \ImieNetwork\SiteBundle\Entity\Utilisateur $utilisateurs
+     * @return Evenement
+     */
+    public function setUtilisateurs(\ImieNetwork\SiteBundle\Entity\Utilisateur $utilisateurs = null)
+    {
+        $this->utilisateurs = $utilisateurs;
+
+        return $this;
+    }
+
+    /**
+     * Get utilisateurs
+     *
+     * @return \ImieNetwork\SiteBundle\Entity\Utilisateur 
+     */
+    public function getUtilisateurs()
+    {
+        return $this->utilisateurs;
+    }
+
+    /**
+     * Set auteur
+     *
+     * @param \ImieNetwork\SiteBundle\Entity\Utilisateur $auteur
+     * @return Evenement
+     */
+    public function setAuteur(\ImieNetwork\SiteBundle\Entity\Utilisateur $auteur = null)
+    {
+        $this->auteur = $auteur;
+
+        return $this;
+    }
+
+    /**
+     * Get auteur
+     *
+     * @return \ImieNetwork\SiteBundle\Entity\Utilisateur 
+     */
+    public function getAuteur()
+    {
+        return $this->auteur;
+    }
+
+    /**
+     * Add mes_evenements
+     *
+     * @param \ImieNetwork\SiteBundle\Entity\EvenementUtilisateur $mesEvenements
+     * @return Evenement
+     */
+    public function addMesEvenement(\ImieNetwork\SiteBundle\Entity\EvenementUtilisateur $mesEvenements)
+    {
+        $this->mes_evenements[] = $mesEvenements;
+
+        return $this;
+    }
+
+    /**
+     * Remove mes_evenements
+     *
+     * @param \ImieNetwork\SiteBundle\Entity\EvenementUtilisateur $mesEvenements
+     */
+    public function removeMesEvenement(\ImieNetwork\SiteBundle\Entity\EvenementUtilisateur $mesEvenements)
+    {
+        $this->mes_evenements->removeElement($mesEvenements);
+    }
+
+    /**
+     * Get mes_evenements
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getMesEvenements()
+    {
+        return $this->mes_evenements;
+    }
 }

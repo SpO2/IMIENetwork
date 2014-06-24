@@ -74,4 +74,44 @@ class  Typemessage
     {
         return $this->libelle;
     }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->mon_type_message = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add mon_type_message
+     *
+     * @param \ImieNetwork\SiteBundle\Entity\Message $monTypeMessage
+     * @return Typemessage
+     */
+    public function addMonTypeMessage(\ImieNetwork\SiteBundle\Entity\Message $monTypeMessage)
+    {
+        $this->mon_type_message[] = $monTypeMessage;
+
+        return $this;
+    }
+
+    /**
+     * Remove mon_type_message
+     *
+     * @param \ImieNetwork\SiteBundle\Entity\Message $monTypeMessage
+     */
+    public function removeMonTypeMessage(\ImieNetwork\SiteBundle\Entity\Message $monTypeMessage)
+    {
+        $this->mon_type_message->removeElement($monTypeMessage);
+    }
+
+    /**
+     * Get mon_type_message
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getMonTypeMessage()
+    {
+        return $this->mon_type_message;
+    }
 }
