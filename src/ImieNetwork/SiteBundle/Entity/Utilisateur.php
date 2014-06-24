@@ -557,8 +557,4 @@ class  Utilisateur extends BaseUser
         return $this->mes_evenements;
     }
     
-    public function __toString() 
-    {
-        return $this->nom;
-    }
 }
