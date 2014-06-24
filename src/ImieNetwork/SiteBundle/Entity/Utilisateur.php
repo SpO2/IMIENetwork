@@ -158,7 +158,6 @@ class  Utilisateur
      */
     private $idville;
 
-
     /**
      * Get id
      *

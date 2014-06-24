@@ -1,0 +1,30 @@
+groupeutilisateur:
+    pattern:  /
+    defaults: { _controller: "ImieNetworkSiteBundle:Groupeutilisateur:index" }
+
+groupeutilisateur_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "ImieNetworkSiteBundle:Groupeutilisateur:show" }
+
+groupeutilisateur_new:
+    pattern:  /new
+    defaults: { _controller: "ImieNetworkSiteBundle:Groupeutilisateur:new" }
+
+groupeutilisateur_create:
+    pattern:  /create
+    defaults: { _controller: "ImieNetworkSiteBundle:Groupeutilisateur:create" }
+    requirements: { _method: post }
+
+groupeutilisateur_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "ImieNetworkSiteBundle:Groupeutilisateur:edit" }
+
+groupeutilisateur_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "ImieNetworkSiteBundle:Groupeutilisateur:update" }
+    requirements: { _method: post|put }
+
+groupeutilisateur_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "ImieNetworkSiteBundle:Groupeutilisateur:delete" }
+    requirements: { _method: post|delete }
