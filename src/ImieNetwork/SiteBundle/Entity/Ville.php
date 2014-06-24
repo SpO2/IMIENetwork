@@ -40,6 +40,7 @@ class  Ville
         return $this->codepostal.' '.$this->libelle;
     }
 
+
     /**
      * Get id
      *
@@ -94,5 +95,10 @@ class  Ville
     public function getCodepostal()
     {
         return $this->codepostal;
+    }
+    
+     public function __toString() 
+    {
+        return $this->libelle;
     }
 }

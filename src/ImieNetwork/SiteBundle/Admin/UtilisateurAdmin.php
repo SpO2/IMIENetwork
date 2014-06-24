@@ -23,10 +23,10 @@ class UtilisateurAdmin extends Admin
             ->add('telephone')
             ->add('statut')
             ->add('login')
-            ->add('pass')
+            ->add('pass', null, array('label' => 'Mot de passe ' , 'required' => false))
             ->add('email')
-            ->add('datecreation')
-            ->add('datemodification')
+            ->add('datecreation', null, array('label' => 'Date de création de l\' utilisateur ' , 'required' => false))
+            ->add('datemodification', null, array('label' => 'Date de modification de l\' utilisateur ' , 'required' => false))
             ->add('langue')
         ;
     }
@@ -44,10 +44,10 @@ class UtilisateurAdmin extends Admin
             ->add('telephone')
             ->add('statut')
             ->add('login')
-            ->add('pass')
+             ->add('pass', null, array('label' => 'Mot de passe ' , 'required' => false))
             ->add('email')
-            ->add('datecreation')
-            ->add('datemodification')
+            ->add('datecreation', null, array('label' => 'Date de création de l\' utilisateur ' , 'required' => false))
+            ->add('datemodification', null, array('label' => 'Date de modification de l\' utilisateur ' , 'required' => false))
             ->add('langue')
             ->add('_action', 'actions', array(
                 'actions' => array(
@@ -65,18 +65,19 @@ class UtilisateurAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('id')
+            ->add('id', 'sonata_type_model_hidden')
             ->add('nom')
             ->add('prenom')
             ->add('adresse')
             ->add('telephone')
             ->add('statut')
             ->add('login')
-            ->add('pass')
+             ->add('pass', null, array('label' => 'Mot de passe ' , 'required' => false))
             ->add('email')
-            ->add('datecreation')
-            ->add('datemodification')
+            //->add('datecreation', null, array('label' => 'Date de création de l\' utilisateur ' , 'required' => false))
+            ->add('datemodification', null, array('label' => 'Date de modification de l\' utilisateur ' , 'required' => false))
             ->add('langue')
+            ->add('idville' )
         ;
     }
 
@@ -93,10 +94,10 @@ class UtilisateurAdmin extends Admin
             ->add('telephone')
             ->add('statut')
             ->add('login')
-            ->add('pass')
+             ->add('pass', null, array('label' => 'Mot de passe ' , 'required' => false))
             ->add('email')
-            ->add('datecreation')
-            ->add('datemodification')
+            ->add('datecreation', null, array('label' => 'Date de création de l\' utilisateur ' , 'required' => false))
+            ->add('datemodification', null, array('label' => 'Date de modification de l\' utilisateur ' , 'required' => false))
             ->add('langue')
         ;
     }

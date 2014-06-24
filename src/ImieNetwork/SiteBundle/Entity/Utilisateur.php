@@ -3,13 +3,14 @@
 namespace ImieNetwork\SiteBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use FOS\UserBundle\Model\User as BaseUser;
 
 /**
  * Utilisateur
  * @ORM\Entity(repositoryClass="ImieNetwork\SiteBundle\Repository\UtilisateurRepository")
  * @ORM\Table()
  */
-class  Utilisateur
+class  Utilisateur extends BaseUser
 {
     /**
      * @var integer
@@ -17,7 +18,7 @@ class  Utilisateur
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
@@ -123,40 +124,13 @@ class  Utilisateur
     {
         return $this->nom.' '.$this->prenom;
     }
-    /**
-     * @var integer
-     */
-    private $statut;
 
-    /**
-     * @var string
-     */
-    private $login;
+    public function __construct()
+    {
+        parent::__construct();
+        // your own logic
+    }
 
-    /**
-     * @var string
-     */
-    private $pass;
-
-    /**
-     * @var string
-     */
-    private $email;
-
-    /**
-     * @var \DateTime
-     */
-    private $datecreation;
-
-    /**
-     * @var \DateTime
-     */
-    private $datemodification;
-
-    /**
-     * @var \ImieNetwork\SiteBundle\Entity\Ville
-     */
-    private $idville;
 
     /**
      * Get id
@@ -261,141 +235,49 @@ class  Utilisateur
     }
 
     /**
-     * Set statut
+     * Set date_creation
      *
-     * @param integer $statut
+     * @param \DateTime $dateCreation
      * @return Utilisateur
      */
-    public function setStatut($statut)
+    public function setDateCreation($dateCreation)
     {
-        $this->statut = $statut;
+        $this->date_creation = $dateCreation;
 
         return $this;
     }
 
     /**
-     * Get statut
-     *
-     * @return integer 
-     */
-    public function getStatut()
-    {
-        return $this->statut;
-    }
-
-    /**
-     * Set login
-     *
-     * @param string $login
-     * @return Utilisateur
-     */
-    public function setLogin($login)
-    {
-        $this->login = $login;
-
-        return $this;
-    }
-
-    /**
-     * Get login
-     *
-     * @return string 
-     */
-    public function getLogin()
-    {
-        return $this->login;
-    }
-
-    /**
-     * Set pass
-     *
-     * @param string $pass
-     * @return Utilisateur
-     */
-    public function setPass($pass)
-    {
-        $this->pass = $pass;
-
-        return $this;
-    }
-
-    /**
-     * Get pass
-     *
-     * @return string 
-     */
-    public function getPass()
-    {
-        return $this->pass;
-    }
-
-    /**
-     * Set email
-     *
-     * @param string $email
-     * @return Utilisateur
-     */
-    public function setEmail($email)
-    {
-        $this->email = $email;
-
-        return $this;
-    }
-
-    /**
-     * Get email
-     *
-     * @return string 
-     */
-    public function getEmail()
-    {
-        return $this->email;
-    }
-
-    /**
-     * Set datecreation
-     *
-     * @param \DateTime $datecreation
-     * @return Utilisateur
-     */
-    public function setDatecreation($datecreation)
-    {
-        $this->datecreation = $datecreation;
-
-        return $this;
-    }
-
-    /**
-     * Get datecreation
+     * Get date_creation
      *
      * @return \DateTime 
      */
-    public function getDatecreation()
+    public function getDateCreation()
     {
-        return $this->datecreation;
+        return $this->date_creation;
     }
 
     /**
-     * Set datemodification
+     * Set date_modification
      *
-     * @param \DateTime $datemodification
+     * @param \DateTime $dateModification
      * @return Utilisateur
      */
-    public function setDatemodification($datemodification)
+    public function setDateModification($dateModification)
     {
-        $this->datemodification = $datemodification;
+        $this->date_modification = $dateModification;
 
         return $this;
     }
 
     /**
-     * Get datemodification
+     * Get date_modification
      *
      * @return \DateTime 
      */
-    public function getDatemodification()
+    public function getDateModification()
     {
-        return $this->datemodification;
+        return $this->date_modification;
     }
 
     /**
@@ -422,25 +304,261 @@ class  Utilisateur
     }
 
     /**
-     * Set idville
+     * Set ville
      *
-     * @param \ImieNetwork\SiteBundle\Entity\Ville $idville
+     * @param \ImieNetwork\SiteBundle\Entity\Ville $ville
      * @return Utilisateur
      */
-    public function setIdville(\ImieNetwork\SiteBundle\Entity\Ville $idville = null)
+    public function setVille(\ImieNetwork\SiteBundle\Entity\Ville $ville = null)
     {
-        $this->idville = $idville;
+        $this->ville = $ville;
 
         return $this;
     }
 
     /**
-     * Get idville
+     * Get ville
      *
      * @return \ImieNetwork\SiteBundle\Entity\Ville 
      */
-    public function getIdville()
+    public function getVille()
     {
-        return $this->idville;
+        return $this->ville;
+    }
+
+    /**
+     * Add groupes
+     *
+     * @param \ImieNetwork\SiteBundle\Entity\Groupe $groupes
+     * @return Utilisateur
+     */
+    public function addGroupe(\ImieNetwork\SiteBundle\Entity\Groupe $groupes)
+    {
+        $this->groupes[] = $groupes;
+
+        return $this;
+    }
+
+    /**
+     * Remove groupes
+     *
+     * @param \ImieNetwork\SiteBundle\Entity\Groupe $groupes
+     */
+    public function removeGroupe(\ImieNetwork\SiteBundle\Entity\Groupe $groupes)
+    {
+        $this->groupes->removeElement($groupes);
+    }
+
+    /**
+     * Get groupes
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getGroupes()
+    {
+        return $this->groupes;
+    }
+
+    /**
+     * Add mes_competences
+     *
+     * @param \ImieNetwork\SiteBundle\Entity\Utilisateurcompetence $mesCompetences
+     * @return Utilisateur
+     */
+    public function addMesCompetence(\ImieNetwork\SiteBundle\Entity\Utilisateurcompetence $mesCompetences)
+    {
+        $this->mes_competences[] = $mesCompetences;
+
+        return $this;
+    }
+
+    /**
+     * Remove mes_competences
+     *
+     * @param \ImieNetwork\SiteBundle\Entity\Utilisateurcompetence $mesCompetences
+     */
+    public function removeMesCompetence(\ImieNetwork\SiteBundle\Entity\Utilisateurcompetence $mesCompetences)
+    {
+        $this->mes_competences->removeElement($mesCompetences);
+    }
+
+    /**
+     * Get mes_competences
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getMesCompetences()
+    {
+        return $this->mes_competences;
+    }
+
+    /**
+     * Add mes_experiences
+     *
+     * @param \ImieNetwork\SiteBundle\Entity\Experience $mesExperiences
+     * @return Utilisateur
+     */
+    public function addMesExperience(\ImieNetwork\SiteBundle\Entity\Experience $mesExperiences)
+    {
+        $this->mes_experiences[] = $mesExperiences;
+
+        return $this;
+    }
+
+    /**
+     * Remove mes_experiences
+     *
+     * @param \ImieNetwork\SiteBundle\Entity\Experience $mesExperiences
+     */
+    public function removeMesExperience(\ImieNetwork\SiteBundle\Entity\Experience $mesExperiences)
+    {
+        $this->mes_experiences->removeElement($mesExperiences);
+    }
+
+    /**
+     * Get mes_experiences
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getMesExperiences()
+    {
+        return $this->mes_experiences;
+    }
+
+    /**
+     * Add utilisateur_proprietes
+     *
+     * @param \ImieNetwork\SiteBundle\Entity\Utilisateurpropriete $utilisateurProprietes
+     * @return Utilisateur
+     */
+    public function addUtilisateurPropriete(\ImieNetwork\SiteBundle\Entity\Utilisateurpropriete $utilisateurProprietes)
+    {
+        $this->utilisateur_proprietes[] = $utilisateurProprietes;
+
+        return $this;
+    }
+
+    /**
+     * Remove utilisateur_proprietes
+     *
+     * @param \ImieNetwork\SiteBundle\Entity\Utilisateurpropriete $utilisateurProprietes
+     */
+    public function removeUtilisateurPropriete(\ImieNetwork\SiteBundle\Entity\Utilisateurpropriete $utilisateurProprietes)
+    {
+        $this->utilisateur_proprietes->removeElement($utilisateurProprietes);
+    }
+
+    /**
+     * Get utilisateur_proprietes
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getUtilisateurProprietes()
+    {
+        return $this->utilisateur_proprietes;
+    }
+
+    /**
+     * Add mes_documents
+     *
+     * @param \ImieNetwork\SiteBundle\Entity\Document $mesDocuments
+     * @return Utilisateur
+     */
+    public function addMesDocument(\ImieNetwork\SiteBundle\Entity\Document $mesDocuments)
+    {
+        $this->mes_documents[] = $mesDocuments;
+
+        return $this;
+    }
+
+    /**
+     * Remove mes_documents
+     *
+     * @param \ImieNetwork\SiteBundle\Entity\Document $mesDocuments
+     */
+    public function removeMesDocument(\ImieNetwork\SiteBundle\Entity\Document $mesDocuments)
+    {
+        $this->mes_documents->removeElement($mesDocuments);
+    }
+
+    /**
+     * Get mes_documents
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getMesDocuments()
+    {
+        return $this->mes_documents;
+    }
+
+    /**
+     * Add mes_conversations
+     *
+     * @param \ImieNetwork\SiteBundle\Entity\Conversation $mesConversations
+     * @return Utilisateur
+     */
+    public function addMesConversation(\ImieNetwork\SiteBundle\Entity\Conversation $mesConversations)
+    {
+        $this->mes_conversations[] = $mesConversations;
+
+        return $this;
+    }
+
+    /**
+     * Remove mes_conversations
+     *
+     * @param \ImieNetwork\SiteBundle\Entity\Conversation $mesConversations
+     */
+    public function removeMesConversation(\ImieNetwork\SiteBundle\Entity\Conversation $mesConversations)
+    {
+        $this->mes_conversations->removeElement($mesConversations);
+    }
+
+    /**
+     * Get mes_conversations
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getMesConversations()
+    {
+        return $this->mes_conversations;
+    }
+
+    /**
+     * Add mes_evenements
+     *
+     * @param \ImieNetwork\SiteBundle\Entity\Evenementutilisateur $mesEvenements
+     * @return Utilisateur
+     */
+    public function addMesEvenement(\ImieNetwork\SiteBundle\Entity\Evenementutilisateur $mesEvenements)
+    {
+        $this->mes_evenements[] = $mesEvenements;
+
+        return $this;
+    }
+
+    /**
+     * Remove mes_evenements
+     *
+     * @param \ImieNetwork\SiteBundle\Entity\Evenementutilisateur $mesEvenements
+     */
+    public function removeMesEvenement(\ImieNetwork\SiteBundle\Entity\Evenementutilisateur $mesEvenements)
+    {
+        $this->mes_evenements->removeElement($mesEvenements);
+    }
+
+    /**
+     * Get mes_evenements
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getMesEvenements()
+    {
+        return $this->mes_evenements;
+    }
+    
+    public function __toString() 
+    {
+        return $this->nom;
     }
 }

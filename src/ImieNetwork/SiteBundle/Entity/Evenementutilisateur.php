@@ -38,16 +38,6 @@ class  Evenementutilisateur
      */
     private $evenement;
 
-    /**
-     * @var \ImieNetwork\SiteBundle\Entity\Utilisateur
-     */
-    private $idutilisateur;
-
-    /**
-     * @var \ImieNetwork\SiteBundle\Entity\Evenement
-     */
-    private $idevenement;
-
 
     /**
      * Get id
@@ -83,48 +73,25 @@ class  Evenementutilisateur
     }
 
     /**
-     * Set idutilisateur
+     * Set utilisateur
      *
-     * @param \ImieNetwork\SiteBundle\Entity\Utilisateur $idutilisateur
+     * @param \ImieNetwork\SiteBundle\Entity\Utilisateur $utilisateur
      * @return Evenementutilisateur
      */
-    public function setIdutilisateur(\ImieNetwork\SiteBundle\Entity\Utilisateur $idutilisateur = null)
+    public function setUtilisateur(\ImieNetwork\SiteBundle\Entity\Utilisateur $utilisateur = null)
     {
-        $this->idutilisateur = $idutilisateur;
+        $this->utilisateur = $utilisateur;
 
         return $this;
     }
 
     /**
-     * Get idutilisateur
+     * Get utilisateur
      *
      * @return \ImieNetwork\SiteBundle\Entity\Utilisateur 
      */
-    public function getIdutilisateur()
+    public function getUtilisateur()
     {
-        return $this->idutilisateur;
-    }
-
-    /**
-     * Set idevenement
-     *
-     * @param \ImieNetwork\SiteBundle\Entity\Evenement $idevenement
-     * @return Evenementutilisateur
-     */
-    public function setIdevenement(\ImieNetwork\SiteBundle\Entity\Evenement $idevenement = null)
-    {
-        $this->idevenement = $idevenement;
-
-        return $this;
-    }
-
-    /**
-     * Get idevenement
-     *
-     * @return \ImieNetwork\SiteBundle\Entity\Evenement 
-     */
-    public function getIdevenement()
-    {
-        return $this->idevenement;
+        return $this->utilisateur;
     }
 }

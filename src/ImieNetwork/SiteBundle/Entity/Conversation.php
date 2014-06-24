@@ -53,16 +53,6 @@ use Doctrine\ORM\Mapping as ORM;
         return $this->titre;
     }
 
-    /**
-     * @var \DateTime
-     */
-    private $dateconv;
-
-    /**
-     * @var \ImieNetwork\SiteBundle\Entity\Utilisateur
-     */
-    private $idutilisateur;
-
 
     /**
      * Get id
@@ -121,48 +111,48 @@ use Doctrine\ORM\Mapping as ORM;
     }
 
     /**
-     * Set dateconv
+     * Set date_modification
      *
-     * @param \DateTime $dateconv
+     * @param \DateTime $dateModification
      * @return Conversation
      */
-    public function setDateconv($dateconv)
+    public function setDateModification($dateModification)
     {
-        $this->dateconv = $dateconv;
+        $this->date_modification = $dateModification;
 
         return $this;
     }
 
     /**
-     * Get dateconv
+     * Get date_modification
      *
      * @return \DateTime 
      */
-    public function getDateconv()
+    public function getDateModification()
     {
-        return $this->dateconv;
+        return $this->date_modification;
     }
 
     /**
-     * Set idutilisateur
+     * Set utilisateur
      *
-     * @param \ImieNetwork\SiteBundle\Entity\Utilisateur $idutilisateur
+     * @param \ImieNetwork\SiteBundle\Entity\Utilisateur $utilisateur
      * @return Conversation
      */
-    public function setIdutilisateur(\ImieNetwork\SiteBundle\Entity\Utilisateur $idutilisateur = null)
+    public function setUtilisateur(\ImieNetwork\SiteBundle\Entity\Utilisateur $utilisateur = null)
     {
-        $this->idutilisateur = $idutilisateur;
+        $this->utilisateur = $utilisateur;
 
         return $this;
     }
 
     /**
-     * Get idutilisateur
+     * Get utilisateur
      *
      * @return \ImieNetwork\SiteBundle\Entity\Utilisateur 
      */
-    public function getIdutilisateur()
+    public function getUtilisateur()
     {
-        return $this->idutilisateur;
+        return $this->utilisateur;
     }
 }

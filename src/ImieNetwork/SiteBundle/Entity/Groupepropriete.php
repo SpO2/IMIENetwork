@@ -23,14 +23,14 @@ class  Groupepropriete
     /**
      * @var string
      * 
-     * @Column(type="string",length=255, nullable=false)
+     * @ORM\Column(type="string",length=255, nullable=false)
      */
     private $valeur;
 
     /**
      * @var \ImieNetwork\SiteBundle\Entity\Groupe
      * 
-     * @ManyToOne(targetEntity="Groupe", inversedBy="proprietes_groupe")
+     * @ORM\ManyToOne(targetEntity="Groupe", inversedBy="proprietes_groupe")
      */
     private $groupe;
 
@@ -40,17 +40,6 @@ class  Groupepropriete
      *  @ORM\ManyToOne(targetEntity="Proprieteetendue")
      */
     private $propriete;
-
-   
-    /**
-     * @var \ImieNetwork\SiteBundle\Entity\Groupe
-     */
-    private $idgroupe;
-
-    /**
-     * @var \ImieNetwork\SiteBundle\Entity\Proprieteetendue
-     */
-    private $idpropriete;
 
 
     /**
@@ -66,7 +55,7 @@ class  Groupepropriete
     /**
      * Set valeur
      *
-     * @param integer $valeur
+     * @param string $valeur
      * @return Groupepropriete
      */
     public function setValeur($valeur)
@@ -79,7 +68,7 @@ class  Groupepropriete
     /**
      * Get valeur
      *
-     * @return integer 
+     * @return string 
      */
     public function getValeur()
     {
@@ -87,48 +76,48 @@ class  Groupepropriete
     }
 
     /**
-     * Set idgroupe
+     * Set groupe
      *
-     * @param \ImieNetwork\SiteBundle\Entity\Groupe $idgroupe
+     * @param \ImieNetwork\SiteBundle\Entity\Groupe $groupe
      * @return Groupepropriete
      */
-    public function setIdgroupe(\ImieNetwork\SiteBundle\Entity\Groupe $idgroupe = null)
+    public function setGroupe(\ImieNetwork\SiteBundle\Entity\Groupe $groupe = null)
     {
-        $this->idgroupe = $idgroupe;
+        $this->groupe = $groupe;
 
         return $this;
     }
 
     /**
-     * Get idgroupe
+     * Get groupe
      *
      * @return \ImieNetwork\SiteBundle\Entity\Groupe 
      */
-    public function getIdgroupe()
+    public function getGroupe()
     {
-        return $this->idgroupe;
+        return $this->groupe;
     }
 
     /**
-     * Set idpropriete
+     * Set propriete
      *
-     * @param \ImieNetwork\SiteBundle\Entity\Proprieteetendue $idpropriete
+     * @param \ImieNetwork\SiteBundle\Entity\Proprieteetendue $propriete
      * @return Groupepropriete
      */
-    public function setIdpropriete(\ImieNetwork\SiteBundle\Entity\Proprieteetendue $idpropriete = null)
+    public function setPropriete(\ImieNetwork\SiteBundle\Entity\Proprieteetendue $propriete = null)
     {
-        $this->idpropriete = $idpropriete;
+        $this->propriete = $propriete;
 
         return $this;
     }
 
     /**
-     * Get idpropriete
+     * Get propriete
      *
      * @return \ImieNetwork\SiteBundle\Entity\Proprieteetendue 
      */
-    public function getIdpropriete()
+    public function getPropriete()
     {
-        return $this->idpropriete;
+        return $this->propriete;
     }
 }

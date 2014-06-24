@@ -47,15 +47,6 @@ class  Utilisateurcompetence
     {
         return $this->note;
     }
-    /**
-     * @var \ImieNetwork\SiteBundle\Entity\Utilisateur
-     */
-    private $idutilisateur;
-
-    /**
-     * @var \ImieNetwork\SiteBundle\Entity\Competence
-     */
-    private $idcompetence;
 
 
     /**
@@ -92,48 +83,48 @@ class  Utilisateurcompetence
     }
 
     /**
-     * Set idutilisateur
+     * Set utilisateur
      *
-     * @param \ImieNetwork\SiteBundle\Entity\Utilisateur $idutilisateur
+     * @param \ImieNetwork\SiteBundle\Entity\Utilisateur $utilisateur
      * @return Utilisateurcompetence
      */
-    public function setIdutilisateur(\ImieNetwork\SiteBundle\Entity\Utilisateur $idutilisateur = null)
+    public function setUtilisateur(\ImieNetwork\SiteBundle\Entity\Utilisateur $utilisateur = null)
     {
-        $this->idutilisateur = $idutilisateur;
+        $this->utilisateur = $utilisateur;
 
         return $this;
     }
 
     /**
-     * Get idutilisateur
+     * Get utilisateur
      *
      * @return \ImieNetwork\SiteBundle\Entity\Utilisateur 
      */
-    public function getIdutilisateur()
+    public function getUtilisateur()
     {
-        return $this->idutilisateur;
+        return $this->utilisateur;
     }
 
     /**
-     * Set idcompetence
+     * Set competence
      *
-     * @param \ImieNetwork\SiteBundle\Entity\Competence $idcompetence
+     * @param \ImieNetwork\SiteBundle\Entity\Competence $competence
      * @return Utilisateurcompetence
      */
-    public function setIdcompetence(\ImieNetwork\SiteBundle\Entity\Competence $idcompetence = null)
+    public function setCompetence(\ImieNetwork\SiteBundle\Entity\Competence $competence = null)
     {
-        $this->idcompetence = $idcompetence;
+        $this->competence = $competence;
 
         return $this;
     }
 
     /**
-     * Get idcompetence
+     * Get competence
      *
      * @return \ImieNetwork\SiteBundle\Entity\Competence 
      */
-    public function getIdcompetence()
+    public function getCompetence()
     {
-        return $this->idcompetence;
+        return $this->competence;
     }
 }

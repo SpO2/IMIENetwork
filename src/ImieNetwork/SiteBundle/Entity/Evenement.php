@@ -73,11 +73,6 @@ class  Evenement
     {
         return $this->libelle;
     }
-    
-    /**
-     * @var \ImieNetwork\SiteBundle\Entity\Utilisateur
-     */
-    private $idutilisateur;
 
 
     /**
@@ -226,28 +221,5 @@ class  Evenement
     public function getStatut()
     {
         return $this->statut;
-    }
-
-    /**
-     * Set idutilisateur
-     *
-     * @param \ImieNetwork\SiteBundle\Entity\Utilisateur $idutilisateur
-     * @return Evenement
-     */
-    public function setIdutilisateur(\ImieNetwork\SiteBundle\Entity\Utilisateur $idutilisateur = null)
-    {
-        $this->idutilisateur = $idutilisateur;
-
-        return $this;
-    }
-
-    /**
-     * Get idutilisateur
-     *
-     * @return \ImieNetwork\SiteBundle\Entity\Utilisateur 
-     */
-    public function getIdutilisateur()
-    {
-        return $this->idutilisateur;
     }
 }

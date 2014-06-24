@@ -8,7 +8,7 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
 
-class GroupeAdmin extends Admin
+class PromotionAdmin extends Admin
 {
     /**
      * @param DatagridMapper $datagridMapper
@@ -18,6 +18,8 @@ class GroupeAdmin extends Admin
         $datagridMapper
             ->add('id')
             ->add('libelle')
+            ->add('annee','date')
+            ->add('email','email')
         ;
     }
 
@@ -29,6 +31,8 @@ class GroupeAdmin extends Admin
         $listMapper
             ->add('id')
             ->add('libelle')
+            ->add('annee','date')
+            ->add('email','email')
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),
@@ -45,8 +49,10 @@ class GroupeAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('id', 'sonata_type_model_hidden')
+            ->add('id','sonata_type_model_hidden')
             ->add('libelle')
+            ->add('annee','date')
+            ->add('email','email')
         ;
     }
 
@@ -58,6 +64,8 @@ class GroupeAdmin extends Admin
         $showMapper
             ->add('id')
             ->add('libelle')
+            ->add('annee','date')
+            ->add('email','email')
         ;
     }
 }

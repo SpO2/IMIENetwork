@@ -13,7 +13,7 @@ class  Proprieteetendue
     /**
      * @var integer
      * 
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
@@ -25,7 +25,6 @@ class  Proprieteetendue
      * @ORM\Column(type="string", length=255, nullable=false)
      */
     private $libelle;
-
 
 
     /**

@@ -8,7 +8,7 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
 
-class GroupeAdmin extends Admin
+class ConversationAdmin extends Admin
 {
     /**
      * @param DatagridMapper $datagridMapper
@@ -17,7 +17,9 @@ class GroupeAdmin extends Admin
     {
         $datagridMapper
             ->add('id')
-            ->add('libelle')
+            ->add('titre')
+            ->add('contenu')
+            ->add('dateconv', null, array('label' => 'Date de début de la conversation : ', 'required' => false))
         ;
     }
 
@@ -28,7 +30,9 @@ class GroupeAdmin extends Admin
     {
         $listMapper
             ->add('id')
-            ->add('libelle')
+            ->add('titre')
+            ->add('contenu')
+            ->add('dateconv', null, array('label' => 'Date de début de la conversation : ', 'required' => false))
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),
@@ -46,7 +50,9 @@ class GroupeAdmin extends Admin
     {
         $formMapper
             ->add('id', 'sonata_type_model_hidden')
-            ->add('libelle')
+            ->add('titre')
+            ->add('contenu')
+            //->add('dateconv')
         ;
     }
 
@@ -57,7 +63,9 @@ class GroupeAdmin extends Admin
     {
         $showMapper
             ->add('id')
-            ->add('libelle')
+            ->add('titre')
+            ->add('contenu')
+            ->add('dateconv', null, array('label' => 'Date de début de la conversation : ', 'required' => false))
         ;
     }
 }

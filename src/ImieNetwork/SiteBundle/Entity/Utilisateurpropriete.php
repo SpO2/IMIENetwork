@@ -28,7 +28,7 @@ class  Utilisateurpropriete
     /**
      * @var \ImieNetwork\SiteBundle\Entity\Utilisateur
      * 
-     * @ManyToOne(targetEntity="Utilisateur", inversedBy="utilisateur_propriete")
+     * @ORM\ManyToOne(targetEntity="Utilisateur", inversedBy="utilisateur_propriete")
      */
     private $utilisateur;
 
@@ -38,15 +38,6 @@ class  Utilisateurpropriete
      *  @ORM\ManyToOne(targetEntity="Proprieteetendue")
      */
     private $propriete_etendue;
-    /**
-     * @var \ImieNetwork\SiteBundle\Entity\Utilisateur
-     */
-    private $idutilisateur;
-
-    /**
-     * @var \ImieNetwork\SiteBundle\Entity\Proprieteetendue
-     */
-    private $idpropriete;
 
 
     /**
@@ -83,48 +74,48 @@ class  Utilisateurpropriete
     }
 
     /**
-     * Set idutilisateur
+     * Set utilisateur
      *
-     * @param \ImieNetwork\SiteBundle\Entity\Utilisateur $idutilisateur
+     * @param \ImieNetwork\SiteBundle\Entity\Utilisateur $utilisateur
      * @return Utilisateurpropriete
      */
-    public function setIdutilisateur(\ImieNetwork\SiteBundle\Entity\Utilisateur $idutilisateur = null)
+    public function setUtilisateur(\ImieNetwork\SiteBundle\Entity\Utilisateur $utilisateur = null)
     {
-        $this->idutilisateur = $idutilisateur;
+        $this->utilisateur = $utilisateur;
 
         return $this;
     }
 
     /**
-     * Get idutilisateur
+     * Get utilisateur
      *
      * @return \ImieNetwork\SiteBundle\Entity\Utilisateur 
      */
-    public function getIdutilisateur()
+    public function getUtilisateur()
     {
-        return $this->idutilisateur;
+        return $this->utilisateur;
     }
 
     /**
-     * Set idpropriete
+     * Set propriete_etendue
      *
-     * @param \ImieNetwork\SiteBundle\Entity\Proprieteetendue $idpropriete
+     * @param \ImieNetwork\SiteBundle\Entity\Proprieteetendue $proprieteEtendue
      * @return Utilisateurpropriete
      */
-    public function setIdpropriete(\ImieNetwork\SiteBundle\Entity\Proprieteetendue $idpropriete = null)
+    public function setProprieteEtendue(\ImieNetwork\SiteBundle\Entity\Proprieteetendue $proprieteEtendue = null)
     {
-        $this->idpropriete = $idpropriete;
+        $this->propriete_etendue = $proprieteEtendue;
 
         return $this;
     }
 
     /**
-     * Get idpropriete
+     * Get propriete_etendue
      *
      * @return \ImieNetwork\SiteBundle\Entity\Proprieteetendue 
      */
-    public function getIdpropriete()
+    public function getProprieteEtendue()
     {
-        return $this->idpropriete;
+        return $this->propriete_etendue;
     }
 }

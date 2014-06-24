@@ -75,21 +75,6 @@ use Doctrine\ORM\Mapping as ORM;
     {
         return $this->contenu;
     }
-    
-    /**
-     * @var \ImieNetwork\SiteBundle\Entity\Utilisateur
-     */
-    private $idutilisateur;
-
-    /**
-     * @var \ImieNetwork\SiteBundle\Entity\Typemessage
-     */
-    private $idtypemessage;
-
-    /**
-     * @var \ImieNetwork\SiteBundle\Entity\Conversation
-     */
-    private $idconversation;
 
 
     /**
@@ -149,71 +134,71 @@ use Doctrine\ORM\Mapping as ORM;
     }
 
     /**
-     * Set idutilisateur
+     * Set url
      *
-     * @param \ImieNetwork\SiteBundle\Entity\Utilisateur $idutilisateur
+     * @param string $url
      * @return Message
      */
-    public function setIdutilisateur(\ImieNetwork\SiteBundle\Entity\Utilisateur $idutilisateur = null)
+    public function setUrl($url)
     {
-        $this->idutilisateur = $idutilisateur;
+        $this->url = $url;
 
         return $this;
     }
 
     /**
-     * Get idutilisateur
+     * Get url
+     *
+     * @return string 
+     */
+    public function getUrl()
+    {
+        return $this->url;
+    }
+
+    /**
+     * Set type
+     *
+     * @param string $type
+     * @return Message
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * Get type
+     *
+     * @return string 
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * Set evenement
+     *
+     * @param \ImieNetwork\SiteBundle\Entity\Utilisateur $evenement
+     * @return Message
+     */
+    public function setEvenement(\ImieNetwork\SiteBundle\Entity\Utilisateur $evenement = null)
+    {
+        $this->evenement = $evenement;
+
+        return $this;
+    }
+
+    /**
+     * Get evenement
      *
      * @return \ImieNetwork\SiteBundle\Entity\Utilisateur 
      */
-    public function getIdutilisateur()
+    public function getEvenement()
     {
-        return $this->idutilisateur;
-    }
-
-    /**
-     * Set idtypemessage
-     *
-     * @param \ImieNetwork\SiteBundle\Entity\Typemessage $idtypemessage
-     * @return Message
-     */
-    public function setIdtypemessage(\ImieNetwork\SiteBundle\Entity\Typemessage $idtypemessage = null)
-    {
-        $this->idtypemessage = $idtypemessage;
-
-        return $this;
-    }
-
-    /**
-     * Get idtypemessage
-     *
-     * @return \ImieNetwork\SiteBundle\Entity\Typemessage 
-     */
-    public function getIdtypemessage()
-    {
-        return $this->idtypemessage;
-    }
-
-    /**
-     * Set idconversation
-     *
-     * @param \ImieNetwork\SiteBundle\Entity\Conversation $idconversation
-     * @return Message
-     */
-    public function setIdconversation(\ImieNetwork\SiteBundle\Entity\Conversation $idconversation = null)
-    {
-        $this->idconversation = $idconversation;
-
-        return $this;
-    }
-
-    /**
-     * Get idconversation
-     *
-     * @return \ImieNetwork\SiteBundle\Entity\Conversation 
-     */
-    public function getIdconversation()
-    {
-        return $this->idconversation;
+        return $this->evenement;
     }
 }

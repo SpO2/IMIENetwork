@@ -59,21 +59,6 @@ class  Experience
         return $this->libelle;
     }
 
-    /**
-     * @var \DateTime
-     */
-    private $datedebut;
-
-    /**
-     * @var \DateTime
-     */
-    private $datefin;
-
-    /**
-     * @var \ImieNetwork\SiteBundle\Entity\Utilisateur
-     */
-    private $idutilisateur;
-
 
     /**
      * Get id
@@ -109,49 +94,49 @@ class  Experience
     }
 
     /**
-     * Set datedebut
+     * Set date_debut
      *
-     * @param \DateTime $datedebut
+     * @param \DateTime $dateDebut
      * @return Experience
      */
-    public function setDatedebut($datedebut)
+    public function setDateDebut($dateDebut)
     {
-        $this->datedebut = $datedebut;
+        $this->date_debut = $dateDebut;
 
         return $this;
     }
 
     /**
-     * Get datedebut
+     * Get date_debut
      *
      * @return \DateTime 
      */
-    public function getDatedebut()
+    public function getDateDebut()
     {
-        return $this->datedebut;
+        return $this->date_debut;
     }
 
     /**
-     * Set datefin
+     * Set date_fin
      *
-     * @param \DateTime $datefin
+     * @param \DateTime $dateFin
      * @return Experience
      */
-    public function setDatefin($datefin)
+    public function setDateFin($dateFin)
     {
-        $this->datefin = $datefin;
+        $this->date_fin = $dateFin;
 
         return $this;
     }
 
     /**
-     * Get datefin
+     * Get date_fin
      *
      * @return \DateTime 
      */
-    public function getDatefin()
+    public function getDateFin()
     {
-        return $this->datefin;
+        return $this->date_fin;
     }
 
     /**
@@ -178,25 +163,25 @@ class  Experience
     }
 
     /**
-     * Set idutilisateur
+     * Set utilisateur
      *
-     * @param \ImieNetwork\SiteBundle\Entity\Utilisateur $idutilisateur
+     * @param \ImieNetwork\SiteBundle\Entity\Utilisateur $utilisateur
      * @return Experience
      */
-    public function setIdutilisateur(\ImieNetwork\SiteBundle\Entity\Utilisateur $idutilisateur = null)
+    public function setUtilisateur(\ImieNetwork\SiteBundle\Entity\Utilisateur $utilisateur = null)
     {
-        $this->idutilisateur = $idutilisateur;
+        $this->utilisateur = $utilisateur;
 
         return $this;
     }
 
     /**
-     * Get idutilisateur
+     * Get utilisateur
      *
      * @return \ImieNetwork\SiteBundle\Entity\Utilisateur 
      */
-    public function getIdutilisateur()
+    public function getUtilisateur()
     {
-        return $this->idutilisateur;
+        return $this->utilisateur;
     }
 }
