@@ -8,7 +8,8 @@ use Doctrine\ORM\Mapping as ORM;
  * Utilisateur
  * @ORM\Entity(repositoryClass="ImieNetwork\SiteBundle\Repository\UtilisateurRepository")
  * @ORM\Table()
- */class  Utilisateur
+ */
+class  Utilisateur
 {
     /**
      * @var integer
@@ -79,6 +80,41 @@ use Doctrine\ORM\Mapping as ORM;
      */
     private $mes_competences;
     
+    /**
+     *
+     * @var \ImieNetwork\SiteBundle\Entity\Experience
+     * @ORM\OneToMany(targetEntity="Experience", mappedBy="experience")
+     */
+    private $mes_experiences;
+   
+    /**
+     *
+     * @var \ImieNetwork\SiteBundle\Entity\Utilisateurpropriete
+     * @ORM\OneToMany(targetEntity="Utilisateurpropriete", mappedBy="utilisateur")
+     */
+    private $utilisateur_proprietes;
+    
+    /**
+     *
+     * @var \ImieNetwork\SiteBundel\Entity\Document
+     * @ORM\OneToMany(targetEntity="Document", mappedBy="utilisateur") 
+     */
+    private $mes_documents;
+    
+    /**
+     *
+     * @var \ImieNetwork\SiteBundle\Entity\Conversion
+     * @ORM\OneToMany(targetEntity="Conversation", mappedBy="utilisateur")
+     */
+    private $mes_conversations;
+    
+    /**
+     *
+     * @var \ImieNetwork\SiteBundle\Entity\Evenementutilisateur
+     * @ORM\OneToMany(targetEntity="Evenementutilisateur", mappedBy="utilisateur")
+     */
+    private $mes_evenements;
+            
     /**
      * 
      * @return nom prenom

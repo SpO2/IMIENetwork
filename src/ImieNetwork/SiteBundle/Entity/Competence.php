@@ -9,8 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity(repositoryClass="ImieNetwork\SiteBundle\Repository\CompetenceRepository")
  * @ORM\Table()
  **/
- 
- class  Competence
+class  Competence
 {
     /**
      * @var integer

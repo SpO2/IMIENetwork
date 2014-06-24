@@ -6,11 +6,16 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Utilisateurpromotion
- *@ORM\Entity(repositoryClass="ImieNetwork\SiteBundle\Repository\UtilisateurpromotionRepository") 
- */class  Utilisateurpromotion
+ * @ORM\Entity(repositoryClass="ImieNetwork\SiteBundle\Repository\UtilisateurpromotionRepository")
+ * @ORM\Table() 
+ */
+class  Utilisateurpromotion
 {
     /**
      * @var integer
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
@@ -24,60 +29,4 @@ use Doctrine\ORM\Mapping as ORM;
      */
     private $idpromotion;
 
-
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * Set idutilisateur
-     *
-     * @param \ImieNetwork\SiteBundle\Entity\Utilisateur $idutilisateur
-     * @return Utilisateurpromotion
-     */
-    public function setIdutilisateur(\ImieNetwork\SiteBundle\Entity\Utilisateur $idutilisateur = null)
-    {
-        $this->idutilisateur = $idutilisateur;
-
-        return $this;
-    }
-
-    /**
-     * Get idutilisateur
-     *
-     * @return \ImieNetwork\SiteBundle\Entity\Utilisateur 
-     */
-    public function getIdutilisateur()
-    {
-        return $this->idutilisateur;
-    }
-
-    /**
-     * Set idpromotion
-     *
-     * @param \ImieNetwork\SiteBundle\Entity\Promotion $idpromotion
-     * @return Utilisateurpromotion
-     */
-    public function setIdpromotion(\ImieNetwork\SiteBundle\Entity\Promotion $idpromotion = null)
-    {
-        $this->idpromotion = $idpromotion;
-
-        return $this;
-    }
-
-    /**
-     * Get idpromotion
-     *
-     * @return \ImieNetwork\SiteBundle\Entity\Promotion 
-     */
-    public function getIdpromotion()
-    {
-        return $this->idpromotion;
-    }
 }
