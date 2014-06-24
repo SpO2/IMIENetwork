@@ -6,24 +6,52 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Conversation
- *@ORM\Entity(repositoryClass="ImieNetwork\SiteBundle\Repository\ConversationRepository") 
+ * @ORM\Entity(repositoryClass="ImieNetwork\SiteBundle\Repository\ConversationRepository")
+ * @ORM\Table()
  */
  class  Conversation
 {
     /**
      * @var integer
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
     /**
      * @var string
+     * @ORM\Column(type="string")
      */
     private $titre;
 
     /**
      * @var string
+     * @ORM\Column(type="string")
      */
     private $contenu;
+
+    /**
+     * @var \DateTime
+     * @ORM\Column(type="datetime")
+     */
+    private $date_modification;
+
+    /**
+     * @var \ImieNetwork\SiteBundle\Entity\Utilisateur
+     * @ORM\ManyToOne(targetEntity="Utilisateur", inversedBy="mes_conversations")
+     * @ORM\JoinColumn(name="conversation_id", referencedColumnName="id")
+     */
+    private $utilisateur;
+    
+    /**
+     * 
+     * @return libelle
+     */
+    public function __toString()
+    {
+        return $this->titre;
+    }
 
     /**
      * @var \DateTime

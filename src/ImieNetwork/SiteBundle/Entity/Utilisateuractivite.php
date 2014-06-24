@@ -6,11 +6,16 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Utilisateuractivite
- *@ORM\Entity(repositoryClass="ImieNetwork\SiteBundle\Repository\UtilisateuractiviteRepository")
- */class  Utilisateuractivite
+ * @ORM\Entity(repositoryClass="ImieNetwork\SiteBundle\Repository\UtilisateuractiviteRepository")
+ * @ORM\Table()
+ */
+class  Utilisateuractivite
 {
     /**
      * @var integer
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
@@ -23,7 +28,8 @@ use Doctrine\ORM\Mapping as ORM;
      * @var \ImieNetwork\SiteBundle\Entity\Secteuractivite
      */
     private $idactivite;
-
+    
+    
 
     /**
      * Get id

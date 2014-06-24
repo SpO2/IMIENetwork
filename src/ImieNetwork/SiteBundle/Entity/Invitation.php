@@ -6,9 +6,14 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Invitation
- *@ORM\Entity(repositoryClass="ImieNetwork\SiteBundle\Repository\InvitationRepository")
- */class  Invitation
+ */
+class Invitation
 {
+    /**
+     * @var integer
+     */
+    private $id;
+
     /**
      * @var integer
      */
@@ -17,8 +22,18 @@ use Doctrine\ORM\Mapping as ORM;
     /**
      * @var \ImieNetwork\SiteBundle\Entity\Message
      */
-    private $id;
+    private $idmessage;
 
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
 
     /**
      * Set idevenement
@@ -42,34 +57,6 @@ use Doctrine\ORM\Mapping as ORM;
     {
         return $this->idevenement;
     }
-
-    /**
-     * Set id
-     *
-     * @param \ImieNetwork\SiteBundle\Entity\Message $id
-     * @return Invitation
-     */
-    public function setId(\ImieNetwork\SiteBundle\Entity\Message $id = null)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * Get id
-     *
-     * @return \ImieNetwork\SiteBundle\Entity\Message 
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-    /**
-     * @var \ImieNetwork\SiteBundle\Entity\Message
-     */
-    private $idmessage;
-
 
     /**
      * Set idmessage

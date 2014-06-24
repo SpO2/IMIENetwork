@@ -6,11 +6,16 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Utilisateurpromotion
- *@ORM\Entity(repositoryClass="ImieNetwork\SiteBundle\Repository\UtilisateurpromotionRepository") 
- */class  Utilisateurpromotion
+ * @ORM\Entity(repositoryClass="ImieNetwork\SiteBundle\Repository\UtilisateurpromotionRepository")
+ * @ORM\Table() 
+ */
+class  Utilisateurpromotion
 {
     /**
      * @var integer
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 

@@ -6,9 +6,14 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Enquete
- *@ORM\Entity(repositoryClass="ImieNetwork\SiteBundle\Repository\EnqueteRepository") 
- */class  Enquete
+ */
+class Enquete
 {
+    /**
+     * @var integer
+     */
+    private $id;
+
     /**
      * @var string
      */
@@ -17,8 +22,18 @@ use Doctrine\ORM\Mapping as ORM;
     /**
      * @var \ImieNetwork\SiteBundle\Entity\Message
      */
-    private $id;
+    private $idmessage;
 
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
 
     /**
      * Set url
@@ -42,34 +57,6 @@ use Doctrine\ORM\Mapping as ORM;
     {
         return $this->url;
     }
-
-    /**
-     * Set id
-     *
-     * @param \ImieNetwork\SiteBundle\Entity\Message $id
-     * @return Enquete
-     */
-    public function setId(\ImieNetwork\SiteBundle\Entity\Message $id = null)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * Get id
-     *
-     * @return \ImieNetwork\SiteBundle\Entity\Message 
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-    /**
-     * @var \ImieNetwork\SiteBundle\Entity\Message
-     */
-    private $idmessage;
-
 
     /**
      * Set idmessage
