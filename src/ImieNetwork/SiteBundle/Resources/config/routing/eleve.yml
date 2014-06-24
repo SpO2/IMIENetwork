@@ -1,0 +1,3 @@
+eleveIndex:
+    pattern:  /
+    defaults: { _controller: ImieNetworkSiteBundle:Eleve:index }
