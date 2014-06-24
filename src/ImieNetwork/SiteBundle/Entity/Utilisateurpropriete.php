@@ -11,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class  Utilisateurpropriete
 {
-    /**
+     /**
      * @var integer
      * @ORM\Id
      * @ORM\Column(type="integer")
@@ -27,12 +27,15 @@ class  Utilisateurpropriete
 
     /**
      * @var \ImieNetwork\SiteBundle\Entity\Utilisateur
+     * 
+     * @ManyToOne(targetEntity="Utilisateur", inversedBy="utilisateur_propriete")
      */
     private $utilisateur;
 
     /**
      * @var \ImieNetwork\SiteBundle\Entity\Proprieteetendue
+     * 
+     *  @ORM\ManyToOne(targetEntity="Proprieteetendue")
      */
-    private $propriete;
-    
+    private $propriete_etendue;
 }
