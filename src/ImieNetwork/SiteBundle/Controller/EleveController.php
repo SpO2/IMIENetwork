@@ -13,7 +13,7 @@ class EleveController extends Controller
         $limit = $this->container->getParameter("preview_default");
 
         $evenements = $em->getRepository('ImieNetworkSiteBundle:evenement')->findAll($limit);
-        $enquetes = $em->getRepository('ImieNetworkSiteBundle:message')->findBy(array('type' => 'Enquête' ));;
+        $enquetes = $em->getRepository('ImieNetworkSiteBundle:message')->findBy(array('type' => 'Enquête' ));
          
         return $this->render('ImieNetworkSiteBundle:Eleve:index.html.twig', array(
             'evenements' => $evenements,

@@ -24,8 +24,9 @@
         <div class="item">  
             <div class="carousel-page">
                 {{ evenement.libelle }}
+                <p>{{ evenement.description }}</p>
             </div>  
-            <div class="carousel-caption">Page 2 de présentation</div>
+            <div class="carousel-caption">Test</div>
         </div>
        {%endfor%}
 
@@ -40,49 +41,13 @@
 </div>
 
 <div class="media">
-    <a class="pull-left" href="#">
-        <img class="media-object" src="..." alt="...">
-    </a>
+    {% for enquete in enquetes %}
     <div class="media-body">
-        <h4 class="media-heading">Media heading</h4>
-        <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque
-            ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus 
-            viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia 
-            congue felis in faucibus.</p>
+        <h4 class="media-heading">Enquête !</h4>
+        <p>{{ enquete.contenu }}</p>
+        <p> <a href="{{ enquete.url }}">{{ enquete.url }}</a> </p>
     </div>
-
-    <a class="pull-left" href="#">
-        <img class="media-object" src="..." alt="...">
-    </a>
-    <div class="media-body">
-        <h4 class="media-heading">Media heading</h4>
-        <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque
-            ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus 
-            viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia 
-            congue felis in faucibus.</p>
-    </div>
-
-    <a class="pull-left" href="#">
-        <img class="media-object" src="..." alt="...">
-    </a>
-    <div class="media-body">
-        <h4 class="media-heading">Media heading</h4>
-        <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque
-            ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus 
-            viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia 
-            congue felis in faucibus.</p>
-    </div>
-
-    <a class="pull-left" href="#">
-        <img class="media-object" src="..." alt="...">
-    </a>
-    <div class="media-body">
-        <h4 class="media-heading">Media heading</h4>
-        <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque
-            ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus 
-            viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia 
-            congue felis in faucibus.</p>
-    </div>
+    {%endfor%}
 </div>
 
 <style>
