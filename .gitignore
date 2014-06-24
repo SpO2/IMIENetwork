@@ -16,3 +16,5 @@ app/config/parameters.yml
 composer.phar
 /.project
 nbproject/**
+/vendor
+*.*~
