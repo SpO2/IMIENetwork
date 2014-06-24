@@ -13,7 +13,10 @@ class EntrepriseController extends Controller
         $limit = $this->container->getParameter("preview_default");
 
         $evenements = $em->getRepository('ImieNetworkSiteBundle:evenement')->findAll($limit);
-        $enquetes = $em->getRepository('ImieNetworkSiteBundle:message')->findBy(array('type' => 'Enquête' ));
+        $enquetes = $em->getRepository('ImieNetworkSiteBundle:message')->findBy(array('type' => 'Enquête' ),
+                                                                                array('datemessage' => 'desc'),
+                                                                                $limit,
+                                                                                0);
          
         return $this->render('ImieNetworkSiteBundle:Entreprise:index.html.twig', array(
             'evenements' => $evenements,
