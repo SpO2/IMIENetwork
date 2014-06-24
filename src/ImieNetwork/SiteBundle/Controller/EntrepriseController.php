@@ -9,7 +9,16 @@ class EntrepriseController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('ImieNetworkSiteBundle:Entreprise:index.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        $limit = $this->container->getParameter("preview_default");
+
+        $evenements = $em->getRepository('ImieNetworkSiteBundle:evenement')->findAll($limit);
+        $enquetes = $em->getRepository('ImieNetworkSiteBundle:enquete')->findAll($limit);
+         
+        return $this->render('ImieNetworkSiteBundle:Entreprise:index.html.twig', array(
+            'evenements' => $evenements,
+            'enquetes' => $enquetes,
+        ));
     }
       
 }
