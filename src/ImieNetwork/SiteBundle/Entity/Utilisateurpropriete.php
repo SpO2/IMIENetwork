@@ -27,13 +27,9 @@ class  Utilisateurpropriete
 
     /**
      * @var \ImieNetwork\SiteBundle\Entity\Utilisateur
-<<<<<<< HEAD
+     * 
      * @ManyToOne(targetEntity="Utilisateur", inversedBy="mes_proprietes_utilisateur")
      * @ORM\JoinColumn(name="utilisateurpropriete_id", referencedColumnName="id")
-=======
-     * 
-     * @ORM\ManyToOne(targetEntity="Utilisateur", inversedBy="utilisateur_propriete")
->>>>>>> 6264a600d866d45082834a303a5e3100c50f30ad
      */
     private $utilisateur;
 
@@ -43,14 +39,11 @@ class  Utilisateurpropriete
      *  @ORM\ManyToOne(targetEntity="Proprieteetendue")
      */
     private $propriete_etendue;
-<<<<<<< HEAD
-    
+
     public function __toString()
     {
         return $this->valeur;
     }
-=======
-
 
     /**
      * Get id
@@ -130,5 +123,4 @@ class  Utilisateurpropriete
     {
         return $this->propriete_etendue;
     }
->>>>>>> 6264a600d866d45082834a303a5e3100c50f30ad
 }

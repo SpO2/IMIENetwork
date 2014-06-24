@@ -29,7 +29,6 @@ use Doctrine\ORM\Mapping as ORM;
      */
     private $email;
 
-<<<<<<< HEAD
     /**
      *
      * @var \ImieNetwork\SiteBundle\Entity\Utilisateur
@@ -46,6 +45,4 @@ use Doctrine\ORM\Mapping as ORM;
     {
         return $this->libelle;
     }
-=======
->>>>>>> 6264a600d866d45082834a303a5e3100c50f30ad
 }
