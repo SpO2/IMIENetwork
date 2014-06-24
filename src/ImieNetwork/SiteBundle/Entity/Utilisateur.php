@@ -3,13 +3,14 @@
 namespace ImieNetwork\SiteBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use FOS\UserBundle\Model\User as BaseUser;
 
 /**
  * Utilisateur
  * @ORM\Entity(repositoryClass="ImieNetwork\SiteBundle\Repository\UtilisateurRepository")
  * @ORM\Table()
  */
-class  Utilisateur
+class  Utilisateur extends BaseUser
 {
     /**
      * @var integer
