@@ -23,7 +23,7 @@ class  Groupepropriete
     /**
      * @var string
      * 
-     * @Column(type="text", nullable=true)
+     * @Column(type="string",length=255, nullable=false)
      */
     private $valeur;
 

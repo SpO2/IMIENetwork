@@ -21,7 +21,7 @@ use Doctrine\ORM\Mapping as ORM;
     /**
      * @var string
      * 
-     * @ORM\Column(name="id", type="string", length=255, nullable=true)
+     * @ORM\Column(name="valeur", type="string", length=255, nullable=false)
      */
     private $valeur;
 
