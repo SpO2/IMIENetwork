@@ -72,7 +72,7 @@ class  Evenement
     /**
      *
      * @var \ImieNetwork\SiteBundle\Entity\Evenementutilisateur
-     * @ORM\OneToMany(targetEntity="EvenementUtilisateur", mappedBy="evenement")
+     * @ORM\OneToMany(targetEntity="Evenementutilisateur", mappedBy="evenement")
      */
     private $mes_evenements;
     

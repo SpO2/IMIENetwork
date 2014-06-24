@@ -35,7 +35,7 @@ use Doctrine\ORM\Mapping as ORM;
      * @var \DateTime
      * @ORM\Column(type="datetime")
      */
-    private $date_modification;
+    private $date_conversation;
 
     /**
      * @var \ImieNetwork\SiteBundle\Entity\Utilisateur

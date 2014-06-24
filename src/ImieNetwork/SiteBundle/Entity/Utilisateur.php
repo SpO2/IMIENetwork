@@ -153,6 +153,13 @@ class  Utilisateur extends BaseUser
     private $ma_promotion;
     
     /**
+     *
+     * @var \ImieNetwork\SiteBundle\Entity\Offre;
+     * @ORM\OneToMany(targetEntity="Offre", mappedBy="utilisateur")
+     */
+    private $mes_offres;
+    
+    /**
      * 
      * @return nom prenom
      */

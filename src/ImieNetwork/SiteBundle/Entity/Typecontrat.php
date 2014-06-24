@@ -26,6 +26,13 @@ class  Typecontrat
     private $libelle;
     
     /**
+     *
+     * @var \ImieNetwork\SiteBundle\Entity\Offre
+     * @ORM\OneToMany(targetEntity="Offre", mappedBy="typecontrat")
+     */
+    private $mon_offre;
+    
+    /**
      * 
      * @return libelle
      */
