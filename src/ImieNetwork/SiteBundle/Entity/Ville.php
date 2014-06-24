@@ -40,4 +40,60 @@ class  Ville
         return $this->codepostal.' '.$this->libelle;
     }
 
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set libelle
+     *
+     * @param string $libelle
+     * @return Ville
+     */
+    public function setLibelle($libelle)
+    {
+        $this->libelle = $libelle;
+
+        return $this;
+    }
+
+    /**
+     * Get libelle
+     *
+     * @return string 
+     */
+    public function getLibelle()
+    {
+        return $this->libelle;
+    }
+
+    /**
+     * Set codepostal
+     *
+     * @param string $codepostal
+     * @return Ville
+     */
+    public function setCodepostal($codepostal)
+    {
+        $this->codepostal = $codepostal;
+
+        return $this;
+    }
+
+    /**
+     * Get codepostal
+     *
+     * @return string 
+     */
+    public function getCodepostal()
+    {
+        return $this->codepostal;
+    }
 }

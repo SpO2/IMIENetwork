@@ -23,14 +23,14 @@ class  Groupepropriete
     /**
      * @var string
      * 
-     * @Column(type="text", nullable=true)
+     * @ORM\Column(type="text", nullable=true)
      */
     private $valeur;
 
     /**
      * @var \ImieNetwork\SiteBundle\Entity\Groupe
      * 
-     * @ManyToOne(targetEntity="Groupe", inversedBy="proprietes_groupe")
+     * @ORM\ManyToOne(targetEntity="Groupe", inversedBy="proprietes_groupe")
      */
     private $groupe;
 
@@ -41,4 +41,83 @@ class  Groupepropriete
      */
     private $propriete;
 
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set valeur
+     *
+     * @param string $valeur
+     * @return Groupepropriete
+     */
+    public function setValeur($valeur)
+    {
+        $this->valeur = $valeur;
+
+        return $this;
+    }
+
+    /**
+     * Get valeur
+     *
+     * @return string 
+     */
+    public function getValeur()
+    {
+        return $this->valeur;
+    }
+
+    /**
+     * Set groupe
+     *
+     * @param \ImieNetwork\SiteBundle\Entity\Groupe $groupe
+     * @return Groupepropriete
+     */
+    public function setGroupe(\ImieNetwork\SiteBundle\Entity\Groupe $groupe = null)
+    {
+        $this->groupe = $groupe;
+
+        return $this;
+    }
+
+    /**
+     * Get groupe
+     *
+     * @return \ImieNetwork\SiteBundle\Entity\Groupe 
+     */
+    public function getGroupe()
+    {
+        return $this->groupe;
+    }
+
+    /**
+     * Set propriete
+     *
+     * @param \ImieNetwork\SiteBundle\Entity\Proprieteetendue $propriete
+     * @return Groupepropriete
+     */
+    public function setPropriete(\ImieNetwork\SiteBundle\Entity\Proprieteetendue $propriete = null)
+    {
+        $this->propriete = $propriete;
+
+        return $this;
+    }
+
+    /**
+     * Get propriete
+     *
+     * @return \ImieNetwork\SiteBundle\Entity\Proprieteetendue 
+     */
+    public function getPropriete()
+    {
+        return $this->propriete;
+    }
 }

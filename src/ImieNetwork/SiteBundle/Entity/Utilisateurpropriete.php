@@ -28,7 +28,7 @@ class  Utilisateurpropriete
     /**
      * @var \ImieNetwork\SiteBundle\Entity\Utilisateur
      * 
-     * @ManyToOne(targetEntity="Utilisateur", inversedBy="utilisateur_propriete")
+     * @ORM\ManyToOne(targetEntity="Utilisateur", inversedBy="utilisateur_propriete")
      */
     private $utilisateur;
 
@@ -39,4 +39,83 @@ class  Utilisateurpropriete
      */
     private $propriete_etendue;
 
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set valeur
+     *
+     * @param string $valeur
+     * @return Utilisateurpropriete
+     */
+    public function setValeur($valeur)
+    {
+        $this->valeur = $valeur;
+
+        return $this;
+    }
+
+    /**
+     * Get valeur
+     *
+     * @return string 
+     */
+    public function getValeur()
+    {
+        return $this->valeur;
+    }
+
+    /**
+     * Set utilisateur
+     *
+     * @param \ImieNetwork\SiteBundle\Entity\Utilisateur $utilisateur
+     * @return Utilisateurpropriete
+     */
+    public function setUtilisateur(\ImieNetwork\SiteBundle\Entity\Utilisateur $utilisateur = null)
+    {
+        $this->utilisateur = $utilisateur;
+
+        return $this;
+    }
+
+    /**
+     * Get utilisateur
+     *
+     * @return \ImieNetwork\SiteBundle\Entity\Utilisateur 
+     */
+    public function getUtilisateur()
+    {
+        return $this->utilisateur;
+    }
+
+    /**
+     * Set propriete_etendue
+     *
+     * @param \ImieNetwork\SiteBundle\Entity\Proprieteetendue $proprieteEtendue
+     * @return Utilisateurpropriete
+     */
+    public function setProprieteEtendue(\ImieNetwork\SiteBundle\Entity\Proprieteetendue $proprieteEtendue = null)
+    {
+        $this->propriete_etendue = $proprieteEtendue;
+
+        return $this;
+    }
+
+    /**
+     * Get propriete_etendue
+     *
+     * @return \ImieNetwork\SiteBundle\Entity\Proprieteetendue 
+     */
+    public function getProprieteEtendue()
+    {
+        return $this->propriete_etendue;
+    }
 }
