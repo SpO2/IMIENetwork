@@ -34,9 +34,19 @@ class  Evenementutilisateur
 
     /**
      * @var \ImieNetwork\SiteBundle\Entity\Evenement
- 
+     * @ORM\ManyToOne(targetEntity="Evenement", inversedBy="mes_evenements")
+     * @ORM\JoinColumn(name="evenementutilisateur_id", referencedColumnName="id")
      */
     private $evenement;
+    
+    /**
+     * 
+     * @return participe
+     */
+    public function __toString()
+    {
+        return $this->participe;
+    }
 
 
     /**

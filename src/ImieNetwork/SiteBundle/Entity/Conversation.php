@@ -45,8 +45,15 @@ use Doctrine\ORM\Mapping as ORM;
     private $utilisateur;
     
     /**
+     *
+     * @var \ImieNetwork\SiteBundle\Entity\Message
+     * @ORM\OneToMany(targetEntity="Message", mappedBy="conversation")
+     */
+    private $mes_messages;
+    
+    /**
      * 
-     * @return libelle
+     * @return titre
      */
     public function __toString()
     {

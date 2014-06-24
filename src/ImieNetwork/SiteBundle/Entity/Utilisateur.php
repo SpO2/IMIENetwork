@@ -64,7 +64,8 @@ class  Utilisateur extends BaseUser
 
     /**
      * @var \ImieNetwork\SiteBundle\Entity\Ville
-     * @ORM\ManyToOne(targetEntity="Ville")
+     * @ORM\ManyToOne(targetEntity="Ville", inversedBy="mon_utilisateur")
+     * @ORM\JoinColumn(name="utilisateur_id", referencedColumnName="id")
      */
     private $ville;
     
@@ -93,7 +94,7 @@ class  Utilisateur extends BaseUser
      * @var \ImieNetwork\SiteBundle\Entity\Utilisateurpropriete
      * @ORM\OneToMany(targetEntity="Utilisateurpropriete", mappedBy="utilisateur")
      */
-    private $utilisateur_proprietes;
+    private $mes_proprietes_utilisateur;
     
     /**
      *
@@ -104,7 +105,7 @@ class  Utilisateur extends BaseUser
     
     /**
      *
-     * @var \ImieNetwork\SiteBundle\Entity\Conversion
+     * @var \ImieNetwork\SiteBundle\Entity\Conversation
      * @ORM\OneToMany(targetEntity="Conversation", mappedBy="utilisateur")
      */
     private $mes_conversations;
@@ -115,7 +116,42 @@ class  Utilisateur extends BaseUser
      * @ORM\OneToMany(targetEntity="Evenementutilisateur", mappedBy="utilisateur")
      */
     private $mes_evenements;
-            
+    
+    /**
+     *
+     * @var \ImieNetwork\SiteBundle\Entity\Evenement
+     * @ORM\OneToMany(targetEntity="Evenement", mappedBy="utilisateurs")
+     */
+    private $mes_utilisateurs;
+    
+    /**
+     *
+     * @var \ImieNetwork\SiteBundle\Entity\Evenement
+     * @ORM\OneToMany(targetEntity="Evenement", mappedBy="auteur")
+     */
+    private $mon_auteur;
+    
+    /**
+     *
+     * @var \ImieNetwork\SiteBundle\Entity\Message
+     * @ORM\OneToMany(targetEntity="Message", mappedBy="utilisateur")
+     */
+    private $mes_messages;
+    
+    /**
+     *
+     * @var \ImieNetwork\SiteBundle\Entity\Secteuractivite;
+     * @ORM\OneToMany(targetEntity="Secteuractivite", mappedBy="utilisateur")
+     */
+    private $mon_secteur_activite;
+    
+    /**
+     *
+     * @var \ImieNetwork\SiteBundle\Entity\Promotion;
+     * @ORM\OneToMany(targetEntity="Promotion", mappedBy="utilisateur")
+     */
+    private $ma_promotion;
+    
     /**
      * 
      * @return nom prenom

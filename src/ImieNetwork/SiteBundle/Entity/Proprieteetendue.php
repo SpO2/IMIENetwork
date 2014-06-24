@@ -21,11 +21,23 @@ class  Proprieteetendue
 
     /**
      * @var string
+<<<<<<< HEAD
+     * @ORM\Column(name="id", type="string", length=255, nullable=false)
+=======
      * 
      * @ORM\Column(type="string", length=255, nullable=false)
+>>>>>>> 6264a600d866d45082834a303a5e3100c50f30ad
      */
     private $libelle;
 
+    /**
+     * 
+     * @return libelle
+     */
+    public function __toString()
+    {
+        return $this->libelle;
+    }
 
     /**
      * Get id

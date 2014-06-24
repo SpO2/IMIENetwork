@@ -26,6 +26,14 @@ class  Secteuractivite
     private $libelle;
     
     /**
+     *
+     * @var \ImieNetwork\SiteBundle\Entity\Utilisateur
+     * @ORM\ManyToOne(targetEntity="Utilisateur", inversedBy="mon_secteur_activite")
+     * @ORM\JoinColumn(name="secteuractivite_id", referencedColumnName="id")
+     */
+    private $utilisateur;
+    
+    /**
      * 
      * @return libelle
      */

@@ -33,6 +33,16 @@ class  Module
      */
     private $code;
 
+<<<<<<< HEAD
+    /**
+     * 
+     * @return libelle
+     */
+    public function __toString()
+    {
+        return $this->libelle;
+    }
+=======
 
     /**
      * Get id
@@ -89,4 +99,5 @@ class  Module
     {
         return $this->code;
     }
+>>>>>>> 6264a600d866d45082834a303a5e3100c50f30ad
 }

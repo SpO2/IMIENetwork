@@ -30,6 +30,13 @@ class  Ville
      * @ORM\Column(type="string", nullable=false)
      */
     private $codepostal;
+    
+    /**
+     *
+     * @var \ImieNetwork\SiteBundle\Entity\Utilisateur
+     * @ORM\OneToMany(targetEntity="Utilisateur", mappedBy="ville")
+     */
+    private $mon_utilisateur;
 
     /**
      * 
