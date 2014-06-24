@@ -5,8 +5,8 @@ testPage:
     pattern:  /test/{name}
     defaults: { _controller: ImieNetworkSiteBundle:Default:test }
 eleveIndex:
-    pattern:  /eleve
-    defaults: { _controller: ImieNetworkSiteBundle:Eleve:index }
+    pattern:  /eleve/{name}
+    defaults: { _controller: ImieNetworkSiteBundle:Eleve:show }
 ImieNetworkSiteBundle_evenement:
     resource: "@ImieNetworkSiteBundle/Resources/config/routing/evenement.yml"
     prefix:   /evenement  
