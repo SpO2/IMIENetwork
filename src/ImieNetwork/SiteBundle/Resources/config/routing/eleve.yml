@@ -1,0 +1,6 @@
+eleveIndex:
+    pattern:  /
+    defaults: { _controller: ImieNetworkSiteBundle:Eleve:index }
+eleveShow:
+    pattern:  /eleve/{name}
+    defaults: { _controller: ImieNetworkSiteBundle:Eleve:show }
