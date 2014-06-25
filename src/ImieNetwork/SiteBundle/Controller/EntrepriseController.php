@@ -5,23 +5,24 @@ namespace ImieNetwork\SiteBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use ImieNetwork\SiteBundle\Entity\Utilisateur;
 
-class EntrepriseController extends Controller
-{
-    public function indexAction()
-    {
+class EntrepriseController extends Controller {
+
+    public function indexAction() {
         $em = $this->getDoctrine()->getManager();
         $limit = $this->container->getParameter("preview_default");
 
         $evenements = $em->getRepository('ImieNetworkSiteBundle:evenement')->findAll($limit);
-        $enquetes = $em->getRepository('ImieNetworkSiteBundle:message')->findBy(array('type' => 'Enquête' ),
-                                                                                array('datemessage' => 'desc'),
-                                                                                $limit,
-                                                                                0);
-         
+        $enquetes = $em->getRepository('ImieNetworkSiteBundle:message')->findBy(array('type' => 'Enquête'), array('datemessage' => 'desc'), $limit, 0);
+
         return $this->render('ImieNetworkSiteBundle:Entreprise:index.html.twig', array(
-            'evenements' => $evenements,
-            'enquetes' => $enquetes,
+                    'evenements' => $evenements,
+                    'enquetes' => $enquetes,
         ));
     }
-      
+
+    public function mesOffresAction() {
+        
+ 
+        return $this->render('ImieNetworkSiteBundle:Entreprise:mesOffres.html.twig');
+    }
 }
