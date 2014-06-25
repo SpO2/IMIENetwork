@@ -17,10 +17,10 @@ class ExperienceAdmin extends Admin
     {
         $datagridMapper
             ->add('id')
-            ->add('libelle')
-            ->add('datedebut', null, array('label' => 'Expérience début ' , 'required' => false))
-            ->add('datefin', null, array('label' => 'Expérience fin ' , 'required' => false))
-            ->add('description')
+            ->add('libelle', null, array('label' => 'Titre'))
+            ->add('date_debut', 'doctrine_orm_date', array('label' => 'Expérience début'), 'date')
+            ->add('date_fin', 'doctrine_orm_date', array('label' => 'Expérience fin'), 'date')
+            ->add('description','doctrine_orm_string', array(), 'textarea')
         ;
     }
 
@@ -31,10 +31,10 @@ class ExperienceAdmin extends Admin
     {
         $listMapper
             ->add('id')
-            ->add('libelle')
-            ->add('datedebut', null, array('label' => 'Expérience début ' , 'required' => false))
-            ->add('datefin', null, array('label' => 'Expérience fin ' , 'required' => false))
-            ->add('description')
+            ->add('libelle', null, array('label' => 'Titre'))
+            ->add('date_debut', 'date', array('label' => 'Expérience début'))
+            ->add('date_fin', 'date', array('label' => 'Expérience fin'))
+            ->add('description','textarea')
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),
@@ -51,11 +51,11 @@ class ExperienceAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('id', 'sonata_type_model_hidden')
-            ->add('libelle')
-           ->add('datedebut', null, array('label' => 'Expérience début ' , 'required' => false))
-            ->add('datefin', null, array('label' => 'Expérience fin ' , 'required' => false))
-            ->add('description')
+            //->add('id')
+            ->add('libelle', null, array('label' => 'Titre'))
+           ->add('date_debut', 'date', array('label' => 'Expérience début'))
+            ->add('date_fin', 'date', array('label' => 'Expérience fin'))
+            //->add('description','textarea')
         ;
     }
 
@@ -67,9 +67,9 @@ class ExperienceAdmin extends Admin
         $showMapper
             ->add('id')
             ->add('libelle')
-            ->add('datedebut', null, array('label' => 'Expérience début ' , 'required' => false))
-            ->add('datefin', null, array('label' => 'Expérience fin ' , 'required' => false))
-            ->add('description')
+            ->add('date_debut', 'date', array('label' => 'Expérience début'))
+            ->add('date_fin', 'date', array('label' => 'Expérience fin'))
+            ->add('description', 'textarea')
         ;
     }
 }

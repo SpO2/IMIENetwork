@@ -18,14 +18,14 @@ class OffreAdmin extends Admin
         $datagridMapper
             ->add('id')
             ->add('titre')
-            ->add('description')
+            ->add('description', 'doctrine_orm_string', array(), 'textarea')
             ->add('detailcontact')
             ->add('duree')
             ->add('typeposte')
-            ->add('datedebut', null, array('label' => 'Date de début de l\' offre ' , 'required' => false))
-            ->add('datemodification',null, array('label' => 'Date de modification de l\' offre ' , 'required' => false))
-            ->add('datefinpublication', null, array('label' => 'Date de fin de publication de l\' offre ' , 'required' => false))
-            ->add('datefin', null, array('label' => 'Date de fin de l\' offre ' , 'required' => false))
+            ->add('datedebut','doctrine_orm_date', array('label' => 'Date de début de l\' offre'), 'date')
+            ->add('datemodification','doctrine_orm_date', array('label' => 'Date de modification de l\' offre'), 'date')
+            ->add('datefinpublication', 'doctrine_orm_date', array('label' => 'Date de fin de publication de l\' offre'), 'date')
+            ->add('datefin', 'doctrine_orm_date', array('label' => 'Date de fin de l\' offre '), 'date')
         ;
     }
 
@@ -61,7 +61,7 @@ class OffreAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('id', 'sonata_type_model_hidden')
+            //->add('id')
             ->add('titre')
             ->add('description')
             ->add('detailcontact')

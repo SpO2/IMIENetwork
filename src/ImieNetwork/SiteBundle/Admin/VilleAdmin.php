@@ -17,8 +17,8 @@ class VilleAdmin extends Admin
     {
         $datagridMapper
             ->add('id')
-            ->add('libelle')
-            ->add('codepostal', null, array('label' => 'Code postal ' , 'required' => false))
+            ->add('libelle', null, array('label' => 'Ville'))
+            ->add('codepostal', null, array('label' => 'Code postal'))
         ;
     }
 
@@ -29,8 +29,8 @@ class VilleAdmin extends Admin
     {
         $listMapper
             ->add('id')
-            ->add('libelle')
-            ->add('codepostal', null, array('label' => 'Code postal ' , 'required' => false))
+            ->add('libelle', null, array('label' => 'Code postal'))
+            ->add('codepostal', null, array('label' => 'Code postal'))
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),
@@ -47,9 +47,9 @@ class VilleAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('id', 'sonata_type_model_hidden')
+            //  ->add('id', 'sonata_type_model_hidden')
             ->add('libelle')
-            ->add('codepostal', null, array('label' => 'Code postal ' , 'required' => false))
+            ->add('codepostal', null, array('label' => 'Code postal '))
         ;
     }
 
@@ -60,8 +60,8 @@ class VilleAdmin extends Admin
     {
         $showMapper
             ->add('id')
-            ->add('libelle')
-            ->add('codepostal', null, array('label' => 'Code postal ' , 'required' => false))
+            ->add('libelle', null, array('label' => 'Ville'))
+            ->add('codepostal', null, array('label' => 'Code postal'))
         ;
     }
 }

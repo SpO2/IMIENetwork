@@ -17,7 +17,7 @@ class TypemessageAdmin extends Admin
     {
         $datagridMapper
             ->add('id')
-            ->add('libelle')
+            ->add('libelle', null, array('label' => 'Type de message'))
         ;
     }
 
@@ -28,7 +28,7 @@ class TypemessageAdmin extends Admin
     {
         $listMapper
             ->add('id')
-            ->add('libelle')
+            ->add('libelle', null, array('label' => 'Type de message'))
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),
@@ -45,8 +45,8 @@ class TypemessageAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('id', 'sonata_type_model_hidden')
-            ->add('libelle')
+            //->add('id')
+            ->add('libelle', null, array('label' => 'Type de message'))
         ;
     }
 
@@ -57,7 +57,7 @@ class TypemessageAdmin extends Admin
     {
         $showMapper
             ->add('id')
-            ->add('libelle')
+            ->add('libelle', null, array('label' => 'Type de message'))
         ;
     }
 }
