@@ -1,0 +1,3 @@
+entrepriseIndex:
+    pattern:  /
+    defaults: { _controller: ImieNetworkSiteBundle:Entreprise:index }
