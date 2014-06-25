@@ -29,11 +29,11 @@ class EleveController extends Controller
         ));
     }
     
-    public function showAction($name)
+    public function showAction($id)
     {
         $em = $this->getDoctrine()->getEntityManager();
 
-        $entity = $em->getRepository('ImieNetworkSiteBundle:Utilisateur')->find($name);
+        $entity = $em->getRepository('ImieNetworkSiteBundle:Utilisateur')->find($id);
         
         if (!$entity) {
             throw $this->createNotFoundException('L\'utilisateur n\'existe pas');
