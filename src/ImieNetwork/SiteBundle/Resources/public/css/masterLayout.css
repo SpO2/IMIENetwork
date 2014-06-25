@@ -54,10 +54,8 @@ a{
 header{
     padding: 15px 15px;
     box-shadow: 1px 1px 8px rgba(0,0,0,0.1);
-}
-
-header #logo{
-    margin-right: 50%;
+    background-color: #F5F5F5;
+    border-bottom: 3px solid #48b9c7;
 }
 
 header .align, header ul li{
@@ -68,6 +66,7 @@ header .align, header ul li{
 
 #navtop{
     margin: 0px;
+    float: right;
 }
 
 #navtop ul a{
@@ -88,31 +87,28 @@ header .align, header ul li{
 }
 
 nav#menu{
-    position: fixed;
-    width: 200px;
-    padding-left: 15px;
+    float: left;
+    width: 220px;
     height: 100%;
-}
-
-nav#menu ul{
-    margin-top: 150px;
+    background-color: #F5F5F5;
+    box-shadow: 1px 2px 6px rgba(0,0,0,0.2);
+    position: absolute;
 }
 
 nav#menu ul li{
-    padding: 8px 8px;
+    padding: 20px 15px;
     -webkit-transition: background-color 0.5s linear;
-    border: 1px solid #BBB;
-    border-bottom: none;
+    border-bottom: 1px solid #999;
 }
 
-nav#menu ul li:last-child{
+/*nav#menu ul li:last-child{
     border-bottom: 1px solid #BBB;
     border-radius: 0px 0px 5px 5px;
-}
+}*/
 
-nav#menu ul li:first-child{
+/*nav#menu ul li:first-child{
     border-radius: 5px 5px 0px 0px;
-}
+}*/
 
 nav#menu ul li a{
     text-decoration: none;
@@ -133,10 +129,11 @@ nav#menu ul li:hover{
 }
 
 nav#menu ul li:hover a{
-    color: #fff;
+    color: #FFF;
     -webkit-transition: color 0.5s linear;
 }
 
 main{
-    margin-left: 215px;
+    margin-left: 230px;
+    margin-top: 35px;
 }
