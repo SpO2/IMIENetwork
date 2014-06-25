@@ -1,3 +1,6 @@
 eleveIndex:
     pattern:  /
     defaults: { _controller: ImieNetworkSiteBundle:Eleve:index }
+eleveShow:
+    pattern:  /{id}
+    defaults: { _controller: ImieNetworkSiteBundle:Eleve:show }
