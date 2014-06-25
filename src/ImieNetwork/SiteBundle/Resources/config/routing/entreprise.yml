@@ -1,6 +1,6 @@
 entrepriseIndex:
     pattern:  /
     defaults: { _controller: ImieNetworkSiteBundle:Entreprise:index }
-entrepriselistMesOffres:
-    pattern: /list-mes-offres
-    defaults: { _controller: ImieNetworkSiteBundle:Entreprise:mesOffres }
+ImieNetworkSiteBundle_entrepriseOffre:
+    resource: "@ImieNetworkSiteBundle/Resources/config/routing/entreprise/offre.yml"
+    prefix:   /offre

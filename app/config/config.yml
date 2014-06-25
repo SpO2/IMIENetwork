@@ -31,6 +31,8 @@ twig:
     strict_variables: "%kernel.debug%"
     paths:
         "%kernel.root_dir%/../src/ImieNetwork/SiteBundle/Resources/views/Administration": Administration
+        "%kernel.root_dir%/../src/ImieNetwork/SiteBundle/Resources/views/Entreprise": Entreprise
+        "%kernel.root_dir%/../src/ImieNetwork/SiteBundle/Resources/views/Eleve": Eleve
 
 # Assetic Configuration
 assetic:

@@ -20,9 +20,4 @@ class EntrepriseController extends Controller {
         ));
     }
 
-    public function mesOffresAction() {
-        
- 
-        return $this->render('ImieNetworkSiteBundle:Entreprise:mesOffres.html.twig');
-    }
 }
