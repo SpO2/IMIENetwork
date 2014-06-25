@@ -4,6 +4,7 @@ namespace ImieNetwork\SiteBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use ImieNetwork\SiteBundle\Entity\Utilisateur;
+use ImieNetwork\SiteBundle\Repository\OffreRepository;
 
 class EntrepriseController extends Controller {
 
@@ -21,8 +22,15 @@ class EntrepriseController extends Controller {
     }
 
     public function mesOffresAction() {
+        $em = $this->getDoctrine()->getManager();
+        $utilisateur =  $this->getUser();
         
- 
-        return $this->render('ImieNetworkSiteBundle:Entreprise:mesOffres.html.twig');
+        $offreNonActif = $em->getRepository('ImieNetworkSiteBundle:OffreRepository')->offresNonActivesParUtilisateur($utilisateur);
+        $offreActif = $em->getRepository('ImieNetworkSiteBundle:OffreRepository')->offresActivesParUtilisateur($utilisateur);
+        
+        return $this->render('ImieNetworkSiteBundle:Entreprise:mesOffre.html.twig', array(
+                    'offreNonActif' => $offreNonActif,
+                    'offreActif' => $offreActif,
+        ));
     }
 }
