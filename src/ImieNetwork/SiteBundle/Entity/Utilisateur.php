@@ -40,7 +40,7 @@ class  Utilisateur extends BaseUser
 
     /**
      * @var string
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", nullable=false)
      */
     private $telephone;
 
@@ -58,7 +58,7 @@ class  Utilisateur extends BaseUser
 
     /**
      * @var string
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", nullable=true)
      */
     private $langue;
 

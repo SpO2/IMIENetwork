@@ -1,6 +1,7 @@
 security:
     encoders:
         Symfony\Component\Security\Core\User\User: sha512
+        ImieNetwork\SiteBundle\Entity\Utilisateur: plaintext
 
     role_hierarchy:
         ROLE_ADMIN:       ROLE_USER
