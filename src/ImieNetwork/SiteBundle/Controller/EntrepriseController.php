@@ -4,7 +4,6 @@ namespace ImieNetwork\SiteBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use ImieNetwork\SiteBundle\Entity\Utilisateur;
-use ImieNetwork\SiteBundle\Repository\OffreRepository;
 
 class EntrepriseController extends Controller {
 
