@@ -27,15 +27,15 @@ class  Evenementutilisateur
 
     /**
      * @var \ImieNetwork\SiteBundle\Entity\Utilisateur
-     * @ORM\ManyToOne(targetEntity="Utilisateur", inversedBy="mes_evenements")
-     * @ORM\JoinColumn(name="evenementutilisateur_id", referencedColumnName="id")
+     * @ORM\ManyToOne(targetEntity="Utilisateur", inversedBy="participations_evenements")
+     * @ORM\JoinColumn(name="utilisateur_id", referencedColumnName="id")
      */
     private $utilisateur;
 
     /**
      * @var \ImieNetwork\SiteBundle\Entity\Evenement
-     * @ORM\ManyToOne(targetEntity="Evenement", inversedBy="mes_evenements")
-     * @ORM\JoinColumn(name="evenementutilisateur_id", referencedColumnName="id")
+     * @ORM\ManyToOne(targetEntity="Evenement", inversedBy="$evenement_utilisateurs")
+     * @ORM\JoinColumn(name="evenement_id", referencedColumnName="id")
      */
     private $evenement;
     
@@ -45,7 +45,7 @@ class  Evenementutilisateur
      */
     public function __toString()
     {
-        return $this->participe;
+        return "Participe :".$this->participe;
     }
 
 

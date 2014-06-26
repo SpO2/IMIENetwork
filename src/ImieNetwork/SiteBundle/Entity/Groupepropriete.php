@@ -23,14 +23,14 @@ class  Groupepropriete
     /**
      * @var string
      * 
-     * @ORM\Column(type="string",length=255, nullable=false)
+     * @ORM\Column(type="string", nullable=false)
      */
     private $valeur;
 
     /**
      * @var \ImieNetwork\SiteBundle\Entity\Groupe
      * 
-     * @ORM\ManyToOne(targetEntity="Groupe", inversedBy="proprietes_groupe")
+     * @ORM\ManyToOne(targetEntity="Groupe", inversedBy="proprietes_groupe", cascade={"persist"})
      */
     private $groupe;
 
@@ -41,6 +41,11 @@ class  Groupepropriete
      */
     private $propriete;
 
+    public function __toString()
+    {
+        return $this->groupe." - ".$this->propriete." : ".$this->valeur;
+    }
+    
 
     /**
      * Get id

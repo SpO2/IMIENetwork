@@ -41,6 +41,13 @@ class  Typemessage
         return $this->libelle;
     }
 
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->mon_type_message = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
@@ -73,13 +80,6 @@ class  Typemessage
     public function getLibelle()
     {
         return $this->libelle;
-    }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->mon_type_message = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**

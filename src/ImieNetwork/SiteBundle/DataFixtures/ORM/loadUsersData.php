@@ -33,7 +33,7 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface
            $manager->persist($entity);
            $manager->flush();
        }
-       foreach($this->createElevesUsers() as $entity)
+       foreach($this->createElevesUsers($manager) as $entity)
        {
            $manager->persist($entity);
            $manager->flush();
@@ -92,7 +92,7 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface
         }
         return $entities;
     }
-    public function createElevesUsers()
+    public function createElevesUsers($manager)
     {
         $entities = Array();
         for ($i = 1; $i <= 10; $i++) {
@@ -102,8 +102,11 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface
             $user->setAdresse($i.'rue des elèves');
             $user->setDateCreation(new \DateTime('NOW'));
             $user->setDateModification(new \DateTime('NOW'));
-            $user->setTelephone('0201010101');
-            $user->addMesEvenement($this->getReference('event1'));
+            $user->setTelephone('0201010101');            
+            
+            $participation = $user->setParticipationEvenement($this->getReference('event1'),true);
+            $entities[] = $participation;
+            
             
             //User FOSUserBundle
             $user->setUsername('Eleve'.$i);
@@ -114,7 +117,10 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface
             $user->setRoles(array('ROLE_ELEVE'));
             $user->addGroupe($this->eleveGroup);
             $this->addReference('eleve'.$i, $user);
-             $entities[] = $user;
+            // $entities[] = $user;
+             
+             $manager->persist($user);
+           $manager->flush();
         }
         return $entities;
     }

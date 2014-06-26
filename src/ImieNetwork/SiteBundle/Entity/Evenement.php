@@ -21,7 +21,7 @@ class  Evenement
 
     /**
      * @var string
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", nullable=false)
      */
     private $libelle;
 
@@ -50,31 +50,23 @@ class  Evenement
     private $datefin;
 
     /**
-     * @var integer
-     * @ORM\Column(type="integer")
+     * @var boolean
+     * @ORM\Column(type="boolean")
      */
     private $statut;
 
     /**
      * @var \ImieNetwork\SiteBundle\Entity\Utilisateur
-     * @ORM\ManyToOne(targetEntity="Utilisateur", inversedBy="mes_utilisateurs")
-     * @ORM\JoinColumn(name="evenement_id", referencedColumnName="id")
-     */
-    private $utilisateurs;
-
-    /**
-     * @var \ImieNetwork\SiteBundle\Entity\Utilisateur
-     * @ORM\ManyToOne(targetEntity="Utilisateur", inversedBy="mon_auteur")
-     * @ORM\JoinColumn(name="evenement_id", referencedColumnName="id")
+     * @ORM\ManyToOne(targetEntity="Utilisateur")
      */
     private $auteur;
     
     /**
      *
      * @var \ImieNetwork\SiteBundle\Entity\Evenementutilisateur
-     * @ORM\OneToMany(targetEntity="EvenementUtilisateur", mappedBy="evenement")
+     * @ORM\OneToMany(targetEntity="Evenementutilisateur", mappedBy="evenement")
      */
-    private $mes_evenements;
+    private $evenement_utilisateurs;
     
     /**
      * 
@@ -83,6 +75,11 @@ class  Evenement
     public function __toString()
     {
         return $this->libelle;
+    }
+
+    public function __construct()
+    {
+        $this->evenement_utilisateurs = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
 
@@ -214,7 +211,7 @@ class  Evenement
     /**
      * Set statut
      *
-     * @param integer $statut
+     * @param boolean $statut
      * @return Evenement
      */
     public function setStatut($statut)
@@ -227,41 +224,11 @@ class  Evenement
     /**
      * Get statut
      *
-     * @return integer 
+     * @return boolean 
      */
     public function getStatut()
     {
         return $this->statut;
-    }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->mes_evenements = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Set utilisateurs
-     *
-     * @param \ImieNetwork\SiteBundle\Entity\Utilisateur $utilisateurs
-     * @return Evenement
-     */
-    public function setUtilisateurs(\ImieNetwork\SiteBundle\Entity\Utilisateur $utilisateurs = null)
-    {
-        $this->utilisateurs = $utilisateurs;
-
-        return $this;
-    }
-
-    /**
-     * Get utilisateurs
-     *
-     * @return \ImieNetwork\SiteBundle\Entity\Utilisateur 
-     */
-    public function getUtilisateurs()
-    {
-        return $this->utilisateurs;
     }
 
     /**
@@ -288,35 +255,35 @@ class  Evenement
     }
 
     /**
-     * Add mes_evenements
+     * Add evenement_utilisateurs
      *
-     * @param \ImieNetwork\SiteBundle\Entity\EvenementUtilisateur $mesEvenements
+     * @param \ImieNetwork\SiteBundle\Entity\Evenementutilisateur $evenementUtilisateurs
      * @return Evenement
      */
-    public function addMesEvenement(\ImieNetwork\SiteBundle\Entity\EvenementUtilisateur $mesEvenements)
+    public function addEvenementUtilisateur(\ImieNetwork\SiteBundle\Entity\Evenementutilisateur $evenementUtilisateurs)
     {
-        $this->mes_evenements[] = $mesEvenements;
+        $this->evenement_utilisateurs[] = $evenementUtilisateurs;
 
         return $this;
     }
 
     /**
-     * Remove mes_evenements
+     * Remove evenement_utilisateurs
      *
-     * @param \ImieNetwork\SiteBundle\Entity\EvenementUtilisateur $mesEvenements
+     * @param \ImieNetwork\SiteBundle\Entity\Evenementutilisateur $evenementUtilisateurs
      */
-    public function removeMesEvenement(\ImieNetwork\SiteBundle\Entity\EvenementUtilisateur $mesEvenements)
+    public function removeEvenementUtilisateur(\ImieNetwork\SiteBundle\Entity\Evenementutilisateur $evenementUtilisateurs)
     {
-        $this->mes_evenements->removeElement($mesEvenements);
+        $this->evenement_utilisateurs->removeElement($evenementUtilisateurs);
     }
 
     /**
-     * Get mes_evenements
+     * Get evenement_utilisateurs
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getMesEvenements()
+    public function getEvenementUtilisateurs()
     {
-        return $this->mes_evenements;
+        return $this->evenement_utilisateurs;
     }
 }

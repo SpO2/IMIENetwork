@@ -31,13 +31,7 @@ class  Ville
      */
     private $codepostal;
     
-    /**
-     *
-     * @var \ImieNetwork\SiteBundle\Entity\Utilisateur
-     * @ORM\OneToMany(targetEntity="Utilisateur", mappedBy="ville")
-     */
-    private $mon_utilisateur;
-
+ 
     /**
      * 
      * @return code postal libelle
@@ -102,46 +96,5 @@ class  Ville
     public function getCodepostal()
     {
         return $this->codepostal;
-    }
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->mon_utilisateur = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Add mon_utilisateur
-     *
-     * @param \ImieNetwork\SiteBundle\Entity\Utilisateur $monUtilisateur
-     * @return Ville
-     */
-    public function addMonUtilisateur(\ImieNetwork\SiteBundle\Entity\Utilisateur $monUtilisateur)
-    {
-        $this->mon_utilisateur[] = $monUtilisateur;
-
-        return $this;
-    }
-
-    /**
-     * Remove mon_utilisateur
-     *
-     * @param \ImieNetwork\SiteBundle\Entity\Utilisateur $monUtilisateur
-     */
-    public function removeMonUtilisateur(\ImieNetwork\SiteBundle\Entity\Utilisateur $monUtilisateur)
-    {
-        $this->mon_utilisateur->removeElement($monUtilisateur);
-    }
-
-    /**
-     * Get mon_utilisateur
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getMonUtilisateur()
-    {
-        return $this->mon_utilisateur;
     }
 }

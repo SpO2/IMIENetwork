@@ -27,7 +27,7 @@ class  Groupe
     /**
      * @var ArrayCollection \ImieNetwork\SiteBundle\Entity\groupepropriete
      *
-     * @ORM\OneToMany(targetEntity="Groupepropriete", mappedBy="groupe")
+     * @ORM\OneToMany(targetEntity="Groupepropriete", mappedBy="groupe", cascade={"persist"})
      */
     private $proprietes_groupe;
     
@@ -43,6 +43,10 @@ class  Groupe
      **/
     private $modules;
 
+    public function __toString()
+    {
+        return $this->libelle;
+    }
     /**
      * Constructor
      */
@@ -51,6 +55,7 @@ class  Groupe
         $this->proprietes_groupe = new \Doctrine\Common\Collections\ArrayCollection();
         $this->modules = new \Doctrine\Common\Collections\ArrayCollection();
     }
+
 
     /**
      * Get id
@@ -94,6 +99,7 @@ class  Groupe
     public function addProprietesGroupe(\ImieNetwork\SiteBundle\Entity\Groupepropriete $proprietesGroupe)
     {
         $this->proprietes_groupe[] = $proprietesGroupe;
+        $proprietesGroupe->setGroupe($this);
 
         return $this;
     }

@@ -62,6 +62,14 @@ use Doctrine\ORM\Mapping as ORM;
 
 
     /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->mes_messages = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
      * Get id
      *
      * @return integer 
@@ -161,13 +169,6 @@ use Doctrine\ORM\Mapping as ORM;
     public function getUtilisateur()
     {
         return $this->utilisateur;
-    }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->mes_messages = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**

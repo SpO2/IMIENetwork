@@ -46,7 +46,6 @@ class  Experience
     /**
      * @var \ImieNetwork\SiteBundle\Entity\Utilisateur
      * @ORM\ManyToOne(targetEntity="Utilisateur", inversedBy="mes_experiences")
-     * @ORM\JoinColumn(name="experience_id", referencedColumnName="id")
      */
     private $utilisateur;
     

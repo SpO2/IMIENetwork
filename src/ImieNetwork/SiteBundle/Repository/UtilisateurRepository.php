@@ -6,6 +6,7 @@ use Doctrine\ORM\EntityRepository;
 use ImieNetwork\SiteBundle\Entity\Utilisateur;
 use ImieNetwork\SiteBundle\Entity\Groupe as Groupe;
 use ImieNetwork\SiteBundle\Entity\Groupeutilisateur;
+use \ImieNetwork\SiteBundle\Entity\Evenement;
 
 /**
  * UtilisateurRepository
@@ -33,6 +34,18 @@ class UtilisateurRepository extends EntityRepository
        {
            return null;
        }
+    }
+    
+    public function setParticipationEvenement(Utilisateur $utilisateur,Evenement $event, Boolean $participe)
+    {
+        $participationEvenement = new \ImieNetwork\SiteBundle\Entity\Evenementutilisateur();
+        $participationEvenement->setEvenement($event);
+        $participationEvenement->setUtilisateur($this);
+        $participationEvenement->setParticipe($participe);        
+        $utilisateur->addParticipationsEvenement($participationEvenement);
+        
+        $this->_em->persist($participationEvenement);
+        $this->_em->flush();
     }
             
     public function Test()

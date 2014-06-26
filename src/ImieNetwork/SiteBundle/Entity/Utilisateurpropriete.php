@@ -21,7 +21,7 @@ class  Utilisateurpropriete
 
     /**
      * @var string
-     * @ORM\Column(type="string", unique=true)
+     * @ORM\Column(type="string", nullable=false)
      */
     private $valeur;
 
@@ -44,6 +44,7 @@ class  Utilisateurpropriete
     {
         return $this->valeur;
     }
+
 
     /**
      * Get id

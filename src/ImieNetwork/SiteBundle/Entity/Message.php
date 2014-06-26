@@ -186,29 +186,6 @@ use Doctrine\ORM\Mapping as ORM;
     }
 
     /**
-     * Set evenement
-     *
-     * @param \ImieNetwork\SiteBundle\Entity\Utilisateur $evenement
-     * @return Message
-     */
-    public function setEvenement(\ImieNetwork\SiteBundle\Entity\Utilisateur $evenement = null)
-    {
-        $this->evenement = $evenement;
-
-        return $this;
-    }
-
-    /**
-     * Get evenement
-     *
-     * @return \ImieNetwork\SiteBundle\Entity\Utilisateur 
-     */
-    public function getEvenement()
-    {
-        return $this->evenement;
-    }
-
-    /**
      * Set utilisateur
      *
      * @param \ImieNetwork\SiteBundle\Entity\Utilisateur $utilisateur
@@ -275,5 +252,28 @@ use Doctrine\ORM\Mapping as ORM;
     public function getConversation()
     {
         return $this->conversation;
+    }
+
+    /**
+     * Set evenement
+     *
+     * @param \ImieNetwork\SiteBundle\Entity\Utilisateur $evenement
+     * @return Message
+     */
+    public function setEvenement(\ImieNetwork\SiteBundle\Entity\Utilisateur $evenement = null)
+    {
+        $this->evenement = $evenement;
+
+        return $this;
+    }
+
+    /**
+     * Get evenement
+     *
+     * @return \ImieNetwork\SiteBundle\Entity\Utilisateur 
+     */
+    public function getEvenement()
+    {
+        return $this->evenement;
     }
 }

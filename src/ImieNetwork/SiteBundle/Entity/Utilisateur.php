@@ -64,8 +64,7 @@ class  Utilisateur extends BaseUser
 
     /**
      * @var \ImieNetwork\SiteBundle\Entity\Ville
-     * @ORM\ManyToOne(targetEntity="Ville", inversedBy="mon_utilisateur")
-     * @ORM\JoinColumn(name="utilisateur_id", referencedColumnName="id")
+     * @ORM\ManyToOne(targetEntity="Ville")
      */
     private $ville;
     
@@ -85,7 +84,7 @@ class  Utilisateur extends BaseUser
     /**
      *
      * @var \ImieNetwork\SiteBundle\Entity\Experience
-     * @ORM\OneToMany(targetEntity="Experience", mappedBy="experience")
+     * @ORM\OneToMany(targetEntity="Experience", mappedBy="utilisateur")
      */
     private $mes_experiences;
    
@@ -96,6 +95,12 @@ class  Utilisateur extends BaseUser
      */
     private $mes_proprietes_utilisateur;
     
+     /**
+     *
+     * @var ArrayCollection \ImieNetwork\SiteBundel\Entity\Offre
+     * @ORM\OneToMany(targetEntity="Offre", mappedBy="utilisateur") 
+     */
+    private $mes_offres;
     /**
      *
      * @var \ImieNetwork\SiteBundel\Entity\Document
@@ -113,44 +118,36 @@ class  Utilisateur extends BaseUser
     /**
      *
      * @var \ImieNetwork\SiteBundle\Entity\Evenementutilisateur
-     * @ORM\OneToMany(targetEntity="Evenementutilisateur", mappedBy="utilisateur")
+     * @ORM\OneToMany(targetEntity="Evenementutilisateur", mappedBy="utilisateur", cascade={"persist"})
      */
-    private $mes_evenements;
+    private $participations_evenements;
     
-    /**
-     *
-     * @var \ImieNetwork\SiteBundle\Entity\Evenement
-     * @ORM\OneToMany(targetEntity="Evenement", mappedBy="utilisateurs")
-     */
-    private $mes_utilisateurs;
-    
-    /**
-     *
-     * @var \ImieNetwork\SiteBundle\Entity\Evenement
-     * @ORM\OneToMany(targetEntity="Evenement", mappedBy="auteur")
-     */
-    private $mon_auteur;
-    
+      
     /**
      *
      * @var \ImieNetwork\SiteBundle\Entity\Message
      * @ORM\OneToMany(targetEntity="Message", mappedBy="utilisateur")
      */
     private $mes_messages;
-    
+   
     /**
-     *
-     * @var \ImieNetwork\SiteBundle\Entity\Secteuractivite;
-     * @ORM\OneToMany(targetEntity="Secteuractivite", mappedBy="utilisateur")
-     */
-    private $mon_secteur_activite;
+     * @var ArrayCollection \ImieNetwork\SiteBundle\Entity\Secteuractivite;
+     * 
+     * @ORM\ManyToMany(targetEntity="Secteuractivite")
+     * @ORM\JoinTable(name="utilisateur_secteuractivite",
+     *      joinColumns={@ORM\JoinColumn(name="utilisateur_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="secteuractivite_id", referencedColumnName="id")}
+     *      )
+     **/
+    private $mes_secteurs_activite;
     
     /**
      *
      * @var \ImieNetwork\SiteBundle\Entity\Promotion;
-     * @ORM\OneToMany(targetEntity="Promotion", mappedBy="utilisateur")
+     * @ORM\ManyToMany(targetEntity="Promotion", mappedBy="utilisateur")
+     * 
      */
-    private $ma_promotion;
+    private $mes_promotion;
     
     /**
      * 
@@ -166,8 +163,7 @@ class  Utilisateur extends BaseUser
         parent::__construct();
         // your own logic
     }
-
-
+   
     /**
      * Get id
      *
@@ -462,36 +458,69 @@ class  Utilisateur extends BaseUser
     }
 
     /**
-     * Add utilisateur_proprietes
+     * Add mes_proprietes_utilisateur
      *
-     * @param \ImieNetwork\SiteBundle\Entity\Utilisateurpropriete $utilisateurProprietes
+     * @param \ImieNetwork\SiteBundle\Entity\Utilisateurpropriete $mesProprietesUtilisateur
      * @return Utilisateur
      */
-    public function addUtilisateurPropriete(\ImieNetwork\SiteBundle\Entity\Utilisateurpropriete $utilisateurProprietes)
+    public function addMesProprietesUtilisateur(\ImieNetwork\SiteBundle\Entity\Utilisateurpropriete $mesProprietesUtilisateur)
     {
-        $this->utilisateur_proprietes[] = $utilisateurProprietes;
+        $this->mes_proprietes_utilisateur[] = $mesProprietesUtilisateur;
 
         return $this;
     }
 
     /**
-     * Remove utilisateur_proprietes
+     * Remove mes_proprietes_utilisateur
      *
-     * @param \ImieNetwork\SiteBundle\Entity\Utilisateurpropriete $utilisateurProprietes
+     * @param \ImieNetwork\SiteBundle\Entity\Utilisateurpropriete $mesProprietesUtilisateur
      */
-    public function removeUtilisateurPropriete(\ImieNetwork\SiteBundle\Entity\Utilisateurpropriete $utilisateurProprietes)
+    public function removeMesProprietesUtilisateur(\ImieNetwork\SiteBundle\Entity\Utilisateurpropriete $mesProprietesUtilisateur)
     {
-        $this->utilisateur_proprietes->removeElement($utilisateurProprietes);
+        $this->mes_proprietes_utilisateur->removeElement($mesProprietesUtilisateur);
     }
 
     /**
-     * Get utilisateur_proprietes
+     * Get mes_proprietes_utilisateur
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getUtilisateurProprietes()
+    public function getMesProprietesUtilisateur()
     {
-        return $this->utilisateur_proprietes;
+        return $this->mes_proprietes_utilisateur;
+    }
+
+    /**
+     * Add mes_offres
+     *
+     * @param \ImieNetwork\SiteBundle\Entity\Offre $mesOffres
+     * @return Utilisateur
+     */
+    public function addMesOffre(\ImieNetwork\SiteBundle\Entity\Offre $mesOffres)
+    {
+        $this->mes_offres[] = $mesOffres;
+
+        return $this;
+    }
+
+    /**
+     * Remove mes_offres
+     *
+     * @param \ImieNetwork\SiteBundle\Entity\Offre $mesOffres
+     */
+    public function removeMesOffre(\ImieNetwork\SiteBundle\Entity\Offre $mesOffres)
+    {
+        $this->mes_offres->removeElement($mesOffres);
+    }
+
+    /**
+     * Get mes_offres
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getMesOffres()
+    {
+        return $this->mes_offres;
     }
 
     /**
@@ -561,136 +590,36 @@ class  Utilisateur extends BaseUser
     }
 
     /**
-     * Add mes_evenements
+     * Add participations_evenements
      *
-     * @param \ImieNetwork\SiteBundle\Entity\Evenementutilisateur $mesEvenements
+     * @param \ImieNetwork\SiteBundle\Entity\Evenementutilisateur $participationsEvenements
      * @return Utilisateur
      */
-    public function addMesEvenement(\ImieNetwork\SiteBundle\Entity\Evenementutilisateur $mesEvenements)
+    public function addParticipationsEvenement(\ImieNetwork\SiteBundle\Entity\Evenementutilisateur $participationsEvenements)
     {
-        $this->mes_evenements[] = $mesEvenements;
+        $this->participations_evenements[] = $participationsEvenements;
 
         return $this;
     }
 
     /**
-     * Remove mes_evenements
+     * Remove participations_evenements
      *
-     * @param \ImieNetwork\SiteBundle\Entity\Evenementutilisateur $mesEvenements
+     * @param \ImieNetwork\SiteBundle\Entity\Evenementutilisateur $participationsEvenements
      */
-    public function removeMesEvenement(\ImieNetwork\SiteBundle\Entity\Evenementutilisateur $mesEvenements)
+    public function removeParticipationsEvenement(\ImieNetwork\SiteBundle\Entity\Evenementutilisateur $participationsEvenements)
     {
-        $this->mes_evenements->removeElement($mesEvenements);
+        $this->participations_evenements->removeElement($participationsEvenements);
     }
 
     /**
-     * Get mes_evenements
+     * Get participations_evenements
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getMesEvenements()
+    public function getParticipationsEvenements()
     {
-        return $this->mes_evenements;
-    }
-    
-
-    /**
-     * Add mes_proprietes_utilisateur
-     *
-     * @param \ImieNetwork\SiteBundle\Entity\Utilisateurpropriete $mesProprietesUtilisateur
-     * @return Utilisateur
-     */
-    public function addMesProprietesUtilisateur(\ImieNetwork\SiteBundle\Entity\Utilisateurpropriete $mesProprietesUtilisateur)
-    {
-        $this->mes_proprietes_utilisateur[] = $mesProprietesUtilisateur;
-
-        return $this;
-    }
-
-    /**
-     * Remove mes_proprietes_utilisateur
-     *
-     * @param \ImieNetwork\SiteBundle\Entity\Utilisateurpropriete $mesProprietesUtilisateur
-     */
-    public function removeMesProprietesUtilisateur(\ImieNetwork\SiteBundle\Entity\Utilisateurpropriete $mesProprietesUtilisateur)
-    {
-        $this->mes_proprietes_utilisateur->removeElement($mesProprietesUtilisateur);
-    }
-
-    /**
-     * Get mes_proprietes_utilisateur
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getMesProprietesUtilisateur()
-    {
-        return $this->mes_proprietes_utilisateur;
-    }
-
-    /**
-     * Add mes_utilisateurs
-     *
-     * @param \ImieNetwork\SiteBundle\Entity\Evenement $mesUtilisateurs
-     * @return Utilisateur
-     */
-    public function addMesUtilisateur(\ImieNetwork\SiteBundle\Entity\Evenement $mesUtilisateurs)
-    {
-        $this->mes_utilisateurs[] = $mesUtilisateurs;
-
-        return $this;
-    }
-
-    /**
-     * Remove mes_utilisateurs
-     *
-     * @param \ImieNetwork\SiteBundle\Entity\Evenement $mesUtilisateurs
-     */
-    public function removeMesUtilisateur(\ImieNetwork\SiteBundle\Entity\Evenement $mesUtilisateurs)
-    {
-        $this->mes_utilisateurs->removeElement($mesUtilisateurs);
-    }
-
-    /**
-     * Get mes_utilisateurs
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getMesUtilisateurs()
-    {
-        return $this->mes_utilisateurs;
-    }
-
-    /**
-     * Add mon_auteur
-     *
-     * @param \ImieNetwork\SiteBundle\Entity\Evenement $monAuteur
-     * @return Utilisateur
-     */
-    public function addMonAuteur(\ImieNetwork\SiteBundle\Entity\Evenement $monAuteur)
-    {
-        $this->mon_auteur[] = $monAuteur;
-
-        return $this;
-    }
-
-    /**
-     * Remove mon_auteur
-     *
-     * @param \ImieNetwork\SiteBundle\Entity\Evenement $monAuteur
-     */
-    public function removeMonAuteur(\ImieNetwork\SiteBundle\Entity\Evenement $monAuteur)
-    {
-        $this->mon_auteur->removeElement($monAuteur);
-    }
-
-    /**
-     * Get mon_auteur
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getMonAuteur()
-    {
-        return $this->mon_auteur;
+        return $this->participations_evenements;
     }
 
     /**
@@ -727,68 +656,91 @@ class  Utilisateur extends BaseUser
     }
 
     /**
-     * Add mon_secteur_activite
+     * Add mes_secteurs_activite
      *
-     * @param \ImieNetwork\SiteBundle\Entity\Secteuractivite $monSecteurActivite
+     * @param \ImieNetwork\SiteBundle\Entity\Secteuractivite $mesSecteursActivite
      * @return Utilisateur
      */
-    public function addMonSecteurActivite(\ImieNetwork\SiteBundle\Entity\Secteuractivite $monSecteurActivite)
+    public function addMesSecteursActivite(\ImieNetwork\SiteBundle\Entity\Secteuractivite $mesSecteursActivite)
     {
-        $this->mon_secteur_activite[] = $monSecteurActivite;
+        $this->mes_secteurs_activite[] = $mesSecteursActivite;
 
         return $this;
     }
 
     /**
-     * Remove mon_secteur_activite
+     * Remove mes_secteurs_activite
      *
-     * @param \ImieNetwork\SiteBundle\Entity\Secteuractivite $monSecteurActivite
+     * @param \ImieNetwork\SiteBundle\Entity\Secteuractivite $mesSecteursActivite
      */
-    public function removeMonSecteurActivite(\ImieNetwork\SiteBundle\Entity\Secteuractivite $monSecteurActivite)
+    public function removeMesSecteursActivite(\ImieNetwork\SiteBundle\Entity\Secteuractivite $mesSecteursActivite)
     {
-        $this->mon_secteur_activite->removeElement($monSecteurActivite);
+        $this->mes_secteurs_activite->removeElement($mesSecteursActivite);
     }
 
     /**
-     * Get mon_secteur_activite
+     * Get mes_secteurs_activite
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getMonSecteurActivite()
+    public function getMesSecteursActivite()
     {
-        return $this->mon_secteur_activite;
+        return $this->mes_secteurs_activite;
     }
 
     /**
-     * Add ma_promotion
+     * Add mes_promotion
      *
-     * @param \ImieNetwork\SiteBundle\Entity\Promotion $maPromotion
+     * @param \ImieNetwork\SiteBundle\Entity\Promotion $mesPromotion
      * @return Utilisateur
      */
-    public function addMaPromotion(\ImieNetwork\SiteBundle\Entity\Promotion $maPromotion)
+    public function addMesPromotion(\ImieNetwork\SiteBundle\Entity\Promotion $mesPromotion)
     {
-        $this->ma_promotion[] = $maPromotion;
+        $this->mes_promotion[] = $mesPromotion;
 
         return $this;
     }
 
     /**
-     * Remove ma_promotion
+     * Remove mes_promotion
      *
-     * @param \ImieNetwork\SiteBundle\Entity\Promotion $maPromotion
+     * @param \ImieNetwork\SiteBundle\Entity\Promotion $mesPromotion
      */
-    public function removeMaPromotion(\ImieNetwork\SiteBundle\Entity\Promotion $maPromotion)
+    public function removeMesPromotion(\ImieNetwork\SiteBundle\Entity\Promotion $mesPromotion)
     {
-        $this->ma_promotion->removeElement($maPromotion);
+        $this->mes_promotion->removeElement($mesPromotion);
     }
 
     /**
-     * Get ma_promotion
+     * Get mes_promotion
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getMaPromotion()
+    public function getMesPromotion()
     {
-        return $this->ma_promotion;
+        return $this->mes_promotion;
     }
+    
+     /*---------------------------------------------
+                Methodes supplémentaires
+     ---------------------------------------------*/
+    
+    /*
+     * @param \ImieNetwork\SiteBundle\Entity\Evenement $event
+     * @param \Boolean $participe
+     * 
+     * IMPORTANT: IL FAUT PERSISTER L ENTITE DE RETOUR
+     * @return \ImieNetwork\SiteBundle\Entity\Evenementutilisateur
+     */
+    public function setParticipationEvenement(\ImieNetwork\SiteBundle\Entity\Evenement $event, $participe)
+    {
+        $participationEvenement = new \ImieNetwork\SiteBundle\Entity\Evenementutilisateur();
+        $participationEvenement->setEvenement($event);
+        $participationEvenement->setUtilisateur($this);
+        $participationEvenement->setParticipe($participe);        
+        $this->addParticipationsEvenement($participationEvenement);
+        
+        return $participationEvenement;
+    }
+
 }
