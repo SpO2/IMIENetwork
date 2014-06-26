@@ -12,4 +12,36 @@ use Doctrine\ORM\EntityRepository;
  */
 class OffreRepository extends EntityRepository
 {
+    public function offresActivesParUtilisateur($utilisateur)
+    {
+        $qb = $this->em()->createQueryBuilder();
+
+        $qb->select('o')
+       ->from('ImieNetworkSiteBundle:offre', 'o')
+       ->where('o.date_fin_publication > :datecourant')
+       ->andWhere('o.utilisateur = :idUtilisateur')
+       ->setParameter('datecourant', new \Datetime(date('d-m-Y')))
+       ->setParameter('idUtilisateur', $utilisateur.id)
+       ->orderBy('o.date_fin_publication', 'DESC');
+
+        return $qb->getQuery()
+               ->getResult();
+    }
+    
+    public function offresNonActivesParUtilisateur($utilisateur)
+    {
+        $qb = $this->em()->createQueryBuilder();
+
+        $qb->select('o')
+       ->from('ImieNetworkSiteBundle:offre', 'o')
+       ->where('o.date_fin_publication < :datecourant')
+       ->andWhere('o.utilisateur = :idUtilisateur')
+       ->setParameter('datecourant', new \Datetime(date('d-m-Y')))
+       ->setParameter('idUtilisateur', $utilisateur.id)
+       ->orderBy('o.date_fin_publication', 'DESC');
+
+        return $qb->getQuery()
+               ->getResult();
+    }
+    
 }
