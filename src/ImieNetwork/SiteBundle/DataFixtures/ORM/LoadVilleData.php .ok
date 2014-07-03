@@ -1,0 +1,34 @@
+<?php
+namespace ImieNetwork\SiteBundle\DataFixtures\ORM;
+ 
+use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\Common\DataFixtures\AbstractFixture;
+use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
+use ImieNetwork\SiteBundle\Entity\Ville;
+ 
+class LoadVilleData extends AbstractFixture implements OrderedFixtureInterface
+{
+    public function load(ObjectManager $em)
+    {
+        $first_ville = new Ville();
+        $first_ville->setLibelle('Brest');
+        $first_ville->setCodePostal('29300');
+        
+        $second_ville = new Ville();
+        $second_ville->setLibelle('Paris');
+        $second_ville->setCodePostal('75000');
+               
+        $em->persist($first_ville);
+        $em->persist($second_ville);
+        
+        $em->flush();
+        
+        $this->addReference('first-ville', $first_ville);
+        $this->addReference('second-ville', $second_ville);
+    }
+    
+    public function getOrder()
+    {
+        return 2; // the order in which fixtures will be loaded
+    }
+}

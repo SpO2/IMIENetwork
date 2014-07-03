@@ -5,15 +5,15 @@ namespace ImieNetwork\SiteBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Proprieteetendue
- *@ORM\Entity(repositoryClass="ImieNetwork\SiteBundle\Repository\ProprieteetendueRepository") 
+ * Module
+ *@ORM\Entity(repositoryClass="ImieNetwork\SiteBundle\Repository\ModuleRepository") 
  */
-class  Proprieteetendue
+class  Module
 {
-    /**
+     /**
      * @var integer
-     * 
-     * @ORM\Column(type="integer")
+     *
+     * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
@@ -22,9 +22,16 @@ class  Proprieteetendue
     /**
      * @var string
      * 
-     * @ORM\Column(type="string", length=255, nullable=false)
+     * @ORM\Column(name="libelle", type="string", length=255)
      */
     private $libelle;
+
+    /**
+     * @var string
+     * 
+     * @ORM\Column(name="code", type="string", length=255)
+     */
+    private $code;
 
     /**
      * 
@@ -34,7 +41,6 @@ class  Proprieteetendue
     {
         return $this->libelle;
     }
-
 
     /**
      * Get id
@@ -50,7 +56,7 @@ class  Proprieteetendue
      * Set libelle
      *
      * @param string $libelle
-     * @return Proprieteetendue
+     * @return Module
      */
     public function setLibelle($libelle)
     {
@@ -67,5 +73,28 @@ class  Proprieteetendue
     public function getLibelle()
     {
         return $this->libelle;
+    }
+
+    /**
+     * Set code
+     *
+     * @param string $code
+     * @return Module
+     */
+    public function setCode($code)
+    {
+        $this->code = $code;
+
+        return $this;
+    }
+
+    /**
+     * Get code
+     *
+     * @return string 
+     */
+    public function getCode()
+    {
+        return $this->code;
     }
 }

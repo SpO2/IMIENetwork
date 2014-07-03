@@ -35,7 +35,7 @@ use Doctrine\ORM\Mapping as ORM;
      * @var \DateTime
      * @ORM\Column(type="datetime")
      */
-    private $date_modification;
+    private $date_conversation;
 
     /**
      * @var \ImieNetwork\SiteBundle\Entity\Utilisateur
@@ -60,14 +60,6 @@ use Doctrine\ORM\Mapping as ORM;
         return $this->titre;
     }
 
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->mes_messages = new \Doctrine\Common\Collections\ArrayCollection();
-    }
 
     /**
      * Get id
@@ -170,6 +162,13 @@ use Doctrine\ORM\Mapping as ORM;
     {
         return $this->utilisateur;
     }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->mes_messages = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Add mes_messages
@@ -202,5 +201,28 @@ use Doctrine\ORM\Mapping as ORM;
     public function getMesMessages()
     {
         return $this->mes_messages;
+    }
+
+    /**
+     * Set date_conversation
+     *
+     * @param \DateTime $dateConversation
+     * @return Conversation
+     */
+    public function setDateConversation($dateConversation)
+    {
+        $this->date_conversation = $dateConversation;
+
+        return $this;
+    }
+
+    /**
+     * Get date_conversation
+     *
+     * @return \DateTime 
+     */
+    public function getDateConversation()
+    {
+        return $this->date_conversation;
     }
 }

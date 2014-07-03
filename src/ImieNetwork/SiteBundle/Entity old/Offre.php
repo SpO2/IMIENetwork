@@ -7,8 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Offre
  *@ORM\Entity(repositoryClass="ImieNetwork\SiteBundle\Repository\OffreRepository")
- */
-class  Offre
+ */class  Offre
 {
     /**
      * @var integer
@@ -20,13 +19,13 @@ class  Offre
 
     /**
      * @var string
-     * @ORM\Column(type="string", nullable=false)
+     * @ORM\Column(type="string")
      */
     private $titre;
 
     /**
      * @var string
-     * @ORM\Column(type="text", nullable=false)
+     * @ORM\Column(type="string")
      */
     private $description;
 
@@ -46,36 +45,43 @@ class  Offre
      * @var string
      * @ORM\Column(type="string")
      */
-    private $type_poste;
-    
-     /**
-     * @var \ImieNetwork\SiteBundle\Entity\Typecontrat
-     * @ORM\ManyToOne(targetEntity="Typecontrat")
-     */
-    private $type_contrat;
+    private $typeposte;
 
     /**
      * @var \DateTime
+     * @ORM\Column(type="datetime")
      */
     private $datedebut;
-    
+
     /**
      * @var \DateTime
-     */
-    private $datefin;
-    /**
-     * @var \DateTime
+     * @ORM\Column(type="datetime")
      */
     private $datemodification;
 
     /**
      * @var \DateTime
+     * @ORM\Column(type="datetime")
      */
     private $datefinpublication;
 
     /**
+     * @var \DateTime
+     * @ORM\Column(type="datetime")
+     */
+    private $datefin;
+
+    /**
+     * @var \ImieNetwork\SiteBundle\Entity\Typecontrat
+     * @ORM\ManyToOne(targetEntity="Typecontrat", inversedBy="mon_offre")
+     * @ORM\JoinColumn(name="offre_id", referencedColumnName="id")
+     */
+    private $type_contrat;
+
+    /**
      * @var \ImieNetwork\SiteBundle\Entity\Utilisateur
      * @ORM\ManyToOne(targetEntity="Utilisateur", inversedBy="mes_offres")
+     * @ORM\JoinColumn(name="offre_id", referencedColumnName="id")
      */
     private $utilisateur;
 
@@ -87,7 +93,6 @@ class  Offre
     {
         return $this->titre;
     }
-
 
     /**
      * Get id
@@ -192,72 +197,26 @@ class  Offre
     }
 
     /**
-     * Set type_poste
+     * Set typeposte
      *
-     * @param string $typePoste
+     * @param string $typeposte
      * @return Offre
      */
-    public function setTypePoste($typePoste)
+    public function setTypeposte($typeposte)
     {
-        $this->type_poste = $typePoste;
+        $this->typeposte = $typeposte;
 
         return $this;
     }
 
     /**
-     * Get type_poste
+     * Get typeposte
      *
      * @return string 
      */
-    public function getTypePoste()
+    public function getTypeposte()
     {
-        return $this->type_poste;
-    }
-
-    /**
-     * Set type_contrat
-     *
-     * @param \ImieNetwork\SiteBundle\Entity\Typecontrat $typeContrat
-     * @return Offre
-     */
-    public function setTypeContrat(\ImieNetwork\SiteBundle\Entity\Typecontrat $typeContrat = null)
-    {
-        $this->type_contrat = $typeContrat;
-
-        return $this;
-    }
-
-    /**
-     * Get type_contrat
-     *
-     * @return \ImieNetwork\SiteBundle\Entity\Typecontrat 
-     */
-    public function getTypeContrat()
-    {
-        return $this->type_contrat;
-    }
-
-    /**
-     * Set utilisateur
-     *
-     * @param \ImieNetwork\SiteBundle\Entity\Utilisateur $utilisateur
-     * @return Offre
-     */
-    public function setUtilisateur(\ImieNetwork\SiteBundle\Entity\Utilisateur $utilisateur = null)
-    {
-        $this->utilisateur = $utilisateur;
-
-        return $this;
-    }
-
-    /**
-     * Get utilisateur
-     *
-     * @return \ImieNetwork\SiteBundle\Entity\Utilisateur 
-     */
-    public function getUtilisateur()
-    {
-        return $this->utilisateur;
+        return $this->typeposte;
     }
 
     /**
@@ -281,29 +240,6 @@ class  Offre
     public function getDatedebut()
     {
         return $this->datedebut;
-    }
-
-    /**
-     * Set datefin
-     *
-     * @param \DateTime $datefin
-     * @return Offre
-     */
-    public function setDatefin($datefin)
-    {
-        $this->datefin = $datefin;
-
-        return $this;
-    }
-
-    /**
-     * Get datefin
-     *
-     * @return \DateTime 
-     */
-    public function getDatefin()
-    {
-        return $this->datefin;
     }
 
     /**
@@ -350,5 +286,74 @@ class  Offre
     public function getDatefinpublication()
     {
         return $this->datefinpublication;
+    }
+
+    /**
+     * Set datefin
+     *
+     * @param \DateTime $datefin
+     * @return Offre
+     */
+    public function setDatefin($datefin)
+    {
+        $this->datefin = $datefin;
+
+        return $this;
+    }
+
+    /**
+     * Get datefin
+     *
+     * @return \DateTime 
+     */
+    public function getDatefin()
+    {
+        return $this->datefin;
+    }
+
+    /**
+     * Set type_contrat
+     *
+     * @param \ImieNetwork\SiteBundle\Entity\Typecontrat $typeContrat
+     * @return Offre
+     */
+    public function setTypeContrat(\ImieNetwork\SiteBundle\Entity\Typecontrat $typeContrat = null)
+    {
+        $this->type_contrat = $typeContrat;
+
+        return $this;
+    }
+
+    /**
+     * Get type_contrat
+     *
+     * @return \ImieNetwork\SiteBundle\Entity\Typecontrat 
+     */
+    public function getTypeContrat()
+    {
+        return $this->type_contrat;
+    }
+
+    /**
+     * Set utilisateur
+     *
+     * @param \ImieNetwork\SiteBundle\Entity\Utilisateur $utilisateur
+     * @return Offre
+     */
+    public function setUtilisateur(\ImieNetwork\SiteBundle\Entity\Utilisateur $utilisateur = null)
+    {
+        $this->utilisateur = $utilisateur;
+
+        return $this;
+    }
+
+    /**
+     * Get utilisateur
+     *
+     * @return \ImieNetwork\SiteBundle\Entity\Utilisateur 
+     */
+    public function getUtilisateur()
+    {
+        return $this->utilisateur;
     }
 }

@@ -5,11 +5,11 @@ namespace ImieNetwork\SiteBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Document
- * @ORM\Entity(repositoryClass="ImieNetwork\SiteBundle\Repository\DocumentRepository")
+ * Experience
+ * @ORM\Entity(repositoryClass="ImieNetwork\SiteBundle\Repository\ExperienceRepository")
  * @ORM\Table()
  */
-class  Document
+class  Experience
 {
     /**
      * @var integer
@@ -26,21 +26,27 @@ class  Document
     private $libelle;
 
     /**
+     * @var \DateTime
+     * @ORM\Column(type="datetime", nullable=false)
+     */
+    private $date_debut;
+
+    /**
+     * @var \DateTime
+     * @ORM\Column(type="datetime", nullable=false)
+     */
+    private $date_fin;
+
+    /**
      * @var string
      * @ORM\Column(type="string", nullable=false)
      */
-    private $url;
-
-    /**
-     * @var boolean
-     * @ORM\Column(type="boolean", nullable=false)
-     */
-    private $visible;
+    private $description;
 
     /**
      * @var \ImieNetwork\SiteBundle\Entity\Utilisateur
-     * @ORM\ManyToOne(targetEntity="Utilisateur", inversedBy="mes_documents")
-     * @ORM\JoinColumn(name="document_id", referencedColumnName="id")
+     * @ORM\ManyToOne(targetEntity="Utilisateur", inversedBy="mes_experiences")
+     * @ORM\JoinColumn(name="experience_id", referencedColumnName="id")
      */
     private $utilisateur;
     
@@ -68,7 +74,7 @@ class  Document
      * Set libelle
      *
      * @param string $libelle
-     * @return Document
+     * @return Experience
      */
     public function setLibelle($libelle)
     {
@@ -88,56 +94,79 @@ class  Document
     }
 
     /**
-     * Set url
+     * Set date_debut
      *
-     * @param string $url
-     * @return Document
+     * @param \DateTime $dateDebut
+     * @return Experience
      */
-    public function setUrl($url)
+    public function setDateDebut($dateDebut)
     {
-        $this->url = $url;
+        $this->date_debut = $dateDebut;
 
         return $this;
     }
 
     /**
-     * Get url
+     * Get date_debut
+     *
+     * @return \DateTime 
+     */
+    public function getDateDebut()
+    {
+        return $this->date_debut;
+    }
+
+    /**
+     * Set date_fin
+     *
+     * @param \DateTime $dateFin
+     * @return Experience
+     */
+    public function setDateFin($dateFin)
+    {
+        $this->date_fin = $dateFin;
+
+        return $this;
+    }
+
+    /**
+     * Get date_fin
+     *
+     * @return \DateTime 
+     */
+    public function getDateFin()
+    {
+        return $this->date_fin;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     * @return Experience
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
      *
      * @return string 
      */
-    public function getUrl()
+    public function getDescription()
     {
-        return $this->url;
-    }
-
-    /**
-     * Set visible
-     *
-     * @param boolean $visible
-     * @return Document
-     */
-    public function setVisible($visible)
-    {
-        $this->visible = $visible;
-
-        return $this;
-    }
-
-    /**
-     * Get visible
-     *
-     * @return boolean 
-     */
-    public function getVisible()
-    {
-        return $this->visible;
+        return $this->description;
     }
 
     /**
      * Set utilisateur
      *
      * @param \ImieNetwork\SiteBundle\Entity\Utilisateur $utilisateur
-     * @return Document
+     * @return Experience
      */
     public function setUtilisateur(\ImieNetwork\SiteBundle\Entity\Utilisateur $utilisateur = null)
     {

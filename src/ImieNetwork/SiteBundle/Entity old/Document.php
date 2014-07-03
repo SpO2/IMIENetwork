@@ -32,10 +32,10 @@ class  Document
     private $url;
 
     /**
-     * @var boolean
-     * @ORM\Column(type="boolean", nullable=false)
+     * @var integer
+     * @ORM\Column(type="integer", nullable=false)
      */
-    private $visible;
+    private $statut;
 
     /**
      * @var \ImieNetwork\SiteBundle\Entity\Utilisateur
@@ -111,26 +111,26 @@ class  Document
     }
 
     /**
-     * Set visible
+     * Set statut
      *
-     * @param boolean $visible
+     * @param integer $statut
      * @return Document
      */
-    public function setVisible($visible)
+    public function setStatut($statut)
     {
-        $this->visible = $visible;
+        $this->statut = $statut;
 
         return $this;
     }
 
     /**
-     * Get visible
+     * Get statut
      *
-     * @return boolean 
+     * @return integer 
      */
-    public function getVisible()
+    public function getStatut()
     {
-        return $this->visible;
+        return $this->statut;
     }
 
     /**

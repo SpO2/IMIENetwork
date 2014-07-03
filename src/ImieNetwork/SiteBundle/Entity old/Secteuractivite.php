@@ -24,7 +24,15 @@ class  Secteuractivite
      * @ORM\Column(type="string", unique=true)
      */
     private $libelle;
-   
+    
+    /**
+     *
+     * @var \ImieNetwork\SiteBundle\Entity\Utilisateur
+     * @ORM\ManyToOne(targetEntity="Utilisateur", inversedBy="mon_secteur_activite")
+     * @ORM\JoinColumn(name="secteuractivite_id", referencedColumnName="id")
+     */
+    private $utilisateur;
+    
     /**
      * 
      * @return libelle
@@ -66,5 +74,28 @@ class  Secteuractivite
     public function getLibelle()
     {
         return $this->libelle;
+    }
+
+    /**
+     * Set utilisateur
+     *
+     * @param \ImieNetwork\SiteBundle\Entity\Utilisateur $utilisateur
+     * @return Secteuractivite
+     */
+    public function setUtilisateur(\ImieNetwork\SiteBundle\Entity\Utilisateur $utilisateur = null)
+    {
+        $this->utilisateur = $utilisateur;
+
+        return $this;
+    }
+
+    /**
+     * Get utilisateur
+     *
+     * @return \ImieNetwork\SiteBundle\Entity\Utilisateur 
+     */
+    public function getUtilisateur()
+    {
+        return $this->utilisateur;
     }
 }

@@ -1,0 +1,36 @@
+<?php
+namespace ImieNetwork\SiteBundle\DataFixtures\ORM;
+ 
+use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\Common\DataFixtures\AbstractFixture;
+use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
+use ImieNetwork\SiteBundle\Entity\Conversation;
+ 
+class LoadConversationData extends AbstractFixture implements OrderedFixtureInterface
+{
+    public function load(ObjectManager $em)
+    {
+        $first_conversation = new Conversation();
+        $first_conversation->setTitre('Conversation Un');
+        $first_conversation->setContenu('Convenu du message Un');
+        $first_conversation->setDateModification(new \DateTime('2014-07-02'));
+        
+        $second_conversation = new Conversation();
+        $second_conversation->setTitre('Conversation Deux');
+        $second_conversation->setContenu('Convenu du message Deux');
+        $second_conversation->setDateModification(new \DateTime('2014-07-03'));
+                
+        $em->persist($first_conversation);
+        $em->persist($second_conversation);
+        
+        $em->flush();
+        
+        $this->addReference('first-conversation', $first_conversation);
+        $this->addReference('second-conversation', $second_conversation);
+    }
+    
+    public function getOrder()
+    {
+        return 2; // the order in which fixtures will be loaded
+    }
+}

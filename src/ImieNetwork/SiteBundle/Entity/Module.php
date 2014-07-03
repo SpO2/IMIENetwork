@@ -42,6 +42,7 @@ class  Module
         return $this->libelle;
     }
 
+
     /**
      * Get id
      *

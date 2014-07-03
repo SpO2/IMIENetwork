@@ -35,7 +35,6 @@ class  Proprieteetendue
         return $this->libelle;
     }
 
-
     /**
      * Get id
      *

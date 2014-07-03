@@ -34,7 +34,7 @@ class  Utilisateurcompetence
 
     /**
      * @var \ImieNetwork\SiteBundle\Entity\Competence
-     * @ORM\ManyToOne(targetEntity="Competence")
+     * @ORM\ManyToOne(targetEntity="Competence", inversedBy="utilisateurs")
      * @ORM\JoinColumn(name="competence_id", referencedColumnName="id")
      */
     private $competence;
@@ -47,7 +47,7 @@ class  Utilisateurcompetence
     {
         return $this->note;
     }
- 
+
 
     /**
      * Get id

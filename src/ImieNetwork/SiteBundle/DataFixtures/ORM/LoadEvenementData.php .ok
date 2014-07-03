@@ -1,0 +1,42 @@
+<?php
+namespace ImieNetwork\SiteBundle\DataFixtures\ORM;
+ 
+use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\Common\DataFixtures\AbstractFixture;
+use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
+use ImieNetwork\SiteBundle\Entity\Evenement;
+ 
+class LoadEvenementData extends AbstractFixture implements OrderedFixtureInterface
+{
+    public function load(ObjectManager $em)
+    {
+        $first_evenement = new Evenement();
+        $first_evenement->setLibelle('Evenement Un');
+        $first_evenement->setDescription("Description de l'évenement Un");
+        $first_evenement->setDateDebut(new \DateTime('2014-07-01'));
+        $first_evenement->setDateModification(new \DateTime('2014-06-25'));
+        $first_evenement->setDateFin(new \DateTime('2014-07-30'));
+        $first_evenement->setStatut(true);
+        
+        $second_evenement = new Evenement();
+        $second_evenement->setLibelle('Evenement Deux');
+        $second_evenement->setDescription("Description de l'évenement Deux");
+        $second_evenement->setDateDebut(new \DateTime('2014-08-01'));
+        $second_evenement->setDateModification(new \DateTime('2014-07-03'));
+        $second_evenement->setDateFin(new \DateTime('2015-07-30'));
+        $second_evenement->setStatut(false);
+                
+        $em->persist($first_evenement);
+        $em->persist($second_evenement);
+        
+        $em->flush();
+        
+        $this->addReference('first-evenement', $first_evenement);
+        $this->addReference('second-evenement', $second_evenement);
+    }
+    
+    public function getOrder()
+    {
+        return 2; // the order in which fixtures will be loaded
+    }
+}
