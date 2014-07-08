@@ -11,8 +11,8 @@ class EntrepriseController extends Controller {
         $em = $this->getDoctrine()->getManager();
         $limit = $this->container->getParameter("preview_default");
 
-        $evenements = $em->getRepository('ImieNetworkSiteBundle:evenement')->findAll($limit);
-        $enquetes = $em->getRepository('ImieNetworkSiteBundle:message')->findBy(array('type' => 'Enquête'), array('datemessage' => 'desc'), $limit, 0);
+        $evenements = $em->getRepository('ImieNetworkSiteBundle:Evenement')->findAll($limit);
+        $enquetes = $em->getRepository('ImieNetworkSiteBundle:Message')->findBy(array('type' => 'Enquête'), array('datemessage' => 'desc'), $limit, 0);
 
         return $this->render('ImieNetworkSiteBundle:Entreprise:index.html.twig', array(
                     'evenements' => $evenements,
