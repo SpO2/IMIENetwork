@@ -17,9 +17,9 @@ class DocumentAdmin extends Admin
     {
         $datagridMapper
             ->add('id')
-            ->add('idutilisateur')
-            ->add('libelle')
-            ->add('url')
+            ->add('utilisateur')
+            ->add('libelle', null, array('label' => 'Titre'))
+            ->add('url', 'doctrine_orm_string', array(), 'url')
             ->add('statut', 'doctrine_orm_boolean', array('label' => 'Statut'), 'checkbox' )
         ;
     }
@@ -31,10 +31,10 @@ class DocumentAdmin extends Admin
     {
         $listMapper
             ->add('id')
-            ->add('idutilisateur')
-            ->add('libelle')
-            ->add('url')
-            ->add('statut','boolean')
+            ->add('utilisateur')
+            ->add('libelle', null, array('label' => 'Titre'))
+            ->add('url','url')
+            ->add('statut','boolean', array('label' => 'Actif '))
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),
@@ -52,10 +52,10 @@ class DocumentAdmin extends Admin
     {
         $formMapper
             //->add('id', 'sonata_type_model_hidden')
-            ->add('idutilisateur')
-            ->add('libelle')
+            ->add('utilisateur')
+            ->add('libelle', null, array('label' => 'Titre'))
             ->add('url','url')
-            ->add('statut')
+            ->add('statut', 'checkbox')
         ;
     }
 
@@ -66,9 +66,9 @@ class DocumentAdmin extends Admin
     {
         $showMapper
             ->add('id')
-            ->add('idutilisateur')
-            ->add('libelle')
-            ->add('url')
+            ->add('utilisateur')
+            ->add('libelle', null, array('label' => 'Titre'))
+            ->add('url', 'url')
             ->add('statut','checkbox')
         ;
     }

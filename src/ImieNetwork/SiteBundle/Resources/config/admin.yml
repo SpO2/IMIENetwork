@@ -1,34 +1,83 @@
 services:
-    imie_network_site.admin.utilisateur:
-        class: ImieNetwork\SiteBundle\Admin\UtilisateurAdmin
-        arguments: [~, ImieNetwork\SiteBundle\Entity\Utilisateur, ImieNetworkSiteBundle:UtilisateurAdmin]
+    
+    imie_network_site.admin.competence:
+        class: ImieNetwork\SiteBundle\Admin\CompetenceAdmin
+        arguments: [~, ImieNetwork\SiteBundle\Entity\Competence, ImieNetworkSiteBundle:CompetenceAdmin]
         tags:
-            - {name: sonata.admin, manager_type: orm, group: Administration, label: Utilisateur}
-
-    imie_network_site.admin.groupe:
-        class: ImieNetwork\SiteBundle\Admin\GroupeAdmin
-        arguments: [~, ImieNetwork\SiteBundle\Entity\Groupe, ImieNetworkSiteBundle:GroupeAdmin]
+            - {name: sonata.admin, manager_type: orm, group: Tables fixes, label: Compétences}
+            
+    imie_network_site.admin.conversation:
+        class: ImieNetwork\SiteBundle\Admin\ConversationAdmin
+        arguments: [~, ImieNetwork\SiteBundle\Entity\Conversation, ImieNetworkSiteBundle:ConversationAdmin]
         tags:
-            - {name: sonata.admin, manager_type: orm, group: Tables fixes, label: Groupe}
-
-    imie_network_site.admin.groupeutilisateur:
-        class: ImieNetwork\SiteBundle\Admin\GroupeutilisateurAdmin
-        arguments: [~, ImieNetwork\SiteBundle\Entity\Groupeutilisateur, ImieNetworkSiteBundle:GroupeutilisateurAdmin]
+            - {name: sonata.admin, manager_type: orm, group: Administration, label: Conversations}
+        
+    imie_network_site.admin.document:
+        class: ImieNetwork\SiteBundle\Admin\DocumentAdmin
+        arguments: [~, ImieNetwork\SiteBundle\Entity\Document, ImieNetworkSiteBundle:DocumentAdmin]
         tags:
-            - {name: sonata.admin, manager_type: orm, group: Administration, label: Groupeutilisateur}
-
+            - {name: sonata.admin, manager_type: orm, group: Administration, label: Documents}
+   
     imie_network_site.admin.evenement:
         class: ImieNetwork\SiteBundle\Admin\EvenementAdmin
         arguments: [~, ImieNetwork\SiteBundle\Entity\Evenement, ImieNetworkSiteBundle:EvenementAdmin]
         tags:
-            - {name: sonata.admin, manager_type: orm, group: Administration, label: Evenement}
-
-    imie_network_site.admin.enquete:
-        class: ImieNetwork\SiteBundle\Admin\EnqueteAdmin
-        arguments: [~, ImieNetwork\SiteBundle\Entity\Enquete, ImieNetworkSiteBundle:EnqueteAdmin]
+            - {name: sonata.admin, manager_type: orm, group: Administration, label: Evènements}
+ 
+    imie_network_site.admin.evenementutilisateur:
+        class: ImieNetwork\SiteBundle\Admin\EvenementutilisateurAdmin
+        arguments: [~, ImieNetwork\SiteBundle\Entity\Evenementutilisateur, ImieNetworkSiteBundle:EvenementutilisateurAdmin]
         tags:
-            - {name: sonata.admin, manager_type: orm, group: Administration, label: Enquete}
-
+            - {name: sonata.admin, manager_type: orm, group: Administration, label: Liaisons Evènements / Utilisateurs}
+            
+    imie_network_site.admin.experience:
+        class: ImieNetwork\SiteBundle\Admin\ExperienceAdmin
+        arguments: [~, ImieNetwork\SiteBundle\Entity\Experience, ImieNetworkSiteBundle:ExperienceAdmin]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: Administration, label: Expériences}
+            
+    imie_network_site.admin.groupe:
+        class: ImieNetwork\SiteBundle\Admin\GroupeAdmin
+        arguments: [~, ImieNetwork\SiteBundle\Entity\Groupe, ImieNetworkSiteBundle:GroupeAdmin]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: Tables fixes, label: Groupes}
+           
+    imie_network_site.admin.groupepropriete:
+        class: ImieNetwork\SiteBundle\Admin\GroupeproprieteAdmin
+        arguments: [~, ImieNetwork\SiteBundle\Entity\Groupepropriete, ImieNetworkSiteBundle:GroupeproprieteAdmin]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: Administration, label: Liaisons Groupes / Propriétés}
+     
+    imie_network_site.admin.module:
+        class: ImieNetwork\SiteBundle\Admin\ModuleAdmin
+        arguments: [~, ImieNetwork\SiteBundle\Entity\Module, ImieNetworkSiteBundle:ModuleAdmin]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: Tables fixes, label: Modules}
+            
+    imie_network_site.admin.offre:
+        class: ImieNetwork\SiteBundle\Admin\OffreAdmin
+        arguments: [~, ImieNetwork\SiteBundle\Entity\Offre, ImieNetworkSiteBundle:OffreAdmin]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: Administration, label: Offres}
+            
+    imie_network_site.admin.promotion:
+        class: ImieNetwork\SiteBundle\Admin\PromotionAdmin
+        arguments: [~, ImieNetwork\SiteBundle\Entity\Promotion, ImieNetworkSiteBundle:PromotionAdmin]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: Tables fixes, label: Promotions}
+            
+    imie_network_site.admin.proprieteetendue:
+        class: ImieNetwork\SiteBundle\Admin\ProprieteetendueAdmin
+        arguments: [~, ImieNetwork\SiteBundle\Entity\Proprieteetendue, ImieNetworkSiteBundle:ProprieteetendueAdmin]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: Administration, label: Propriétés étendues}
+          
+    imie_network_site.admin.secteuractivite:
+        class: ImieNetwork\SiteBundle\Admin\SecteuractiviteAdmin
+        arguments: [~, ImieNetwork\SiteBundle\Entity\Secteuractivite, ImieNetworkSiteBundle:SecteuractiviteAdmin]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: Tables fixes, label: Secteurs d'activités}
+          
     imie_network_site.admin.typecontrat:
         class: ImieNetwork\SiteBundle\Admin\TypecontratAdmin
         arguments: [~, ImieNetwork\SiteBundle\Entity\Typecontrat, ImieNetworkSiteBundle:TypecontratAdmin]
@@ -40,63 +89,21 @@ services:
         arguments: [~, ImieNetwork\SiteBundle\Entity\Typemessage, ImieNetworkSiteBundle:TypemessageAdmin]
         tags:
             - {name: sonata.admin, manager_type: orm, group: Tables fixes, label: Types de messages}
-
-    imie_network_site.admin.secteuractivite:
-        class: ImieNetwork\SiteBundle\Admin\SecteuractiviteAdmin
-        arguments: [~, ImieNetwork\SiteBundle\Entity\Secteuractivite, ImieNetworkSiteBundle:SecteuractiviteAdmin]
+    
+    imie_network_site.admin.utilisateur:
+        class: ImieNetwork\SiteBundle\Admin\UtilisateurAdmin
+        arguments: [~, ImieNetwork\SiteBundle\Entity\Utilisateur, ImieNetworkSiteBundle:UtilisateurAdmin]
         tags:
-            - {name: sonata.admin, manager_type: orm, group: Tables fixes, label: Secteurs d'activitées}
-
-    imie_network_site.admin.competence:
-        class: ImieNetwork\SiteBundle\Admin\CompetenceAdmin
-        arguments: [~, ImieNetwork\SiteBundle\Entity\Competence, ImieNetworkSiteBundle:CompetenceAdmin]
+            - {name: sonata.admin, manager_type: orm, group: Administration, label: Utilisateurs}
+         
+    imie_network_site.admin.utilisateurcompetence:
+        class: ImieNetwork\SiteBundle\Admin\UtilisateurcompetenceAdmin
+        arguments: [~, ImieNetwork\SiteBundle\Entity\Utilisateurcompetence, ImieNetworkSiteBundle:UtilisateurcompetenceAdmin]
         tags:
-            - {name: sonata.admin, manager_type: orm, group: Administration, label: Competences}
-
-    imie_network_site.admin.conversation:
-        class: ImieNetwork\SiteBundle\Admin\ConversationAdmin
-        arguments: [~, ImieNetwork\SiteBundle\Entity\Conversation, ImieNetworkSiteBundle:ConversationAdmin]
-        tags:
-            - {name: sonata.admin, manager_type: orm, group: Administration, label: Conversations}
-
-    imie_network_site.admin.document:
-        class: ImieNetwork\SiteBundle\Admin\DocumentAdmin
-        arguments: [~, ImieNetwork\SiteBundle\Entity\Document, ImieNetworkSiteBundle:DocumentAdmin]
-        tags:
-            - {name: sonata.admin, manager_type: orm, group: Administration, label: Documents}
-
-    imie_network_site.admin.experience:
-        class: ImieNetwork\SiteBundle\Admin\ExperienceAdmin
-        arguments: [~, ImieNetwork\SiteBundle\Entity\Experience, ImieNetworkSiteBundle:ExperienceAdmin]
-        tags:
-            - {name: sonata.admin, manager_type: orm, group: Administration, label: Experiences}
-
-    imie_network_site.admin.module:
-        class: ImieNetwork\SiteBundle\Admin\ModuleAdmin
-        arguments: [~, ImieNetwork\SiteBundle\Entity\Module, ImieNetworkSiteBundle:ModuleAdmin]
-        tags:
-            - {name: sonata.admin, manager_type: orm, group: Tables fixes, label: Modules}
-
-    imie_network_site.admin.offre:
-        class: ImieNetwork\SiteBundle\Admin\OffreAdmin
-        arguments: [~, ImieNetwork\SiteBundle\Entity\Offre, ImieNetworkSiteBundle:OffreAdmin]
-        tags:
-            - {name: sonata.admin, manager_type: orm, group: Administration, label: Offres}
-
-    imie_network_site.admin.proprieteetendue:
-        class: ImieNetwork\SiteBundle\Admin\ProprieteetendueAdmin
-        arguments: [~, ImieNetwork\SiteBundle\Entity\Proprieteetendue, ImieNetworkSiteBundle:ProprieteetendueAdmin]
-        tags:
-            - {name: sonata.admin, manager_type: orm, group: Administration, label: Proprietes étendues}
+            - {name: sonata.admin, manager_type: orm, group: Administration, label: Liaison Utilisateurs / Compétences}
 
     imie_network_site.admin.ville:
         class: ImieNetwork\SiteBundle\Admin\VilleAdmin
         arguments: [~, ImieNetwork\SiteBundle\Entity\Ville, ImieNetworkSiteBundle:VilleAdmin]
         tags:
             - {name: sonata.admin, manager_type: orm, group: Tables fixes, label: Villes}
-
-    imie_network_site.admin.promotion:
-        class: ImieNetwork\SiteBundle\Admin\PromotionAdmin
-        arguments: [~, ImieNetwork\SiteBundle\Entity\Promotion, ImieNetworkSiteBundle:PromotionAdmin]
-        tags:
-            - {name: sonata.admin, manager_type: orm, group: Tables fixes, label: Promotion}

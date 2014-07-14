@@ -18,8 +18,8 @@ class ConversationAdmin extends Admin
         $datagridMapper
             ->add('id')
             ->add('titre')
-            ->add('contenu')
-            ->add('dateconv', null, array('label' => 'Date de début de la conversation : ', 'required' => false))
+            //->add('contenu')
+            ->add('date_modification', 'doctrine_orm_date'  , array('label' => 'Date de la conversation : '), 'date')
         ;
     }
 
@@ -32,7 +32,7 @@ class ConversationAdmin extends Admin
             ->add('id')
             ->add('titre')
             ->add('contenu')
-            ->add('dateconv', null, array('label' => 'Date de début de la conversation : ', 'required' => false))
+            ->add('date_modification', null, array('label' => 'Date de début de la conversation'))
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),
@@ -49,10 +49,10 @@ class ConversationAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('id', 'sonata_type_model_hidden')
+            //->add('id')
             ->add('titre')
-            ->add('contenu')
-            //->add('dateconv')
+            ->add('contenu', 'textarea')
+            //->add('date_modification')
         ;
     }
 
@@ -64,8 +64,8 @@ class ConversationAdmin extends Admin
         $showMapper
             ->add('id')
             ->add('titre')
-            ->add('contenu')
-            ->add('dateconv', null, array('label' => 'Date de début de la conversation : ', 'required' => false))
+            ->add('contenu', 'textarea')
+            ->add('date_modification', 'date', array('label' => 'Date de début de la conversation : '))
         ;
     }
 }

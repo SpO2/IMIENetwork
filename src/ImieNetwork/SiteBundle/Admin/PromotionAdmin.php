@@ -17,9 +17,9 @@ class PromotionAdmin extends Admin
     {
         $datagridMapper
             ->add('id')
-            ->add('libelle')
-            ->add('annee','date')
-            ->add('email','email')
+            ->add('libelle', null, array('label' => 'Nom'))
+            ->add('annee', 'date')
+            ->add('email','doctrine_orm_string', array(), 'email')
         ;
     }
 
@@ -30,8 +30,8 @@ class PromotionAdmin extends Admin
     {
         $listMapper
             ->add('id')
-            ->add('libelle')
-            ->add('annee','date')
+            ->add('libelle', null, array('label' => 'Nom'))
+            ->add('annee', 'date')
             ->add('email','email')
             ->add('_action', 'actions', array(
                 'actions' => array(
@@ -49,9 +49,9 @@ class PromotionAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('id','sonata_type_model_hidden')
-            ->add('libelle')
-            ->add('annee','date')
+            //->add('id')
+            ->add('libelle', null, array('label' => 'Nom'))
+            ->add('annee')
             ->add('email','email')
         ;
     }
@@ -63,8 +63,8 @@ class PromotionAdmin extends Admin
     {
         $showMapper
             ->add('id')
-            ->add('libelle')
-            ->add('annee','date')
+            ->add('libelle', null, array('label' => 'Nom'))
+            ->add('annee')
             ->add('email','email')
         ;
     }

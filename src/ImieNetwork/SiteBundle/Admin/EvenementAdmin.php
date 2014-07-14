@@ -17,12 +17,12 @@ class EvenementAdmin extends Admin
     {
         $datagridMapper
             ->add('id')
-            ->add('libelle')
-            ->add('description')
-            ->add('datedebut', null, array('label' => 'Date de début de l\' évènement ' , 'required' => false))
-            ->add('datemodification',null, array('label' => 'Date de modification de l\' évènement ' , 'required' => false))
-            ->add('datefin', null, array('label' => 'Date de fin de l\' évènement ' , 'required' => false))
-            ->add('statut',null, array('label' => 'Actif ' , 'required' => false))
+            ->add('libelle', null, array('label' => 'Titre'))
+            //->add('description', 'doctrine_orm_string', array(), 'textarea')
+            ->add('datedebut', 'doctrine_orm_date', array('label' => 'Date de début de l\' évènement'), 'date')
+            ->add('datemodification','doctrine_orm_date', array('label' => 'Date de modification de l\' évènement'), 'date')
+            ->add('datefin', 'doctrine_orm_date', array('label' => 'Date de fin de l\' évènement'), 'date')
+            ->add('statut','doctrine_orm_boolean', array('label' => 'Actif'), 'checkbox')
         ;
     }
 
@@ -33,12 +33,12 @@ class EvenementAdmin extends Admin
     {
         $listMapper
             ->add('id')
-            ->add('libelle')
-            ->add('description')
-            ->add('datedebut', null, array('label' => 'Date de début de l\' évènement ' , 'required' => false))
-            ->add('datemodification',null, array('label' => 'Date de modification de l\' évènement ' , 'required' => false))
-            ->add('datefin', null, array('label' => 'Date de fin de l\' évènement ' , 'required' => false))
-            ->add('statut',null, array('label' => 'Actif ' , 'required' => false))
+            ->add('libelle', null, array('label' => 'Titre'))
+            ->add('description','text')
+            ->add('datedebut', 'date', array('label' => 'Date de début de l\' évènement'))
+            ->add('datemodification','date', array('label' => 'Date de modification de l\' évènement'))
+            ->add('datefin', 'date', array('label' => 'Date de fin de l\' évènement'))
+            ->add('statut','boolean', array('label' => 'Actif'))
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),
@@ -55,13 +55,13 @@ class EvenementAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('id', 'sonata_type_model_hidden')
-            ->add('libelle')
-            ->add('description')
+            //->add('id')
+            ->add('libelle', null, array('label' => 'Titre'))
+            ->add('description','textarea')
             //->add('datedebut')
             //->add('datemodification')
             //->add('datefin')
-            ->add('statut',null, array('label' => 'Actif ' , 'required' => false))
+            ->add('statut','checkbox', array('label' => 'Actif'))
         ;
     }
 
@@ -72,12 +72,12 @@ class EvenementAdmin extends Admin
     {
         $showMapper
             ->add('id')
-            ->add('libelle')
-            ->add('description')
-            ->add('datedebut', null, array('label' => 'Date de début de l\' évènement ' , 'required' => false))
-            ->add('datemodification',null, array('label' => 'Date de modification de l\' évènement ' , 'required' => false))
-            ->add('datefin', null, array('label' => 'Date de fin de l\' évènement ' , 'required' => false))
-            ->add('statut',null, array('label' => 'Actif ' , 'required' => false))
+            ->add('libelle', null, array('label' => 'Titre'))
+            ->add('description', 'textarea')
+            ->add('datedebut', 'date', array('label' => 'Date de début de l\' évènement'))
+            ->add('datemodification','date', array('label' => 'Date de modification de l\' évènement'))
+            ->add('datefin', 'date', array('label' => 'Date de fin de l\' évènement'))
+            ->add('statut','checkbox', array('label' => 'Actif'))
         ;
     }
 }
