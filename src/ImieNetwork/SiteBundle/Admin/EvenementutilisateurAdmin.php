@@ -50,8 +50,8 @@ class EvenementutilisateurAdmin extends Admin
     {
         $formMapper
             //->add('id')
-            ->add('utilisateur')
-            ->add('evenement', null, array('label' => 'Evènement'))
+            ->add('utilisateur', 'sonata_type_model', array('btn_add' => 'Ajouter'))
+            ->add('evenement', 'sonata_type_model', array('btn_add' => 'Ajouter', 'label' => 'Evènement'))
             ->add('participe')
         ;
     }

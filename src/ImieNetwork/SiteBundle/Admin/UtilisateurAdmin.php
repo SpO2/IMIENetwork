@@ -23,6 +23,7 @@ class UtilisateurAdmin extends Admin
             ->add('telephone',null, array('label' => 'Téléphone'))
             ->add('username', null, array('label' => 'Identifiant'))
             ->add('password', null, array('label' => 'Mot de passe'))
+            ->add('groupes')
             ->add('enabled','doctrine_orm_boolean', array('label' => 'Compte actif'), 'checkbox')
             ->add('email', 'doctrine_orm_string', array(), 'email')
             ->add('date_creation', 'doctrine_orm_date', array('label' => 'Date de création de l\' utilisateur'), 'date')
@@ -44,6 +45,7 @@ class UtilisateurAdmin extends Admin
             ->add('telephone',null, array('label' => 'Téléphone'))
             ->add('username', null, array('label' => 'Identifiant'))
             ->add('password', null, array('label' => 'Mot de passe'))
+            ->add('groupes')
             ->add('enabled','checkbox', array('label' => 'Compte actif'))
             ->add('email', 'email')
             ->add('date_creation','date', array('label' => 'Date de création de l\' utilisateur'))
@@ -72,12 +74,13 @@ class UtilisateurAdmin extends Admin
             ->add('telephone',null, array('label' => 'Téléphone'))
             ->add('username', null, array('label' => 'Identifiant'))
             ->add('password', null, array('label' => 'Mot de passe'))
+            ->add('groupes', 'sonata_type_model', array('btn_add' => 'Ajouter'))
             ->add('enabled','checkbox', array('label' => 'Compte actif'))
             ->add('email', 'email')
             //->add('date_creation', 'date', array('label' => 'Date de création de l\' utilisateur'))
             //->add('date_modification', 'date', array('label' => 'Date de modification de l\' utilisateur'))
             ->add('langue')
-            ->add('ville')
+            ->add('ville', 'sonata_type_model', array('btn_add' => 'Ajouter'))
         ;
     }
 
@@ -94,6 +97,7 @@ class UtilisateurAdmin extends Admin
             ->add('telephone',null, array('label' => 'Téléphone'))
             ->add('username', null, array('label' => 'Identifiant'))
             ->add('password', null, array('label' => 'Mot de passe'))
+            ->add('groupes')
             ->add('enabled','checkbox', array('label' => 'Compte actif'))
             ->add('email', 'email')
             ->add('date_creation', 'date', array('label' => 'Date de création de l\' utilisateur'))

@@ -50,8 +50,8 @@ class GroupeproprieteAdmin extends Admin
     {
         $formMapper
             //->add('id')
-            ->add('groupe')
-            ->add('propriete', null, array('label' => 'Propriété'))
+            ->add('groupe', 'sonata_type_model', array('btn_add' => 'Ajouter'))
+            ->add('propriete', 'sonata_type_model', array('btn_add' => 'Ajouter', 'label' => 'Propriété'))
             ->add('valeur')
         ;
     }

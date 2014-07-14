@@ -50,8 +50,8 @@ class UtilisateurcompetenceAdmin extends Admin
     {
         $formMapper
             //->add('id')
-            ->add('utilisateur')
-            ->add('competence')
+            ->add('utilisateur', 'sonata_type_model', array('btn_add' => 'Ajouter'))
+            ->add('competence', 'sonata_type_model', array('btn_add' => 'Ajouter'))
             ->add('note')
         ;
     }

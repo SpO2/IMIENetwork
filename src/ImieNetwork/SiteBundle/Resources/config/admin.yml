@@ -22,8 +22,14 @@ services:
         class: ImieNetwork\SiteBundle\Admin\EvenementAdmin
         arguments: [~, ImieNetwork\SiteBundle\Entity\Evenement, ImieNetworkSiteBundle:EvenementAdmin]
         tags:
-            - {name: sonata.admin, manager_type: orm, group: Administration, label: Evènement}
+            - {name: sonata.admin, manager_type: orm, group: Administration, label: Evènements}
  
+    imie_network_site.admin.evenementutilisateur:
+        class: ImieNetwork\SiteBundle\Admin\EvenementutilisateurAdmin
+        arguments: [~, ImieNetwork\SiteBundle\Entity\Evenementutilisateur, ImieNetworkSiteBundle:EvenementutilisateurAdmin]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: Administration, label: Liaisons Evènements / Utilisateurs}
+            
     imie_network_site.admin.experience:
         class: ImieNetwork\SiteBundle\Admin\ExperienceAdmin
         arguments: [~, ImieNetwork\SiteBundle\Entity\Experience, ImieNetworkSiteBundle:ExperienceAdmin]
@@ -34,7 +40,13 @@ services:
         class: ImieNetwork\SiteBundle\Admin\GroupeAdmin
         arguments: [~, ImieNetwork\SiteBundle\Entity\Groupe, ImieNetworkSiteBundle:GroupeAdmin]
         tags:
-            - {name: sonata.admin, manager_type: orm, group: Tables fixes, label: Groupe}
+            - {name: sonata.admin, manager_type: orm, group: Tables fixes, label: Groupes}
+           
+    imie_network_site.admin.groupepropriete:
+        class: ImieNetwork\SiteBundle\Admin\GroupeproprieteAdmin
+        arguments: [~, ImieNetwork\SiteBundle\Entity\Groupepropriete, ImieNetworkSiteBundle:GroupeproprieteAdmin]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: Administration, label: Liaisons Groupes / Propriétés}
      
     imie_network_site.admin.module:
         class: ImieNetwork\SiteBundle\Admin\ModuleAdmin
@@ -83,6 +95,12 @@ services:
         arguments: [~, ImieNetwork\SiteBundle\Entity\Utilisateur, ImieNetworkSiteBundle:UtilisateurAdmin]
         tags:
             - {name: sonata.admin, manager_type: orm, group: Administration, label: Utilisateurs}
+         
+    imie_network_site.admin.utilisateurcompetence:
+        class: ImieNetwork\SiteBundle\Admin\UtilisateurcompetenceAdmin
+        arguments: [~, ImieNetwork\SiteBundle\Entity\Utilisateurcompetence, ImieNetworkSiteBundle:UtilisateurcompetenceAdmin]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: Administration, label: Liaison Utilisateurs / Compétences}
 
     imie_network_site.admin.ville:
         class: ImieNetwork\SiteBundle\Admin\VilleAdmin
