@@ -1,0 +1,19 @@
+administrationIndex:
+    pattern:  /
+    defaults: { _controller: ImieNetworkSiteBundle:Administration:index }
+    
+ImieNetworkSiteBundle_administrationtypecontrat:
+    resource: "@ImieNetworkSiteBundle/Resources/config/routing/administration/typecontrat.yml"
+    prefix:   /typecontrat
+    
+ImieNetworkSiteBundle_administrationpromotion:
+    resource: "@ImieNetworkSiteBundle/Resources/config/routing/administration/promotion.yml"
+    prefix:   /promotion
+
+ImieNetworkSiteBundle_administrationutilisateur:
+    resource: "@ImieNetworkSiteBundle/Resources/config/routing/administration/utilisateur.yml"
+    prefix:   /utilisateur
+    
+ImieNetworkSiteBundle_administrationgroupe:
+    resource: "@ImieNetworkSiteBundle/Resources/config/routing/administration/groupe.yml"
+    prefix:   /groupes

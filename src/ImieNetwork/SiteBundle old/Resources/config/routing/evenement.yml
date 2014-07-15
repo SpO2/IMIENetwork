@@ -1,0 +1,30 @@
+evenement:
+    pattern:  /
+    defaults: { _controller: "ImieNetworkSiteBundle:Evenement:index" }
+
+evenement_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "ImieNetworkSiteBundle:Evenement:show" }
+
+evenement_new:
+    pattern:  /new
+    defaults: { _controller: "ImieNetworkSiteBundle:Evenement:new" }
+
+evenement_create:
+    pattern:  /create
+    defaults: { _controller: "ImieNetworkSiteBundle:Evenement:create" }
+    requirements: { _method: post }
+
+evenement_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "ImieNetworkSiteBundle:Evenement:edit" }
+
+evenement_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "ImieNetworkSiteBundle:Evenement:update" }
+    requirements: { _method: post|put }
+
+evenement_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "ImieNetworkSiteBundle:Evenement:delete" }
+    requirements: { _method: post|delete }

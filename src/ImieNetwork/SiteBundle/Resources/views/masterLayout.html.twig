@@ -6,7 +6,7 @@
         {% block stylesheets %}{% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
         <link rel="stylesheet" href="{{ asset('bundles/imienetworksite/css/bootstrap-theme.min.css') }}" />
-        <link rel="stylesheet" href="{{ asset('bundles/imienetworksite/css/IMIE.css') }}" />
+        <link rel="stylesheet" href="{{ asset('bundles/imienetworksite/css/masterLayout.css') }}" />
         <link rel="stylesheet" href="{{ asset('bundles/imienetworksite/css/bootstrap.min.css') }}" />
         <script src="{{ asset('bundles/imienetworksite/js/jquery-2.1.1.min.js') }}" type="text/javascript"></script>
         <script src="{{ asset('bundles/imienetworksite/js/bootstrap.min.js') }}" type="text/javascript"></script>
@@ -18,8 +18,8 @@
         {% block ContentHeader %}{% endblock %}
         {% block ContentNav %}{% endblock %}
         
-            <main class="contentMain">
-                <div class="col-md-10">
+            <main>
+                <div>
             {% block content %}{% endblock %}
                 </div>
             </main>

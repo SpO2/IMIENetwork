@@ -31,12 +31,17 @@ class  Groupe
      */
     private $proprietes_groupe;
     
+    
     /**
-     * @var \ImieNetwork\SiteBundle\Entity\Module
-     * @ORM\ManyToOne(targetEntity="Module")
-     */
+     * @var ArrayCollection \ImieNetwork\SiteBundle\Entity\module
+     * 
+     * @ORM\ManyToMany(targetEntity="Module")
+     * @ORM\JoinTable(name="groupemodule",
+     *      joinColumns={@ORM\JoinColumn(name="idgroupe", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="idmodule", referencedColumnName="id")}
+     *      )
+     **/
     private $modules;
-
 
     public function __toString()
     {
@@ -150,18 +155,5 @@ class  Groupe
     public function getModules()
     {
         return $this->modules;
-    }
-
-    /**
-     * Set modules
-     *
-     * @param \ImieNetwork\SiteBundle\Entity\Module $modules
-     * @return Groupe
-     */
-    public function setModules(\ImieNetwork\SiteBundle\Entity\Module $modules = null)
-    {
-        $this->modules = $modules;
-
-        return $this;
     }
 }

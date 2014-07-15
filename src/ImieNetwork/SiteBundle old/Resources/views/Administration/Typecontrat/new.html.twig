@@ -1,0 +1,12 @@
+ {% extends "ImieNetworkSiteBundle:Administration:layout.html.twig" %} 
+
+{% block content %}
+    <h1>Créer un nouveau type de contrat</h1>
+
+    {{ form(form) }}
+
+        <a href="{{ path('typecontrat') }}">
+           <button class="btn btn-default">Retour à la liste des types de contrats</button>
+        </a>
+
+{% endblock %}

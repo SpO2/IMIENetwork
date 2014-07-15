@@ -1,0 +1,24 @@
+{% extends "ImieNetworkSiteBundle::masterLayout.html.twig" %}
+
+{% block title %} Accueil Entreprise  {% endblock %}
+
+{% block stylesheets %}    
+    
+{% endblock %}
+
+{% block headerJavascript %}    
+    
+{% endblock %}
+
+{% block ContentHeader %}{{ include('ImieNetworkSiteBundle:Default:header.html.twig') }}{% endblock %}
+
+{% block ContentNav %}{{ include('ImieNetworkSiteBundle:Entreprise:navigation.html.twig') }}{% endblock %}
+ 
+
+{% block javascripts %}    
+    <script type="text/javascript">
+        $(document).ready(function(){
+            
+        });
+    </script>
+{% endblock %}

@@ -1,0 +1,7 @@
+parameters:
+    Site.UtilisateurManager.class: ImieNetwork\SiteBundle\Manager\UtilisateurManager
+
+services:
+    Site.UtilisateurManager:
+        class: %Site.UtilisateurManager.class%
+        arguments: [@doctrine.orm.entity_manager]

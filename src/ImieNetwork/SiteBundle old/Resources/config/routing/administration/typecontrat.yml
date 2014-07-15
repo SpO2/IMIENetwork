@@ -1,0 +1,34 @@
+#---------------------------------------------------------------------------------------------------
+#           Routing pour l'administration des types de contrat 
+#---------------------------------------------------------------------------------------------------
+
+typecontrat:
+    pattern:  /
+    defaults: { _controller: "ImieNetworkSiteBundle:Administration/Typecontrat:index" }
+
+typecontrat_show:
+    pattern:  /show/{id}
+    defaults: { _controller: "ImieNetworkSiteBundle:Administration/Typecontrat:show" }
+
+typecontrat_new:
+    pattern:  /new
+    defaults: { _controller: "ImieNetworkSiteBundle:Administration/Typecontrat:new" }
+
+typecontrat_create:
+    pattern:  /create
+    defaults: { _controller: "ImieNetworkSiteBundle:Administration/Typecontrat:create" }
+    requirements: { _method: post }
+
+typecontrat_edit:
+    pattern:  /edit /{id}
+    defaults: { _controller: "ImieNetworkSiteBundle:Administration/Typecontrat:edit" }
+
+typecontrat_update:
+    pattern:  /update/{id}
+    defaults: { _controller: "ImieNetworkSiteBundle:Administration/Typecontrat:update" }
+    requirements: { _method: post|put }
+
+typecontrat_delete:
+    pattern:  /delete/{id}
+    defaults: { _controller: "ImieNetworkSiteBundle:Administration/Typecontrat:delete" }
+    requirements: { _method: post|delete }

@@ -1,0 +1,82 @@
+
+ {% extends "ImieNetworkSiteBundle:Administration:layout.html.twig" %} 
+
+{% block content %}
+    <h1>{{ entity.nom }} {{ entity.prenom }}</h1>
+
+    <table class="table table-striped">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ entity.nom }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ entity.prenom }}</td>
+            </tr>
+            <tr>
+                <th>Groupe</th>
+                <td>
+                    {% if  groupeenties is defined %}
+                        {{ groupeenties.libelle }}
+                     {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ entity.adresse }}</td>
+            </tr>
+            <tr>
+                <th>Telephone</th>
+                <td>{{ entity.telephone }}</td>
+            </tr>
+            <tr>
+                <th>Statut</th>
+                <td>{{ entity.statut }}</td>
+            </tr>
+            <tr>
+                <th>Login</th>
+                <td>{{ entity.login }}</td>
+            </tr>
+            <tr>
+                <th>Mot de passe</th>
+                <td>{{ entity.pass }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ entity.email }}</td>
+            </tr>
+            <tr>
+                <th>Date de creation</th>
+                <td>{{ entity.datecreation|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Date de modification</th>
+                <td>{{ entity.datemodification|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Langue</th>
+                <td>{{ entity.langue }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+{{ form(delete_form) }}
+    
+        <a href="{{ path('utilisateur_edit', { 'id': entity.id }) }}">
+            <button class="btn btn-primary">Editer</button>
+        </a>
+    
+        <a href="{{ path('utilisateur') }}">
+            <button class="btn btn-default">Retour à la liste des utilisateurs</button>
+        </a>
+
+
+
+    
+
+{% endblock %}

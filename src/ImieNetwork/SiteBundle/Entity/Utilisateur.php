@@ -70,7 +70,7 @@ class  Utilisateur extends BaseUser
     
     /**
      * @var \ImieNetwork\SiteBundle\Entity\Groupe
-     * @ORM\ManyToOne(targetEntity="Groupe")
+     * @ORM\ManyToMany(targetEntity="Groupe")
      */
     private $groupes;
     
@@ -131,12 +131,15 @@ class  Utilisateur extends BaseUser
     private $mes_messages;
    
     /**
-     * @var \ImieNetwork\SiteBundle\Entity\Secteuractivite;
+     * @var ArrayCollection \ImieNetwork\SiteBundle\Entity\Secteuractivite;
      * 
-     * @ORM\ManyToOne(targetEntity="Secteuractivite")
-     *
+     * @ORM\ManyToMany(targetEntity="Secteuractivite")
+     * @ORM\JoinTable(name="utilisateur_secteuractivite",
+     *      joinColumns={@ORM\JoinColumn(name="utilisateur_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="secteuractivite_id", referencedColumnName="id")}
+     *      )
      **/
-    private $secteuractivite;
+    private $mes_secteurs_activite;
     
     /**
      *
@@ -740,40 +743,4 @@ class  Utilisateur extends BaseUser
         return $participationEvenement;
     }
 
-
-    /**
-     * Set secteuractivite
-     *
-     * @param \ImieNetwork\SiteBundle\Entity\Secteuractivite $secteuractivite
-     * @return Utilisateur
-     */
-    public function setSecteuractivite(\ImieNetwork\SiteBundle\Entity\Secteuractivite $secteuractivite = null)
-    {
-        $this->secteuractivite = $secteuractivite;
-
-        return $this;
-    }
-
-    /**
-     * Get secteuractivite
-     *
-     * @return \ImieNetwork\SiteBundle\Entity\Secteuractivite 
-     */
-    public function getSecteuractivite()
-    {
-        return $this->secteuractivite;
-    }
-
-    /**
-     * Set groupes
-     *
-     * @param \ImieNetwork\SiteBundle\Entity\Groupe $groupes
-     * @return Utilisateur
-     */
-    public function setGroupes(\ImieNetwork\SiteBundle\Entity\Groupe $groupes = null)
-    {
-        $this->groupes = $groupes;
-
-        return $this;
-    }
 }

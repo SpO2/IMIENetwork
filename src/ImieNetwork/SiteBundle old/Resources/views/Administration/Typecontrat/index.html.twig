@@ -1,0 +1,37 @@
+ {% extends "ImieNetworkSiteBundle:Administration:layout.html.twig" %} 
+
+{% block content %}
+    <h1>Listes des types de contrat</h1>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Libelle</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('typecontrat_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.libelle }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('typecontrat_show', { 'id': entity.id }) }}">Détails</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('typecontrat_edit', { 'id': entity.id }) }}">Editer</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+            <a href="{{ path('typecontrat_new') }}">
+                <button class="btn btn-primary">Enregistrer un nouveau type de contrat</button>
+            </a>
+    {% endblock %}

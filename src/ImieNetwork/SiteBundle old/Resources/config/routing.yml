@@ -1,0 +1,26 @@
+imie_network_site_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: ImieNetworkSiteBundle:Default:index }
+testPage:
+    pattern:  /test/{name}
+    defaults: { _controller: ImieNetworkSiteBundle:Default:test }
+eleveIndex:
+    pattern:  /eleve
+    defaults: { _controller: ImieNetworkSiteBundle:Eleve:index }
+ImieNetworkSiteBundle_evenement:
+    resource: "@ImieNetworkSiteBundle/Resources/config/routing/evenement.yml"
+    prefix:   /evenement  
+ImieNetworkSiteBundle_administration:
+    resource: "@ImieNetworkSiteBundle/Resources/config/routing/administration.yml"
+    prefix:   /administration
+    
+admin:
+    resource: '@SonataAdminBundle/Resources/config/routing/sonata_admin.xml'
+    prefix: /admin
+
+_sonata_admin:
+    resource: .
+    type: sonata_admin
+    prefix: /admin
+    
+

@@ -1,0 +1,34 @@
+#---------------------------------------------------------------------------------------------------
+#           Routing pour l'administration des groupes
+#---------------------------------------------------------------------------------------------------
+
+groupe:
+    pattern:  /
+    defaults: { _controller: "ImieNetworkSiteBundle:Administration/Groupe:index" }
+
+groupe_show:
+    pattern:  /show/{id}
+    defaults: { _controller: "ImieNetworkSiteBundle:Administration/Groupe:show" }
+
+groupe_new:
+    pattern:  /new
+    defaults: { _controller: "ImieNetworkSiteBundle:Administration/Groupe:new" }
+
+groupe_create:
+    pattern:  /create
+    defaults: { _controller: "ImieNetworkSiteBundle:Administration/Groupe:create" }
+    requirements: { _method: post }
+
+groupe_edit:
+    pattern:  /edit/{id}
+    defaults: { _controller: "ImieNetworkSiteBundle:Administration/Groupe:edit" }
+
+groupe_update:
+    pattern:  /update/{id}
+    defaults: { _controller: "ImieNetworkSiteBundle:Administration/Groupe:update" }
+    requirements: { _method: post|put }
+
+groupe_delete:
+    pattern:  /delete/{id}
+    defaults: { _controller: "ImieNetworkSiteBundle:Administration/Groupe:delete" }
+    requirements: { _method: post|delete }
