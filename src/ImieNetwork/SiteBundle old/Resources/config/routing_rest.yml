@@ -1,3 +1,0 @@
-imie_network_api_utilisateur:
-    type: rest
-    resource: 'ImieNetworkSiteBundle:Administration'
