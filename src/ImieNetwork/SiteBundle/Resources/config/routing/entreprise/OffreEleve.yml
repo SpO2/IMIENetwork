@@ -1,0 +1,6 @@
+entrepriselistOffreEleve:
+    pattern: /
+    defaults: { _controller: ImieNetworkSiteBundle:Entreprise/OffreEleve:index }
+entrepriseshowOffre:
+    pattern: /detail/{id}
+    defaults: { _controller: ImieNetworkSiteBundle:Entreprise/OffreEleve:show }

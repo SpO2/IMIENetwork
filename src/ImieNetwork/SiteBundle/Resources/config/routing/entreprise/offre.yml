@@ -2,5 +2,5 @@ entrepriselistMesOffres:
     pattern: /
     defaults: { _controller: ImieNetworkSiteBundle:Entreprise/Offre:index }
 entrepriseshowOffre:
-    pattern: /show/{id}
+    pattern: /detail/{id}
     defaults: { _controller: ImieNetworkSiteBundle:Entreprise/Offre:show }
