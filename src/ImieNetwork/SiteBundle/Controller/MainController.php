@@ -26,7 +26,7 @@ class MainController extends Controller
         $user = $this->get('security.context')->getToken()->getUser();
         $session = new Session();
         if($user == "anon.")
-            return $this->redirect($this->generateUrl('fos_user_security_login'));
+            return $this->redirect($this->generateUrl('ImieNetworkSiteBundle_security_login'));
         if($this->get('security.context')->isGranted('ROLE_ENTREPRISE'))
         {
             return $this->redirect($this->generateUrl('entrepriseIndex'));
@@ -82,7 +82,7 @@ class MainController extends Controller
     
     protected function renderLogin(array $data)
     {
-        $template = sprintf('FOSUserBundle:Security:login.html.%s', $this->container->getParameter('fos_user.template.engine'));
+        $template = sprintf('ImieNetworkSiteBundle:Security:login.html.%s', $this->container->getParameter('fos_user.template.engine'));
 
         return $this->container->get('templating')->renderResponse($template, $data);
     }

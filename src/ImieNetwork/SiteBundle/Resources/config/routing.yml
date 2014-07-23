@@ -26,3 +26,7 @@ _sonata_admin:
 accueil:
     path:     /
     defaults: { _controller: ImieNetworkSiteBundle:Main:index }
+    
+ImieNetworkSiteBundle_security_login:
+    path:     /login
+    defaults: { _controller: ImieNetworkSiteBundle:Main:login }

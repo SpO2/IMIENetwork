@@ -29,9 +29,79 @@ class EleveController extends Controller
         ));
     }
     
+    public function showprofilAction()
+    {
+        $id = 123;
+        $em = $this->getDoctrine()->getManager();
+        $data = $em->getRepository('ImieNetworkSiteBundle:Utilisateur')->findById($id);
+        $competence = $em->getRepository('ImieNetworkSiteBundle:Utilisateurcompetence')->findByUtilisateur($data);
+        return $this->render('ImieNetworkSiteBundle:Eleve:show.html.twig', array(
+            'data' => $data,
+            'competences' => $competence,
+        ));
+    }
+    
+    public function editprofilAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $entity = $em->getRepository('ImieNetworkSiteBundle:Utilisateur')->find($id);
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find Expense entity.');
+        }
+
+        $editForm = $this->createprofilEditForm($entity);
+
+        return $this->render('ImieNetworkSiteBundle:Eleve:editprofil.html.twig', array(
+            'entity'      => $entity,
+            'edit_form'   => $editForm->createView(),
+        ));
+    }
+    
+    private function createprofilEditForm(Utilisateur $entity)
+    {
+        $form = $this->createForm(new ProfilType(), $entity, array(
+            'action' => $this->generateUrl('eleve_profil_update', array('id' => $entity->getId())),
+            'method' => 'PUT',
+        ));
+
+        $form->add('submit', 'submit', array('label' => 'Update'));
+
+        return $form;
+    }
+    
+    public function updateprofilAction(Request $request, $id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $entity = $em->getRepository('ImieNetworkSiteBundle:Utilisateur')->find($id);
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find Expense entity.');
+        }
+
+        $editForm = $this->createprofilEditForm($entity);
+        $editForm->handleRequest($request);
+
+        if ($editForm->isValid()) 
+        {
+            $datemodification = new \DateTime();
+            $entity->setDatemodification($datemodification);                    
+            $em->flush();
+
+            return $this->redirect($this->generateUrl('eleve_profil'));
+        }
+
+        return $this->render('ImieNetworkSiteBundle:Eleve:editprofil.html.twig', array(
+            'entity'      => $entity,
+            'edit_form'   => $editForm->createView(),
+        ));
+    }
+    
     public function showAction($id)
     {
-        $em = $this->getDoctrine()->getEntityManager();
+        $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('ImieNetworkSiteBundle:Utilisateur')->find($id);
         

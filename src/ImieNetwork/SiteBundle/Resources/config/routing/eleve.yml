@@ -1,3 +1,17 @@
+eleve_profil_show:
+    pattern:    /show
+    defaults:   { _controller: "ImieNetworkSiteBundle:Eleve:showprofil" }
+    
+eleve_profil_update:
+    pattern:    /profil_update/{id}
+    defaults:   { _controller: "ImieNetworkSiteBundle:Eleve:updateprofil"}
+    requirements: { _method: post|put }
+
+eleve_profil_edit:
+    pattern:    /profil_edit/{id}
+    defaults:   { _controller: "ImieNetworkSiteBundle:Eleve:editprofil"}
+
+
 eleveIndex:
     pattern:  /
     defaults: { _controller: ImieNetworkSiteBundle:Eleve:index }
@@ -5,3 +19,6 @@ eleveIndex:
 eleveShow:
     pattern:  /{id}
     defaults: { _controller: ImieNetworkSiteBundle:Eleve:show }
+
+
+    

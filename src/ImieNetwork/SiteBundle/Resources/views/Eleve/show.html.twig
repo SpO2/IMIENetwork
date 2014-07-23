@@ -1,0 +1,49 @@
+{% extends "ImieNetworkSiteBundle:Eleve:layout.html.twig" %}
+
+{% block content %}
+    
+    {% for entity in data %}
+    <div id="profil">
+        <div class="align" id="info-user">
+            <img alt="user-logo" src="{{ asset('bundles/imienetworksite/images/logo.png') }}" />
+            <!--<div id="logo-user"></div>-->
+            <h3>{{ entity.nom }} {{ entity.prenom }}</h3>
+            <h4><span class="rouge">CDPN</span> - 2013</h4>
+        </div>
+        <div class="align">
+            <button type="button" class="btn btn-default btn-blue" id="button">Ajouter à mes contacts</button>
+        </div>
+    </div>
+    <div class="profil-bloc">            
+        <h2>Son entreprise</h2>  
+    </div>
+    <div id="skills" class="profil-bloc">
+        <h2>Ses compétences</h2>  
+        <div id="skills-level">
+            {% if competences %}
+                {% for competence in competences %}
+                    <div class="stars-content">
+                        <label class="skill-label">{#{{competence.competence.libelle}}#}</label>
+                        {% for i in range(1, competence.note)%}
+                            <span class="glyphicon glyphicon-star star" ></span>                        
+                        {% endfor %}
+                        {% if 5-competence.note != 0 %}
+                            {% for i in range(1, 5-competence.note)%}
+                                <span class="glyphicon glyphicon-star star empty" ></span>
+                            {% endfor %}                            
+                        {% endif %}  
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+
+        {{ entity.adresse }}<br>
+        {{ entity.telephone }}<br>
+        {{ entity.ville.libelle }}<br>
+        {{ entity.ville.codepostal }}<br>        
+
+        <a href="{{ path('eleve_profil_edit', { 'id': entity.id }) }}">{{ 'Mise à jour'|trans}}</a>
+    {% endfor %}
+    
+{% endblock %}
