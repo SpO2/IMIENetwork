@@ -1,38 +1,21 @@
 {% extends "ImieNetworkSiteBundle:Entreprise:layout.html.twig" %}
 
-    {% block content %}
-
-<div class="container">
-    <div class="col-md-6">
-        <h3>Titre de l'offre</h3>
-        <p>On sait depuis longtemps que travailler avec du texte lisible et contenant du sens
-            est source de distractions, et empêche de se concentrer sur la mise en page elle-même.
-            L'avantage du Lorem Ipsum sur un texte générique comme 'Du texte. Du texte. Du texte.' 
-            est qu'il possède une distribution de lettres plus ou moins normal</p>
-    </div>
-    <div  class="col-md-6">
-        </br>
-        <p> <button type="button" class="btn btn-primary">Editer</button>
-            <button type="button" class="btn btn-default">Supprimer</button>
-        </p>
-            <p><strong>12/12/2012</strong></p>
-    </div>
-</div>
-    <div class="container">
-        <div class="col-md-6">
-        <h3>Titre de l'offre</h3>
-        <p>On sait depuis longtemps que travailler avec du texte lisible et contenant du sens
-            est source de distractions, et empêche de se concentrer sur la mise en page elle-même.
-            L'avantage du Lorem Ipsum sur un texte générique comme 'Du texte. Du texte. Du texte.' 
-            est qu'il possède une distribution de lettres plus ou moins normal</p>
-    </div>
-    <div  class="col-md-6">
-        </br>
-        <p> <button type="button" class="btn btn-primary">Editer</button>
-            <button type="button" class="btn btn-default">Supprimer</button>
-        </p>
-        <p><strong>12/12/2012</strong></p>
-    </div>
-    </div>
-
+{% block content %}
+    {% for offre in offres %}
+        <div class="container">
+            <div class="col-md-6">
+                <a href="{{ path('entrepriselShowMesOffres/'{{ offre.id }})}}"> <h3>{ offre.titre }</h3> </a>
+                <p>{ offre.description }</p>
+            </div>
+            <div  class="col-md-6">
+                </br>
+                <p>
+                    <a href="{{ path('entrepriselModifOffre/'{{ offre.id }})}}"> <button type="button" class="btn btn-primary">Editer</button> </a>
+                    <a href="{{ path('entrepriselDeleteOffre/'{{ offre.id }})}}"> <button type="button" class="btn btn-default">Supprimer</button> </a>
+                </p>
+                    <p><strong>12/12/2012</strong></p>
+            </div>
+        </div>
+    {% endfor %}
+    
 {% endblock %}

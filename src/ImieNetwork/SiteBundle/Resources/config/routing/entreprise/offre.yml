@@ -1,6 +1,16 @@
+
 entrepriselistMesOffres:
     pattern: /
     defaults: { _controller: ImieNetworkSiteBundle:Entreprise/Offre:index }
-entrepriseshowOffre:
+
+entrepriselShowMesOffres:
     pattern: /detail/{id}
-    defaults: { _controller: ImieNetworkSiteBundle:Entreprise/Offre:show }
+    defaults: { _controller: ImieNetworkSiteBundle:Entreprise/Offre:show}
+
+entrepriselUpdateOffre:
+    pattern: /modifier/{id}
+    defaults: { _controller: ImieNetworkSiteBundle:Entreprise/Offre:update}
+    
+entrepriselDeleteOffre:
+    pattern: /delete/{id}
+    defaults: { _controller: ImieNetworkSiteBundle:Entreprise/Offre:delete}
