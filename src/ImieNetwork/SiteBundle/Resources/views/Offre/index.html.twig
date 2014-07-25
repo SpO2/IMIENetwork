@@ -27,6 +27,7 @@
                 <td>{% if entity.datefin %}{{ entity.datefin|date('d-m-Y') }}{% endif %}</td>#}
                 <td>
                     <a href="{{ path('offre_show', { 'id': entity.id }) }}">Description</a>
+                    <a href="{{ path('offre_edit', { 'id': entity.id }) }}">Edition</a>
                 </td>
             </tr>
         {% endfor %}

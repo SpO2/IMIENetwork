@@ -7,7 +7,8 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Message
  * @ORM\Entity(repositoryClass="ImieNetwork\SiteBundle\Repository\MessageRepository")
- * @ORM\Table()
+ * @ORM\HasLifecycleCallbacks 
+ * 
  */class  Message
 {
     /**
@@ -33,21 +34,18 @@ use Doctrine\ORM\Mapping as ORM;
     /**
      * @var \ImieNetwork\SiteBundle\Entity\Utilisateur
      * @ORM\ManyToOne(targetEntity="Utilisateur", inversedBy="mes_messages")
-     * @ORM\JoinColumn(name="message_id", referencedColumnName="id")
      */
     private $utilisateur;
 
     /**
-     * @var \ImieNetwork\SiteBundle\Entity\Typemessage
-     * @ORM\ManyToOne(targetEntity="Typemessage", inversedBy="mon_type_message")
-     * @ORM\JoinColumn(name="message_id", referencedColumnName="id")
+     * @var \ImieNetwork\SiteBundle\Entity\Typemessage  
+     * @ORM\ManyToOne(targetEntity="Typemessage")
      */
     private $type_message;
 
     /**
      * @var \ImieNetwork\SiteBundle\Entity\Conversation
      * @ORM\ManyToOne(targetEntity="Conversation", inversedBy="mes_messages")
-     * @ORM\JoinColumn(name="message_id", referencedColumnName="id")
      */
     private $conversation;
 
@@ -67,8 +65,7 @@ use Doctrine\ORM\Mapping as ORM;
     /**
      *
      * @var \ImieNetwork\SiteBundle\Entity\Evenement
-     * @ORM\ManyToOne(targetEntity="Utilisateur", inversedBy="mes_experiences")
-     * @ORM\JoinColumn(name="experience_id", referencedColumnName="id")
+     * @ORM\ManyToOne(targetEntity="Evenement")
      *  
      */
     private $evenement;
@@ -275,5 +272,11 @@ use Doctrine\ORM\Mapping as ORM;
     public function getEvenement()
     {
         return $this->evenement;
+    }
+    
+    /** @ORM\PrePersist */
+    public function UpdateFunction()
+    {
+        $this->datemessage = new \DateTime('NOW');
     }
 }

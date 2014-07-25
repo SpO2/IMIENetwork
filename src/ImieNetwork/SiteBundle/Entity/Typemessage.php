@@ -26,13 +26,6 @@ class  Typemessage
     private $libelle;
 
     /**
-     *
-     * @var \ImieNetwork\SiteBundle\Entity\Typemessage
-     * @ORM\OneToMany(targetEntity="Message", mappedBy="type_message")
-     */
-    private $mon_type_message;
-    
-    /**
      * 
      * @return libelle
      */
@@ -46,7 +39,7 @@ class  Typemessage
      */
     public function __construct()
     {
-        $this->mon_type_message = new \Doctrine\Common\Collections\ArrayCollection();
+ 
     }
 
     /**
@@ -80,38 +73,5 @@ class  Typemessage
     public function getLibelle()
     {
         return $this->libelle;
-    }
-
-    /**
-     * Add mon_type_message
-     *
-     * @param \ImieNetwork\SiteBundle\Entity\Message $monTypeMessage
-     * @return Typemessage
-     */
-    public function addMonTypeMessage(\ImieNetwork\SiteBundle\Entity\Message $monTypeMessage)
-    {
-        $this->mon_type_message[] = $monTypeMessage;
-
-        return $this;
-    }
-
-    /**
-     * Remove mon_type_message
-     *
-     * @param \ImieNetwork\SiteBundle\Entity\Message $monTypeMessage
-     */
-    public function removeMonTypeMessage(\ImieNetwork\SiteBundle\Entity\Message $monTypeMessage)
-    {
-        $this->mon_type_message->removeElement($monTypeMessage);
-    }
-
-    /**
-     * Get mon_type_message
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getMonTypeMessage()
-    {
-        return $this->mon_type_message;
     }
 }

@@ -7,9 +7,8 @@
         {{ form_label(edit_form.nom, 'Nom') }} : {{ form_widget(edit_form.nom) }}<br>
     	{{ form_label(edit_form.prenom, 'Prenom') }} : {{ form_widget(edit_form.prenom) }}<br>
     	{{ form_label(edit_form.adresse, 'Adresse') }} : {{ form_widget(edit_form.adresse) }}<br>
+    	{{ form_label(edit_form.ville, 'Code Postal') }} : {{ form_widget(edit_form.ville) }}<br>
     	{{ form_label(edit_form.telephone, 'Telephone') }} : {{ form_widget(edit_form.telephone) }}<br>
-    	Code Postal : <br>
-    	{#{{ form_label(edit_form.idville, 'Code Postal') }} : {{ form_widget(edit_form.idville) }}<br>#}
     {{ form_widget(edit_form._token) }}
     <p>
         <button type="submit" class="btn btn-success">{{ 'Mise à jour'|trans }}</button>

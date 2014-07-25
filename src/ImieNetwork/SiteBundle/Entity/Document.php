@@ -40,7 +40,6 @@ class  Document
     /**
      * @var \ImieNetwork\SiteBundle\Entity\Utilisateur
      * @ORM\ManyToOne(targetEntity="Utilisateur", inversedBy="mes_documents")
-     * @ORM\JoinColumn(name="document_id", referencedColumnName="id")
      */
     private $utilisateur;
     

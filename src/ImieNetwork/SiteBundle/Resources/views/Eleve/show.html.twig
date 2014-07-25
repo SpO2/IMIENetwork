@@ -43,7 +43,7 @@
         {{ entity.ville.libelle }}<br>
         {{ entity.ville.codepostal }}<br>        
 
-        <a href="{{ path('eleve_profil_edit', { 'id': entity.id }) }}">{{ 'Mise à jour'|trans}}</a><br>
+        <a href="{{ path('eleve_profil_edit', { 'id': entity.id }) }}">{{ 'Mise à jour'|trans}}</a>
         
         <a href="{{ path('eleve_changepassword')}}">Changement de mot de passe</a>
     {% endfor %}

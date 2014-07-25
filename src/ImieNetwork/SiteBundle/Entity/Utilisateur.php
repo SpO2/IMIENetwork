@@ -8,7 +8,7 @@ use FOS\UserBundle\Model\User as BaseUser;
 /**
  * Utilisateur
  * @ORM\Entity(repositoryClass="ImieNetwork\SiteBundle\Repository\UtilisateurRepository")
- * @ORM\Table()
+ * @ORM\HasLifecycleCallbacks
  */
 class  Utilisateur extends BaseUser
 {
@@ -136,18 +136,18 @@ class  Utilisateur extends BaseUser
      * @ORM\ManyToMany(targetEntity="Secteuractivite")
      * @ORM\JoinTable(name="utilisateur_secteuractivite",
      *      joinColumns={@ORM\JoinColumn(name="utilisateur_id", referencedColumnName="id")},
-     *      inverseJoinColumns={@ORM\JoinColumn(name="secteuractivite_id", referencedColumnName="id")}
+     *      inverseJoinColumns={@ORM\JoinColumn(name="secteuractivite_id", referencedColumnName="id",unique=true)}
      *      )
      **/
     private $mes_secteurs_activite;
     
     /**
-     *
+     * ArrayCollection \ImieNetwork\SiteBundle\Entity\Promotion
      * @var \ImieNetwork\SiteBundle\Entity\Promotion;
-     * @ORM\ManyToMany(targetEntity="Promotion", mappedBy="utilisateur")
+     * @ORM\ManyToMany(targetEntity="Promotion", mappedBy="utilisateurs")
      * 
      */
-    private $mes_promotion;
+    private $mes_promotions;
     
     /**
      * 
@@ -161,9 +161,12 @@ class  Utilisateur extends BaseUser
     public function __construct()
     {
         parent::__construct();
-        // your own logic
+
+        $this->promotions = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->mes_secteurs_activite = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->mes_competences = new \Doctrine\Common\Collections\ArrayCollection();
     }
-   
+
     /**
      * Get id
      *
@@ -696,7 +699,7 @@ class  Utilisateur extends BaseUser
      */
     public function addMesPromotion(\ImieNetwork\SiteBundle\Entity\Promotion $mesPromotion)
     {
-        $this->mes_promotion[] = $mesPromotion;
+        $this->mes_promotions[] = $mesPromotion;
 
         return $this;
     }
@@ -718,9 +721,17 @@ class  Utilisateur extends BaseUser
      */
     public function getMesPromotion()
     {
-        return $this->mes_promotion;
+        return $this->mes_promotions;
+    }    
+    /** @ORM\PrePersist */
+    public function UpdateFunction()
+    {
+        if($this->date_creation == null)
+        {
+             $this->date_creation = new \DateTime('NOW');
+        }
+        $this->datemodification = new \DateTime('NOW');
     }
-    
      /*---------------------------------------------
                 Methodes supplémentaires
      ---------------------------------------------*/

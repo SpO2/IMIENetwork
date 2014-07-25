@@ -11,8 +11,6 @@
                 <th>Description</th>
                 <th>Durée du contrat</th>
                 <th>Type de poste</th>
-                <th>Date du début de l'offre</th>
-                <th>Date de fin de l'offre</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -23,8 +21,6 @@
                 <td>{{ entity.description }}</td>
                 <td>{{ entity.duree }}</td>
                 <td>{{ entity.typeposte }}</td>
-                <td>{% if entity.datedebut %}{{ entity.datedebut|date('d-m-Y') }}{% endif %}</td>
-                <td>{% if entity.datefin %}{{ entity.datefin|date('d-m-Y') }}{% endif %}</td>
                 <td>
                     <a href="{{ path('offre_show', { 'id': entity.id }) }}">Description</a>
                 </td>

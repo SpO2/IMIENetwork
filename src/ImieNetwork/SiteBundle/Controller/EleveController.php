@@ -3,6 +3,10 @@
 namespace ImieNetwork\SiteBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Session\Session;
+
 use ImieNetwork\SiteBundle\Entity\Utilisateur;
 use ImieNetwork\SiteBundle\Entity\Ville;
 use ImieNetwork\SiteBundle\Entity\Experience;
@@ -33,7 +37,8 @@ class EleveController extends Controller
     
     public function showprofilAction()
     {
-        $id = 123;
+        $session = new Session();
+        $id = $session->get('user_id');
         $em = $this->getDoctrine()->getManager();
         $data = $em->getRepository('ImieNetworkSiteBundle:Utilisateur')->findById($id);
         $competence = $em->getRepository('ImieNetworkSiteBundle:Utilisateurcompetence')->findByUtilisateur($data);
@@ -75,6 +80,7 @@ class EleveController extends Controller
     
     public function updateprofilAction(Request $request, $id)
     {
+        $request = $this->getRequest();
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('ImieNetworkSiteBundle:Utilisateur')->find($id);
@@ -92,7 +98,7 @@ class EleveController extends Controller
             $entity->setDatemodification($datemodification);                    
             $em->flush();
 
-            return $this->redirect($this->generateUrl('eleve_profil'));
+            return $this->redirect($this->generateUrl('eleve_profil_show'));
         }
 
         return $this->render('ImieNetworkSiteBundle:Eleve:editprofil.html.twig', array(

@@ -34,6 +34,9 @@ offre_search:
     defaults: { _controller: "ImieNetworkSiteBundle:Offre:search" }
 
 offre_showsearch:
-    pattern:    /show/{idville}&{idcomp}
+    pattern:    /show
     defaults:   { _controller: "ImieNetworkSiteBundle:Offre:showsearch" }
-    requirements:   { _method: get }
+
+offre_showsearch_all:
+    pattern:    /showall
+    defaults:   { _controller: "ImieNetworkSiteBundle:Offre:showsearchall" }

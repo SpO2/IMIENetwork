@@ -28,14 +28,12 @@ class  Utilisateurcompetence
     /**
      * @var \ImieNetwork\SiteBundle\Entity\Utilisateur
      * @ORM\ManyToOne(targetEntity="Utilisateur", inversedBy="mes_competences")
-     * @ORM\JoinColumn(name="utilisateur_id", referencedColumnName="id")
      */
     private $utilisateur;
 
     /**
      * @var \ImieNetwork\SiteBundle\Entity\Competence
      * @ORM\ManyToOne(targetEntity="Competence")
-     * @ORM\JoinColumn(name="competence_id", referencedColumnName="id")
      */
     private $competence;
     

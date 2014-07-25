@@ -29,10 +29,14 @@ class MainController extends Controller
             return $this->redirect($this->generateUrl('ImieNetworkSiteBundle_security_login'));
         if($this->get('security.context')->isGranted('ROLE_ENTREPRISE'))
         {
+            $user_id = $this->get('security.context')->getToken()->getUser()->getId();
+            $session->set('user_id', $user_id);
             return $this->redirect($this->generateUrl('entrepriseIndex'));
         }
         if($this->get('security.context')->isGranted('ROLE_ELEVE'))
         {
+            $user_id = $this->get('security.context')->getToken()->getUser()->getId();
+            $session->set('user_id', $user_id);
             return $this->redirect($this->generateUrl('eleveIndex'));
         }
         if($this->get('security.context')->isGranted('ROLE_ADMIN'))

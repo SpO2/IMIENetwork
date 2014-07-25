@@ -4,11 +4,12 @@ namespace ImieNetwork\SiteBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use ImieNetwork\SiteBundle\Entity\Offre;
 use ImieNetwork\SiteBundle\Form\OffreType;
-use ImieNetwork\SiteBundle\Entity\Offreville;
+use ImieNetwork\SiteBundle\Entity\Typecontrat;
 use ImieNetwork\SiteBundle\Entity\Offrecomp;
 
 /**
@@ -24,7 +25,8 @@ class OffreController extends Controller
      */
     public function indexAction()
     {
-        $user_id = 123;
+        $session = new Session();
+        $user_id = $session->get('user_id');
         $em = $this->getDoctrine()->getManager();
 
         $entities = $em->getRepository('ImieNetworkSiteBundle:Offre')->findByUtilisateur($user_id);
@@ -39,37 +41,38 @@ class OffreController extends Controller
      */
     public function createAction(Request $request)
     {
+        $session = new Session();
+        $user_id = $session->get('user_id');
         $entity = new Offre();
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $utilisateur = $em->getRepository('ImieNetworkSiteBundle:Utilisateur')->find(123);
-            $entity->setIdutilisateur($utilisateur);
-            $idville = $entity->getIdVille();
-            $idcompetence = $entity->getIdCompetence();
+            $utilisateur = $em->getRepository('ImieNetworkSiteBundle:Utilisateur')->find($user_id);
+            $entity->setUtilisateur($utilisateur);
+            $idville = $entity->getVille();
             
             $em->persist($entity);
             $em->flush();
             
-            $idoffre = $entity->getId();
+            //$idoffre = $entity->getId();
             
-            $offreville = new Offreville();
+            /*$offreville = new Offreville();
             $ville = $em->getRepository('ImieNetworkSiteBundle:Ville')->find($idville);
             $offre = $em->getRepository('ImieNetworkSiteBundle:Offre')->find($idoffre);
             $offreville->setIdoffre($offre);
             $offreville->setIdville($ville);
-            $em->persist($offreville);
+            $em->persist($offreville);*/
             
-            $offrecompetence = new Offrecomp();
+            /*$offrecompetence = new Offrecomp();
             $competence = $em->getRepository('ImieNetworkSiteBundle:Competence')->find($idcompetence);
             $offre = $em->getRepository('ImieNetworkSiteBundle:Offre')->find($idoffre);
             $offrecompetence->setIdoffre($offre);
             $offrecompetence->setIdcompetence($competence);
-            $em->persist($offrecompetence);
+            $em->persist($offrecompetence);*/
             
-            $em->flush();
+            //$em->flush();
             
             
             return $this->redirect($this->generateUrl('offre_show', array('id' => $entity->getId())));
@@ -106,9 +109,11 @@ class OffreController extends Controller
      */
     public function newAction()
     {
+        $session = new Session();
+        $user_id = $session->get('user_id');
         $entity = new Offre();
         $em = $this->getDoctrine()->getManager();
-        $utilisateur = $em->getRepository('ImieNetworkSiteBundle:Utilisateur')->find(123);
+        $utilisateur = $em->getRepository('ImieNetworkSiteBundle:Utilisateur')->find($user_id);
         $entity->setUtilisateur($utilisateur);
         $form   = $this->createCreateForm($entity);
 
@@ -200,8 +205,6 @@ class OffreController extends Controller
         $editForm->handleRequest($request);
 
         if ($editForm->isValid()) {
-            $datemodification = new \DateTime();
-            $entity->setDatemodification($datemodification);
             $em->persist($entity);
             $em->flush();
 
@@ -220,7 +223,8 @@ class OffreController extends Controller
      */
     public function deleteAction(Request $request, $id)
     {
-        $iduser = "1";
+        $session = new Session();
+        $user_id = $session->get('user_id');
         $form = $this->createDeleteForm($id);
         $form->handleRequest($request);
 
@@ -228,12 +232,6 @@ class OffreController extends Controller
             $em = $this->getDoctrine()->getManager();
             $entity = $em->getRepository('ImieNetworkSiteBundle:Offre')->find($id);
             
-            $offrecomp_id = $em->getRepository('ImieNetworkSiteBundle:Offrecomp')->findIdComp($entity->getId());
-            $offrecomp = $em->getRepository('ImieNetworkSiteBundle:Offrecomp')->find($offrecomp_id['id']);
-            
-            $offreville_id = $em->getRepository('ImieNetworkSiteBundle:Offreville')->findIdVille($entity->getId());
-            $offreville = $em->getRepository('ImieNetworkSiteBundle:Offreville')->find($offreville_id['id']);
-
             if (!$entity) {
                 throw $this->createNotFoundException('Unable to find Offre entity.');
             }
@@ -243,12 +241,8 @@ class OffreController extends Controller
             if (!$offrecomp) {
                 throw $this->createNotFoundException('Unable to find Offre offrecomp.');
             }
-            if($entity->getIdUtilisateur()->getId() == $iduser)
+            if($entity->getIdUtilisateur()->getId() == $user_id)
             {*/
-                $em->remove($offrecomp);
-                $em->flush();
-                $em->remove($offreville);
-                $em->flush();
                 $em->remove($entity);
                 $em->flush();
             //}
@@ -277,25 +271,32 @@ class OffreController extends Controller
     public function searchAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $datacompetence = $em->getRepository('ImieNetworkSiteBundle:Competence')->findAll();
+        $datacontrat = $em->getRepository('ImieNetworkSiteBundle:Typecontrat')->findAll();
         $dataville = $em->getRepository('ImieNetworkSiteBundle:Ville')->findAll();
-        return $this->render('ImieNetworkSiteBundle:Offre:search.html.twig', array('datacompetence' => $datacompetence, 'dataville' => $dataville));
+        return $this->render('ImieNetworkSiteBundle:Offre:search.html.twig', 
+            array('datacontrat' => $datacontrat, 'dataville' => $dataville));
     }
     
     public function showsearchAction()
     {
-        return new Response('bim');
+        //return new Response('bim');
         $request = Request::createFromGlobals();
         $resultsearch = $request->request->all();
         $em = $this->getDoctrine()->getManager();
-        if($resultsearch['selectville'] == "empty" && $resultsearch['selectcompetence'] == "empty")
+        
+        if($resultsearch['selectville'] == "empty" && $resultsearch['selectcontrat'] == "empty")
             return $this->redirect($this->generateUrl('offre_search'));
-        $showresult = $em->getRepository('ImieNetworkSiteBundle:Offre')->findSearch($resultsearch['selectville'], $resultsearch['selectcompetence']);
+        
+        $showresult = $em->getRepository('ImieNetworkSiteBundle:Offre')->findSearch($resultsearch['selectville'], $resultsearch['selectcontrat']);
     
-        //$res = $em->getRepository('ImieNetworkSiteBundle:Offreville')->findByIdville(1);
-        
-        
-        //return new Response($showresult);
+        return $this->render('ImieNetworkSiteBundle:Offre:showsearch.html.twig', array('res' => $showresult));
+    }
+    
+    public function showsearchallAction()
+    {      
+        $em = $this->getDoctrine()->getManager();  
+        $showresult = $em->getRepository('ImieNetworkSiteBundle:Offre')->findAll();
+    
         return $this->render('ImieNetworkSiteBundle:Offre:showsearch.html.twig', array('res' => $showresult));
     }
 }

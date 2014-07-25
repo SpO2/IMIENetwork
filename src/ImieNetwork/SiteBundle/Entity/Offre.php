@@ -5,8 +5,10 @@ namespace ImieNetwork\SiteBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
+ * 
  * Offre
  *@ORM\Entity(repositoryClass="ImieNetwork\SiteBundle\Repository\OffreRepository")
+ *@ORM\HasLifecycleCallbacks
  */
 class  Offre
 {
@@ -78,22 +80,13 @@ class  Offre
      * @ORM\ManyToOne(targetEntity="Utilisateur", inversedBy="mes_offres")
      */
     private $utilisateur;
+    
+    /**
+     * @var \ImieNetwork\SiteBundle\Entity\Ville
+     * @ORM\ManyToOne(targetEntity="Ville")
+     */
+    private $ville;
 
-    public function __construct()
-    {
-        $this->datedebut = new \DateTime();
-        //$this->datemodification = new \DateTime();
-        $datedebut = $this->datedebut;
-        
-        $datetime = new \DateTime();
-        //$datetime->modify('+30 day');
-        $datetime->add(new \DateInterval('P30D'));
-        
-        $this->datefinpublication = $datetime;
-        $this->datefin = new \DateTime();
-    }
-    
-    
     /**
      * 
      * @return titre
@@ -275,118 +268,31 @@ class  Offre
         return $this->utilisateur;
     }
     
-    /**
-     * Set datedebut
+     /**
+     * Set ville
      *
-     * @param \DateTime $datedebut
-     * @return Offre
+     * @param \ImieNetwork\SiteBundle\Entity\Ville $ville
+     * @return Utilisateur
      */
-    public function setDatedebut($datedebut)
+    public function setVille(\ImieNetwork\SiteBundle\Entity\Ville $ville = null)
     {
-        $this->datedebut = $datedebut;
+        $this->ville = $ville;
 
         return $this;
     }
 
     /**
-     * Get datedebut
+     * Get ville
      *
-     * @return \DateTime 
+     * @return \ImieNetwork\SiteBundle\Entity\Ville 
      */
-    public function getDatedebut()
+    public function getVille()
     {
-        return $this->datedebut;
+        return $this->ville;
     }
-
-    /**
-     * Set datemodification
-     *
-     * @param \DateTime $datemodification
-     * @return Offre
-     */
-    public function setDatemodification($datemodification)
+     /** @ORM\PrePersist */
+    public function UpdateFunction()
     {
-        $this->datemodification = $datemodification;
-
-        return $this;
-    }
-
-    /**
-     * Get datemodification
-     *
-     * @return \DateTime 
-     */
-    public function getDatemodification()
-    {
-        return $this->datemodification;
-    }
-
-    /**
-     * Set datefinpublication
-     *
-     * @param \DateTime $datefinpublication
-     * @return Offre
-     */
-    public function setDatefinpublication($datefinpublication)
-    {
-        $this->datefinpublication = $datefinpublication;
-
-        return $this;
-    }
-
-    /**
-     * Get datefinpublication
-     *
-     * @return \DateTime 
-     */
-    public function getDatefinpublication()
-    {
-        return $this->datefinpublication;
-    }
-
-    /**
-     * Set datefin
-     *
-     * @param \DateTime $datefin
-     * @return Offre
-     */
-    public function setDatefin($datefin)
-    {
-        $this->datefin = $datefin;
-
-        return $this;
-    }
-
-    /**
-     * Get datefin
-     *
-     * @return \DateTime 
-     */
-    public function getDatefin()
-    {
-        return $this->datefin;
-    }
-    
-    /**
-     * Set idtypecontrat
-     *
-     * @param \ImieNetwork\SiteBundle\Entity\Typecontrat $idtypecontrat
-     * @return Offre
-     */
-    public function setIdtypecontrat(\ImieNetwork\SiteBundle\Entity\Typecontrat $idtypecontrat = null)
-    {
-        $this->type_contrat = $idtypecontrat;
-
-        return $this;
-    }
-
-    /**
-     * Get idtypecontrat
-     *
-     * @return \ImieNetwork\SiteBundle\Entity\Typecontrat 
-     */
-    public function getIdtypecontrat()
-    {
-        return $this->type_contrat;
+        $this->datemodification = new \DateTime('NOW');
     }
 }

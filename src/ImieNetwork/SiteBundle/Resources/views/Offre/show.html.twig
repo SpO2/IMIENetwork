@@ -26,21 +26,14 @@
                 <th>Type de poste</th>
                 <td>{{ entity.typeposte }}</td>
             </tr>
-            <tr>
-                <th>Date de début de l'offre</th>
-                <td>{{ entity.datedebut|date('Y-m-d H:i:s') }}</td>
-            </tr>
+            
             <tr>
                 <th>Type de contrat</th>
-                <td>{{ entity.idtypecontrat.libelle }}</td>
+                <td>{{ entity.typecontrat.libelle }}</td>
             </tr>
             <tr>
                 <th>Lieu de l'offre</th>
-                <td>{#{{ entity.idville }}#}</td>
-            </tr>
-            <tr>
-                <th>Compétence pour l'offre</th>
-                <td>{#{{ entity.idcompetence }}#}</td>
+                <td>{{ entity.ville.libelle }} {{ entity.ville.codepostal }}</td>
             </tr>
 
         </tbody>

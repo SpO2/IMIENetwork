@@ -20,7 +20,7 @@ class ProfilType extends AbstractType
             ->add('adresse')
             ->add('telephone')
             
-            //->add('idville')
+            ->add('ville')
             
             //->add('statut')
             //->add('login')

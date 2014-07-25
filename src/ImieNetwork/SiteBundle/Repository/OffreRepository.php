@@ -44,4 +44,40 @@ class OffreRepository extends EntityRepository
                ->getResult();
     }
     
+    public function findSearch($ville, $contrat)
+    {
+        if($contrat == "empty")
+        {
+            $qb = $this->_em->createQuery('SELECT o
+                FROM ImieNetworkSiteBundle:Offre o
+                WHERE o.ville = :idville'
+            )
+            ->setParameter('idville', $ville);
+            
+            $res = $qb->getResult();
+        }
+        if($ville == "empty")
+        {
+            $qb = $this->_em->createQuery('SELECT o
+                FROM ImieNetworkSiteBundle:Offre o
+                WHERE o.type_contrat = :idcontrat'
+            )
+            ->setParameter('idcontrat', $contrat);
+            
+            $res = $qb->getResult();
+        }
+        if($ville != "empty" && $contrat != "empty")
+        {
+            
+            $qb = $this->_em->createQuery('SELECT o
+                FROM ImieNetworkSiteBundle:Offre o
+                WHERE o.ville = :idville and o.type_contrat = :idcontrat'
+            )
+            ->setParameter('idville', $ville)
+            ->setParameter('idcontrat', $contrat);
+            
+            $res = $qb->getResult();
+        }
+        return $res;
+    }
 }
