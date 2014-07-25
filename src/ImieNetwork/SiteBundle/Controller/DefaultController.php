@@ -14,12 +14,10 @@ class DefaultController extends Controller
     }
     public function testAction() {
       
-        //$em = $this->em
-        $mng = new UtilisateurManager($this->getDoctrine()->getManager());
-        $mng->saveUserGroup("toto","titi");        
-        $mng->getRepository()->test();
-        
-        $this->get('Site.UtilisateurManager')->saveUserGroup("toto","titi");
+        $em = $this->getDoctrine()->getEntityManager();                            
+        $em ->getRepository('ImieNetworkSiteBundle:Utilisateur')->getUsersByGroupe('Eleve');
+                             
+
         /*$user = new Utilisateur();
         $user->setNom("toto");
         $user->setPrenom("test");

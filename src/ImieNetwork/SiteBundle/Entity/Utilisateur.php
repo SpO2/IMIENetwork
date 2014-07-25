@@ -692,34 +692,34 @@ class  Utilisateur extends BaseUser
     }
 
     /**
-     * Add mes_promotion
+     * Add mes_promotions
      *
-     * @param \ImieNetwork\SiteBundle\Entity\Promotion $mesPromotion
+     * @param \ImieNetwork\SiteBundle\Entity\Promotion $mesPromotions
      * @return Utilisateur
      */
-    public function addMesPromotion(\ImieNetwork\SiteBundle\Entity\Promotion $mesPromotion)
+    public function addMesPromotions(\ImieNetwork\SiteBundle\Entity\Promotion $mesPromotions)
     {
-        $this->mes_promotions[] = $mesPromotion;
+        $this->mes_promotions[] = $mesPromotions;
 
         return $this;
     }
 
     /**
-     * Remove mes_promotion
+     * Remove mes_promotions
      *
      * @param \ImieNetwork\SiteBundle\Entity\Promotion $mesPromotion
      */
-    public function removeMesPromotion(\ImieNetwork\SiteBundle\Entity\Promotion $mesPromotion)
+    public function removeMesPromotions(\ImieNetwork\SiteBundle\Entity\Promotion $mesPromotions)
     {
-        $this->mes_promotion->removeElement($mesPromotion);
+        $this->mes_promotion->removeElement($mesPromotions);
     }
 
     /**
-     * Get mes_promotion
+     * Get mes_promotions
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getMesPromotion()
+    public function getMesPromotions()
     {
         return $this->mes_promotions;
     }    
