@@ -28,14 +28,12 @@ class  Evenementutilisateur
     /**
      * @var \ImieNetwork\SiteBundle\Entity\Utilisateur
      * @ORM\ManyToOne(targetEntity="Utilisateur", inversedBy="participations_evenements")
-     * @ORM\JoinColumn(name="utilisateur_id", referencedColumnName="id")
      */
     private $utilisateur;
 
     /**
      * @var \ImieNetwork\SiteBundle\Entity\Evenement
-     * @ORM\ManyToOne(targetEntity="Evenement", inversedBy="$evenement_utilisateurs")
-     * @ORM\JoinColumn(name="evenement_id", referencedColumnName="id")
+     * @ORM\ManyToOne(targetEntity="Evenement", inversedBy="evenement_utilisateurs")
      */
     private $evenement;
     

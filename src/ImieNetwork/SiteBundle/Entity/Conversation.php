@@ -40,7 +40,6 @@ use Doctrine\ORM\Mapping as ORM;
     /**
      * @var \ImieNetwork\SiteBundle\Entity\Utilisateur
      * @ORM\ManyToOne(targetEntity="Utilisateur", inversedBy="mes_conversations")
-     * @ORM\JoinColumn(name="conversation_id", referencedColumnName="id")
      */
     private $utilisateur;
     

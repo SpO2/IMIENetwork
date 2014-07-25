@@ -78,6 +78,12 @@ class  Offre
      * @ORM\ManyToOne(targetEntity="Utilisateur", inversedBy="mes_offres")
      */
     private $utilisateur;
+    
+    /**
+     * @var \ImieNetwork\SiteBundle\Entity\Ville
+     * @ORM\ManyToOne(targetEntity="Ville")
+     */
+    private $ville;
 
     /**
      * 
@@ -258,5 +264,28 @@ class  Offre
     public function getUtilisateur()
     {
         return $this->utilisateur;
+    }
+    
+     /**
+     * Set ville
+     *
+     * @param \ImieNetwork\SiteBundle\Entity\Ville $ville
+     * @return Utilisateur
+     */
+    public function setVille(\ImieNetwork\SiteBundle\Entity\Ville $ville = null)
+    {
+        $this->ville = $ville;
+
+        return $this;
+    }
+
+    /**
+     * Get ville
+     *
+     * @return \ImieNetwork\SiteBundle\Entity\Ville 
+     */
+    public function getVille()
+    {
+        return $this->ville;
     }
 }

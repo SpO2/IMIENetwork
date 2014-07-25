@@ -37,10 +37,8 @@ class  Promotion
     private $email;
 
     /**
-     *
      * @var ArrayCollection \ImieNetwork\SiteBundle\Entity\Utilisateur
-     * @ORM\ManyToOne(targetEntity="Utilisateur", inversedBy="mes_promotion")
-     * @ORM\JoinColumn(name="promotion_id", referencedColumnName="id")
+     * @ORM\ManyToMany(targetEntity="Utilisateur", inversedBy="mes_promotions")
      */
     private $utilisateurs;
     

@@ -15,7 +15,7 @@ class DefaultController extends Controller
     public function testAction() {
         $mng = new UtilisateurManager($this->getDoctrine()->getManager());
         $mng->saveUserGroup("toto","titi");        
-        $mng->getRepository()-test();
+        $mng->getRepository()->test();
 
         $this->get('Site.UtilisateurManager')->saveUserGroup("toto","titi");
         /*$user = new Utilisateur();
