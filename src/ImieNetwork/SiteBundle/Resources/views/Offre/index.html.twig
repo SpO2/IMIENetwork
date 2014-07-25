@@ -1,0 +1,37 @@
+{% extends "ImieNetworkSiteBundle:Eleve:layout.html.twig" %} 
+{#{% extends '::base.html.twig' %}#}
+
+{% block content %}
+    <h1>Liste de toutes mes offres</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Titre de l'offre</th>
+                <th>Description</th>
+                <th>Durée du contrat</th>
+                <th>Type de poste</th>
+                {#<th>Date du début de l'offre</th>
+                <th>Date de fin de l'offre</th>#}
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td>{{ entity.titre }}</td>
+                <td>{{ entity.description }}</td>
+                <td>{{ entity.duree }}</td>
+                <td>{{ entity.typeposte }}</td>
+                {#<td>{% if entity.datedebut %}{{ entity.datedebut|date('d-m-Y') }}{% endif %}</td>
+                <td>{% if entity.datefin %}{{ entity.datefin|date('d-m-Y') }}{% endif %}</td>#}
+                <td>
+                    <a href="{{ path('offre_show', { 'id': entity.id }) }}">Description</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('offre_new')}}" class="btn btn-danger">{{'Créer une offre'|trans}}</a>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends "ImieNetworkSiteBundle:Eleve:layout.html.twig" %}
+
+{% block content %}
+{#<form role="form" action="{{ path('offre_showsearch') }}" method='post'>#}
+    <table>
+        <tr>
+            <th>Choix de la compétence</th>
+            <td>
+                <select name="selectcompetence">
+                    <option value="empty"></option> 
+                    {% for entity in datacompetence %}
+                    <option value="{{entity.id}}">{{entity.libelle}}</option> 
+                    {% endfor %}
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <th>Choix de la ville</th>
+            <td>
+                <select name="selectville">
+                    <option value="empty"></option>
+                    {% for entity in dataville %}
+                    <option value="{{entity.id}}">{{entity.libelle}} {{entity.codepostal}}</option>
+                    {% endfor %}
+                </select>
+            </td>
+        </tr>
+    </table>
+    <a href="{{ path('offre_showsearch', {'idville': 1, 'idcomp': 1}) }}">
+    {#<button class='btnsave' value="Afficher" id="afficher">{{'Valider'|trans }}</button>
+</form>#}
+{% endblock %}

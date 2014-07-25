@@ -10,6 +10,8 @@ use ImieNetwork\SiteBundle\Entity\Competence;
 use ImieNetwork\SiteBundle\Entity\Utilisateurcompetence;
 use ImieNetwork\SiteBundle\Entity\Promotion;
 
+use ImieNetwork\SiteBundle\Form\ProfilType;
+
 class EleveController extends Controller
 {
     public function indexAction()

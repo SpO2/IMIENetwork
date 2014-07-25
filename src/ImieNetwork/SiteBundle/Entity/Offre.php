@@ -79,6 +79,21 @@ class  Offre
      */
     private $utilisateur;
 
+    public function __construct()
+    {
+        $this->datedebut = new \DateTime();
+        //$this->datemodification = new \DateTime();
+        $datedebut = $this->datedebut;
+        
+        $datetime = new \DateTime();
+        //$datetime->modify('+30 day');
+        $datetime->add(new \DateInterval('P30D'));
+        
+        $this->datefinpublication = $datetime;
+        $this->datefin = new \DateTime();
+    }
+    
+    
     /**
      * 
      * @return titre
@@ -258,5 +273,120 @@ class  Offre
     public function getUtilisateur()
     {
         return $this->utilisateur;
+    }
+    
+    /**
+     * Set datedebut
+     *
+     * @param \DateTime $datedebut
+     * @return Offre
+     */
+    public function setDatedebut($datedebut)
+    {
+        $this->datedebut = $datedebut;
+
+        return $this;
+    }
+
+    /**
+     * Get datedebut
+     *
+     * @return \DateTime 
+     */
+    public function getDatedebut()
+    {
+        return $this->datedebut;
+    }
+
+    /**
+     * Set datemodification
+     *
+     * @param \DateTime $datemodification
+     * @return Offre
+     */
+    public function setDatemodification($datemodification)
+    {
+        $this->datemodification = $datemodification;
+
+        return $this;
+    }
+
+    /**
+     * Get datemodification
+     *
+     * @return \DateTime 
+     */
+    public function getDatemodification()
+    {
+        return $this->datemodification;
+    }
+
+    /**
+     * Set datefinpublication
+     *
+     * @param \DateTime $datefinpublication
+     * @return Offre
+     */
+    public function setDatefinpublication($datefinpublication)
+    {
+        $this->datefinpublication = $datefinpublication;
+
+        return $this;
+    }
+
+    /**
+     * Get datefinpublication
+     *
+     * @return \DateTime 
+     */
+    public function getDatefinpublication()
+    {
+        return $this->datefinpublication;
+    }
+
+    /**
+     * Set datefin
+     *
+     * @param \DateTime $datefin
+     * @return Offre
+     */
+    public function setDatefin($datefin)
+    {
+        $this->datefin = $datefin;
+
+        return $this;
+    }
+
+    /**
+     * Get datefin
+     *
+     * @return \DateTime 
+     */
+    public function getDatefin()
+    {
+        return $this->datefin;
+    }
+    
+    /**
+     * Set idtypecontrat
+     *
+     * @param \ImieNetwork\SiteBundle\Entity\Typecontrat $idtypecontrat
+     * @return Offre
+     */
+    public function setIdtypecontrat(\ImieNetwork\SiteBundle\Entity\Typecontrat $idtypecontrat = null)
+    {
+        $this->type_contrat = $idtypecontrat;
+
+        return $this;
+    }
+
+    /**
+     * Get idtypecontrat
+     *
+     * @return \ImieNetwork\SiteBundle\Entity\Typecontrat 
+     */
+    public function getIdtypecontrat()
+    {
+        return $this->type_contrat;
     }
 }
