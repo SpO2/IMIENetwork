@@ -4,6 +4,3 @@ entrepriseIndex:
 ImieNetworkSiteBundle_entrepriseOffre:
     resource: "@ImieNetworkSiteBundle/Resources/config/routing/entreprise/offre.yml"
     prefix:   /offre
-ImieNetworkSiteBundle_entrepriseOffreEleve:
-    resource: "@ImieNetworkSiteBundle/Resources/config/routing/entreprise/offreEleve.yml"
-    prefix:   /offre_eleve
