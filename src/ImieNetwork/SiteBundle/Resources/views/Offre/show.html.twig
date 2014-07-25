@@ -1,5 +1,4 @@
-{% extends "ImieNetworkSiteBundle:Eleve:layout.html.twig" %} 
-{#{% extends '::base.html.twig' %}#}
+{% extends "ImieNetworkSiteBundle:Eleve:layout.html.twig" %}
 
 {% block content %}
     <h1>Détail de l'offre</h1>
@@ -39,5 +38,5 @@
         </tbody>
     </table>
     <br>
-    <a href="{{ path('offre') }}">Retour aux offres</a>
+    <a href="{{ path('offre_showsearch', { 'selectville': app.session.get('ville'), 'selectcontrat': app.session.get('contrat') }) }}">Retour aux offres</a>
 {% endblock %}

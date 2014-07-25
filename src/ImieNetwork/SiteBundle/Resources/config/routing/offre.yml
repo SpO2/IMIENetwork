@@ -3,7 +3,7 @@ offre:
     defaults: { _controller: "ImieNetworkSiteBundle:Offre:index" }
 
 offre_show:
-    pattern:  /{id}/show
+    pattern:  /show/{id}
     defaults: { _controller: "ImieNetworkSiteBundle:Offre:show" }
 
 offre_new:
@@ -16,16 +16,16 @@ offre_create:
     requirements: { _method: post }
 
 offre_edit:
-    pattern:  /{id}/edit
+    pattern:  /edit/{id}
     defaults: { _controller: "ImieNetworkSiteBundle:Offre:edit" }
 
 offre_update:
-    pattern:  /{id}/update
+    pattern:  /update/{id}
     defaults: { _controller: "ImieNetworkSiteBundle:Offre:update" }
     requirements: { _method: post|put }
 
 offre_delete:
-    pattern:  /{id}/delete
+    pattern:  /delete/{id}
     defaults: { _controller: "ImieNetworkSiteBundle:Offre:delete" }
     requirements: { _method: post|delete }
     

@@ -1,7 +1,7 @@
 {% extends "ImieNetworkSiteBundle:Eleve:layout.html.twig" %}
 
 {% block content %}
-<form role="form" action="{{ path('offre_showsearch') }}" method='post'>
+<form role="form" action="{{ path('offre_showsearch') }}" method='get'>
     <table>
         <tr>
             <th>Choix de contrat</th>
@@ -29,5 +29,5 @@
     <button class='btnsave' value="Afficher" id="afficher">{{'Recherche'|trans }}</button>
 </form>
 <br>
-    <a href="{{ path('offre_showsearch_all') }}">Voir toutes les offres</a>
+<a href="{{ path('offre_showsearch_all') }}">Voir toutes les offres</a>
 {% endblock %}

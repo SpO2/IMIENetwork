@@ -270,6 +270,7 @@ class OffreController extends Controller
     
     public function searchAction()
     {
+
         $em = $this->getDoctrine()->getManager();
         $datacontrat = $em->getRepository('ImieNetworkSiteBundle:Typecontrat')->findAll();
         $dataville = $em->getRepository('ImieNetworkSiteBundle:Ville')->findAll();
@@ -279,15 +280,21 @@ class OffreController extends Controller
     
     public function showsearchAction()
     {
-        //return new Response('bim');
-        $request = Request::createFromGlobals();
-        $resultsearch = $request->request->all();
+        $ville = $_GET['selectville'];
+        $contrat = $_GET['selectcontrat'];
+        
         $em = $this->getDoctrine()->getManager();
         
-        if($resultsearch['selectville'] == "empty" && $resultsearch['selectcontrat'] == "empty")
+        if($ville == "empty" && $contrat == "empty")
+        {
             return $this->redirect($this->generateUrl('offre_search'));
+        }
         
-        $showresult = $em->getRepository('ImieNetworkSiteBundle:Offre')->findSearch($resultsearch['selectville'], $resultsearch['selectcontrat']);
+        $session = new Session();
+        $session->set('contrat', $contrat);
+        $session->set('ville', $ville);
+        
+        $showresult = $em->getRepository('ImieNetworkSiteBundle:Offre')->findSearch($ville, $contrat);
     
         return $this->render('ImieNetworkSiteBundle:Offre:showsearch.html.twig', array('res' => $showresult));
     }
@@ -299,4 +306,5 @@ class OffreController extends Controller
     
         return $this->render('ImieNetworkSiteBundle:Offre:showsearch.html.twig', array('res' => $showresult));
     }
+    
 }
