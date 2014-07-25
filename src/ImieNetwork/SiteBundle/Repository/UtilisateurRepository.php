@@ -52,4 +52,12 @@ class UtilisateurRepository extends EntityRepository
     {
         
     }
+    public function getUsersByGroupe($groupName)
+    {
+          $em = $this->_em;        
+          
+          $query = $em->createQuery("SELECT u FROM Utilisateur u JOIN Groupeutilisateur gu WHERE gu.libelle = '".$groupName."'");
+          $users = $query->getResult();
+          return $users;
+    }
 }

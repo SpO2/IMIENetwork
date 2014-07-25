@@ -7,7 +7,8 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Message
  * @ORM\Entity(repositoryClass="ImieNetwork\SiteBundle\Repository\MessageRepository")
- * @ORM\Table()
+ * @ORM\HasLifecycleCallbacks 
+ * 
  */class  Message
 {
     /**
@@ -271,5 +272,11 @@ use Doctrine\ORM\Mapping as ORM;
     public function getEvenement()
     {
         return $this->evenement;
+    }
+    
+    /** @ORM\PrePersist */
+    public function UpdateFunction()
+    {
+        $this->datemessage = new \DateTime('NOW');
     }
 }

@@ -25,8 +25,8 @@ class LoadOffresData extends AbstractFixture implements OrderedFixtureInterface
     public function createOffres()
     {
         $entities = Array();       
-        /*
-        for ($i = 0; $i <= 10; $i++) {
+        
+       /* for ($i = 0; $i <= 10; $i++) {
             $offre = new Offre();
             $offre->setDatedebut(new \DateTime("2015-".$i."-01 14:00"));
             $offre->setDatefin(new \DateTime("2015-".$i."-01 14:00"));

@@ -8,7 +8,7 @@ use FOS\UserBundle\Model\User as BaseUser;
 /**
  * Utilisateur
  * @ORM\Entity(repositoryClass="ImieNetwork\SiteBundle\Repository\UtilisateurRepository")
- * @ORM\Table()
+ * @ORM\HasLifecycleCallbacks
  */
 class  Utilisateur extends BaseUser
 {
@@ -722,8 +722,16 @@ class  Utilisateur extends BaseUser
     public function getMesPromotion()
     {
         return $this->mes_promotions;
+    }    
+    /** @ORM\PrePersist */
+    public function UpdateFunction()
+    {
+        if($this->date_creation == null)
+        {
+             $this->date_creation = new \DateTime('NOW');
+        }
+        $this->datemodification = new \DateTime('NOW');
     }
-    
      /*---------------------------------------------
                 Methodes supplémentaires
      ---------------------------------------------*/

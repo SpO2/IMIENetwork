@@ -5,8 +5,10 @@ namespace ImieNetwork\SiteBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
+ * 
  * Offre
  *@ORM\Entity(repositoryClass="ImieNetwork\SiteBundle\Repository\OffreRepository")
+ *@ORM\HasLifecycleCallbacks
  */
 class  Offre
 {
@@ -287,5 +289,10 @@ class  Offre
     public function getVille()
     {
         return $this->ville;
+    }
+     /** @ORM\PrePersist */
+    public function UpdateFunction()
+    {
+        $this->datemodification = new \DateTime('NOW');
     }
 }

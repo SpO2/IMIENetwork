@@ -13,10 +13,12 @@ class DefaultController extends Controller
         return $this->render('ImieNetworkSiteBundle:Default:index.html.twig', array('name' => $name));
     }
     public function testAction() {
+      
+        //$em = $this->em
         $mng = new UtilisateurManager($this->getDoctrine()->getManager());
         $mng->saveUserGroup("toto","titi");        
         $mng->getRepository()->test();
-
+        
         $this->get('Site.UtilisateurManager')->saveUserGroup("toto","titi");
         /*$user = new Utilisateur();
         $user->setNom("toto");

@@ -6,8 +6,9 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Evenement
+ * 
  * @ORM\Entity(repositoryClass="ImieNetwork\SiteBundle\Repository\EvenementRepository")
- * @ORM\Table()
+ * @ORM\HasLifecycleCallbacks
  */
 class  Evenement
 {
@@ -285,5 +286,12 @@ class  Evenement
     public function getEvenementUtilisateurs()
     {
         return $this->evenement_utilisateurs;
+    }
+    
+    
+    /** @ORM\PrePersist */
+    public function UpdateFunction()
+    {
+        $this->datemodification = new \DateTime('NOW');
     }
 }
