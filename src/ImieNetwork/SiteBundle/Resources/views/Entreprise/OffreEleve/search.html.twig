@@ -1,0 +1,34 @@
+{% extends "ImieNetworkSiteBundle:Entreprise:layout.html.twig" %}
+
+{% block content %}
+    <h3>Rechercher un élève : </h3>
+<div class="col-md-5">
+<form class="form-inline" role="form" method="post" action="{{ path('entrepriselistOffreEleve') }}">
+     <h4>Compétences recherchées :</h4>
+  <div class="form-group">
+     {% for competence in competences %}    
+    <div class="checkbox" name="idCompetence" value="{{ competence.id }}">
+    <label>
+      <input type="checkbox">{{ competence.libelle }}
+    </label>
+    </div>
+      {%endfor%}
+  </div>
+     
+  <h4>Ville recherchées :</h4>
+  <div class="form-group">  
+      <select name="idVille" class="form-control">
+          {% for ville in villes %}  
+            <option value="{{ ville.id }}" id="idVille">{{ ville.libelle }}</option>
+          {%endfor%}    
+      </select>
+      <input type="test" name="test">
+  </div>
+  </br>
+  </br>
+  <button type="submit" class="btn btn-primary">Valider</button>
+  <button type="reset" class="btn btn-default">Réinitialiser</button>
+</form>
+
+</div><!-- /.row -->
+{% endblock %}
