@@ -48,6 +48,12 @@ services:
         tags:
             - {name: sonata.admin, manager_type: orm, group: Administration, label: Liaisons Groupes / Propriétés}
      
+    imie_network_site.admin.message:
+        class: ImieNetwork\SiteBundle\Admin\MessageAdmin
+        arguments: [~, ImieNetwork\SiteBundle\Entity\Message, ImieNetworkSiteBundle:MessageAdmin]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: Administration, label: Message}
+            
     imie_network_site.admin.module:
         class: ImieNetwork\SiteBundle\Admin\ModuleAdmin
         arguments: [~, ImieNetwork\SiteBundle\Entity\Module, ImieNetworkSiteBundle:ModuleAdmin]
@@ -107,3 +113,9 @@ services:
         arguments: [~, ImieNetwork\SiteBundle\Entity\Ville, ImieNetworkSiteBundle:VilleAdmin]
         tags:
             - {name: sonata.admin, manager_type: orm, group: Tables fixes, label: Villes}
+
+    imie_network_site.admin.utilisateurpropriete:
+        class: ImieNetwork\SiteBundle\Admin\UtilisateurproprieteAdmin
+        arguments: [~, ImieNetwork\SiteBundle\Entity\Utilisateurpropriete, ImieNetworkSiteBundle:UtilisateurproprieteAdmin]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: Administration, label: Liaison Utilisateur / Propriété étendue}
