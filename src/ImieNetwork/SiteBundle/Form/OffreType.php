@@ -23,8 +23,8 @@ class OffreType extends AbstractType
             ->add('datedebut', 'date', array('label' => 'Date du début du contrat'))
             ->add('datefin', 'date', array('label' => 'Date de fin du contrat'))
             ->add('idtypecontrat', 'entity', array('class' => 'ImieNetworkSiteBundle:Typecontrat','property' => 'libelle', 'label' => 'Type de contrat'))
-            ->add('idville')
-            ->add('idcompetence')
+            //->add('idville')
+            //->add('idcompetence')
             ;
     }
     

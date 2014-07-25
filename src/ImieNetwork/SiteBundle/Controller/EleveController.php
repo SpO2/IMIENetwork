@@ -139,6 +139,11 @@ class EleveController extends Controller
             'experiences' => $experiences,
             'competences' => $userSkills,
         ));
-    }   
+    } 
+    
+    public function changePasswordAction()
+    {
+        return $this->render('ImieNetworkSiteBundle:ChangePassword:changepassword.html.twig');
+    }  
     
 }
