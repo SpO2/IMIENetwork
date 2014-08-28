@@ -38,5 +38,10 @@
         </tbody>
     </table>
     <br>
-    <a href="{{ path('offre_showsearch', { 'selectville': app.session.get('ville'), 'selectcontrat': app.session.get('contrat') }) }}">Retour aux offres</a>
+    {% if app.session.get('offres') == 'mesoffres' %}
+        <a href="{{ path('offre') }}">Retour aux offres</a>
+    {% endif %}
+    {% if app.session.get('offres') == 'offresearch' %}
+        <a href="{{ path('offre_showsearch', { 'selectville': app.session.get('ville'), 'selectcontrat': app.session.get('contrat') }) }}">Retour aux offres</a>
+    {% endif %}
 {% endblock %}

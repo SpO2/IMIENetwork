@@ -25,8 +25,10 @@ class OffreController extends Controller
      */
     public function indexAction()
     {
+        /*Mes Offres*/
         $session = new Session();
         $user_id = $session->get('user_id');
+        $session->set("offres", "mesoffres");
         $em = $this->getDoctrine()->getManager();
 
         $entities = $em->getRepository('ImieNetworkSiteBundle:Offre')->findByUtilisateur($user_id);
@@ -270,7 +272,9 @@ class OffreController extends Controller
     
     public function searchAction()
     {
-
+        /*Offre search*/
+        $session = new Session();
+        $session->set("offres", "offresearch");
         $em = $this->getDoctrine()->getManager();
         $datacontrat = $em->getRepository('ImieNetworkSiteBundle:Typecontrat')->findAll();
         $dataville = $em->getRepository('ImieNetworkSiteBundle:Ville')->findAll();
